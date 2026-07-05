@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marketing digital local — Ébrange Création Digital</title>
+<meta name="description" content="Marketing digital local par Ébrange Création Digital : fiche Google Business, visibilité locale, réseaux sociaux, publicité locale et newsletter pour attirer les clients de votre ville.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b2545;--blue:#2f7bd6;--cyan:#38bdf8;--ink:#1a2537;--muted:#5b6b83;--grad:linear-gradient(135deg,#4f46e5,#2f7bd6 45%,#06b6d4);--card-sh:0 10px 30px rgba(15,42,74,.08)}
+  *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,Arial,sans-serif;color:var(--ink);line-height:1.7;font-size:16px;background:#fff;overflow-x:hidden}
+  h1,h2,h3{font-family:'Poppins',sans-serif;line-height:1.15;color:var(--navy)}
+  a{color:var(--blue);text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.3s;padding:16px 0}
+  .nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 6px 24px rgba(15,42,74,.08);padding:10px 0}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .brand{font-family:'Poppins';font-weight:800;font-size:19px;color:#fff;line-height:1;transition:color .3s}
+  .brand span{display:block;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-top:3px}
+  .nav.scrolled .brand{color:var(--navy)}
+  .links{display:flex;flex-wrap:wrap;gap:2px}
+  .links a{color:rgba(255,255,255,.85);font-size:14.5px;font-weight:500;padding:8px 14px;border-radius:8px;position:relative;transition:color .2s}
+  .links a::after{content:"";position:absolute;left:14px;right:14px;bottom:5px;height:2px;background:var(--cyan);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+  .links a:hover::after{transform:scaleX(1)}
+  .nav.scrolled .links a{color:var(--muted)}.nav.scrolled .links a:hover{color:var(--navy)}
+  .links .cta-mini{background:var(--grad);color:#fff!important;font-weight:600}.links .cta-mini::after{display:none}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Poppins';font-weight:600;font-size:15px;padding:13px 26px;border-radius:12px;border:none;cursor:pointer;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 10px 24px rgba(47,123,214,.35)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(47,123,214,.45)}
+  .btn-primary::before{content:"";position:absolute;top:0;left:-120%;width:70%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:left .6s}
+  .btn-primary:hover::before{left:140%}
+  .head{position:relative;background:var(--navy);color:#fff;padding:150px 0 80px;overflow:hidden}
+  .head::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 380px at 20% 10%,rgba(79,70,229,.5),transparent 60%),radial-gradient(600px 400px at 85% 20%,rgba(6,182,212,.45),transparent 60%)}
+  .head .wrap{position:relative;z-index:2;max-width:720px}
+  .head .kicker{display:inline-block;font-family:'Poppins';font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:var(--cyan);margin-bottom:14px}
+  .head h1{font-size:clamp(30px,5vw,46px);font-weight:800;letter-spacing:-.5px;color:#fff}
+  .head p{color:#c4d4ea;font-size:18px;max-width:600px;margin:16px 0 0}
+  section{padding:70px 0}
+  .alt{background:linear-gradient(180deg,#f5f8fd,#eef4fb)}
+  .sec-tag{font-family:'Poppins';font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:12.5px;color:var(--blue);margin-bottom:10px}
+  h2.title{font-size:clamp(24px,3.6vw,34px);font-weight:700;margin-bottom:12px}
+  .lead{color:var(--muted);font-size:17px;max-width:620px;margin-bottom:40px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+  .card{background:#fff;border:1px solid #e7eef7;border-radius:18px;padding:28px 26px;box-shadow:var(--card-sh);position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
+  .card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+  .card:hover{transform:translateY(-8px);box-shadow:0 22px 44px rgba(15,42,74,.14)}.card:hover::before{transform:scaleX(1)}
+  .card .ico{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,rgba(47,123,214,.14),rgba(6,182,212,.14));display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:14px;transition:transform .3s}
+  .card:hover .ico{transform:scale(1.1) rotate(-4deg)}
+  .card h3{font-size:18px;margin-bottom:7px}.card p{color:var(--muted);font-size:14.5px;flex:1}
+  .card .price{margin-top:16px;font-family:'Poppins';font-weight:700;color:var(--blue);font-size:16px}
+  .card .price small{display:block;font-family:'Inter';font-weight:400;color:#8494ac;font-size:12.5px;margin-top:2px}
+  .final{position:relative;background:var(--navy);color:#fff;text-align:center;overflow:hidden}
+  .final::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 0%,rgba(6,182,212,.5),transparent 60%),radial-gradient(500px 300px at 20% 100%,rgba(79,70,229,.5),transparent 60%)}
+  .final .wrap{position:relative;z-index:2}.final h2{color:#fff;font-size:clamp(24px,3.6vw,34px);margin-bottom:12px}.final p{color:#c4d4ea;font-size:17px;max-width:520px;margin:0 auto 20px}
+  .final .tel{font-family:'Poppins';font-weight:700;font-size:19px;color:#fff;margin-top:16px}
+  footer.ft{background:#081a30;color:#a9c0dc;padding:40px 0 28px;font-size:13.5px;line-height:1.7;text-align:center}
+  footer.ft a{color:#7fd4ff}footer.ft .legal{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;margin-top:20px;color:#6f89aa;font-size:12.5px}
+  [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].in{opacity:1;transform:none}.d1{transition-delay:.1s}.d2{transition-delay:.2s}
+  @media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none}}
+  @media(max-width:640px){.links{display:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Ébrange<span>Création Digital</span></a>
+    <div class="links">
+      <a href="index.html">Accueil</a>
+      <a href="sites.html">Sites web</a>
+      <a href="marketing.html">Marketing</a>
+      <a href="offres.html">Offres</a>
+      <a class="cta-mini" href="index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="head">
+  <div class="wrap">
+    <span class="kicker" data-reveal>📈 Marketing digital local</span>
+    <h1 data-reveal class="d1">Être trouvé &amp; choisi par les clients de votre ville</h1>
+    <p data-reveal class="d2">Un site, c'est la base ; le marketing, c'est ce qui amène les clients jusqu'à vous. Des prestations à la carte, sans engagement, résiliables chaque mois.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-tag" data-reveal>Nos prestations</div>
+    <h2 class="title" data-reveal>Plus de visibilité, plus de clients</h2>
+    <p class="lead" data-reveal>Choisissez ce dont vous avez besoin — chaque prestation est indépendante.</p>
+    <div class="grid">
+      <div class="card" data-reveal>
+        <div class="ico">📍</div><h3>Fiche Google Business optimisée</h3>
+        <p>Apparaître sur Google Maps et dans les recherches « près de moi » : photos, horaires, réponses aux avis et mots-clés locaux.</p>
+        <div class="price">190 €<small>une fois</small></div>
+      </div>
+      <div class="card d1" data-reveal>
+        <div class="ico">🔎</div><h3>Pack visibilité locale</h3>
+        <p>Fiche Google + inscription dans les annuaires qui comptent + optimisation « votre métier + votre ville ».</p>
+        <div class="price">390 €<small>une fois</small></div>
+      </div>
+      <div class="card d2" data-reveal>
+        <div class="ico">🚀</div><h3>Lancement réseaux sociaux</h3>
+        <p>Création / mise au propre de vos pages Facebook &amp; Instagram : photo de profil, présentation, premiers visuels.</p>
+        <div class="price">290 €<small>une fois</small></div>
+      </div>
+      <div class="card" data-reveal>
+        <div class="ico">📅</div><h3>Animation réseaux sociaux</h3>
+        <p>8 publications par mois préparées pour vous (visuels + textes), avec un calendrier de publication.</p>
+        <div class="price">250 € / mois</div>
+      </div>
+      <div class="card d1" data-reveal>
+        <div class="ico">🎯</div><h3>Publicité locale Google / Facebook</h3>
+        <p>Campagne ciblée sur votre ville et vos clients types. Vous fixez votre budget publicitaire (dès 5 €/jour).</p>
+        <div class="price">150 € / mois<small>+ votre budget pub</small></div>
+      </div>
+      <div class="card d2" data-reveal>
+        <div class="ico">✉️</div><h3>Newsletter clients</h3>
+        <p>Mise en place + 1 email par mois à vos clients : promotions, nouveautés, fidélisation.</p>
+        <div class="price">190 € + 90 € / mois</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap" style="text-align:center">
+    <h2 class="title" data-reveal>On combine avec votre site</h2>
+    <p class="lead" data-reveal style="margin:0 auto 26px">Le marketing donne son plein effet quand il pointe vers un site professionnel. Découvrez nos formules de création et la grille complète.</p>
+    <p data-reveal><a class="btn btn-primary" href="offres.html">Voir toutes les offres &amp; tarifs</a></p>
+  </div>
+</section>
+
+<section class="final" id="contact">
+  <div class="wrap">
+    <h2 data-reveal>Envie de plus de clients&nbsp;?</h2>
+    <p data-reveal class="d1">Dites-moi votre activité et votre ville — je vous propose le plan marketing adapté, sans engagement.</p>
+    <a class="btn btn-primary" data-reveal style="transition-delay:.2s" href="mailto:contact@ecd-digital.com?subject=Marketing%20digital%20local">✉️ Demander un devis gratuit</a>
+    <div class="tel" data-reveal style="transition-delay:.28s">📞 06 76 68 34 93</div>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="wrap">
+    <strong>Ébrange Création Digital</strong> — Sites web, hébergement &amp; marketing local · 📞 06 76 68 34 93 · <a href="mailto:contact@ecd-digital.com">contact@ecd-digital.com</a>
+    <div class="legal">SAS à associé unique au capital de 100 € · RCS Paris 105 870 315 · Siège : 47 rue Vivienne, 75002 Paris · Marketing sans engagement, résiliable chaque mois.</div>
+  </div>
+</footer>
+
+<script>
+  var nav=document.getElementById('nav');var s=function(){nav.classList.toggle('scrolled',window.scrollY>40)};s();addEventListener('scroll',s,{passive:true});
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+  document.querySelectorAll('[data-reveal]').forEach(function(el){io.observe(el)});
+</script>
+
+</body>
+</html>

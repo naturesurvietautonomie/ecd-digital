@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Création de sites web — Ébrange Création Digital</title>
+<meta name="description" content="Création de sites web professionnels pour commerçants, artisans et indépendants : site vitrine ou boutique, adapté mobile, avec nom de domaine. Dès 343 € (offre −30 %).">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b2545;--blue:#2f7bd6;--cyan:#38bdf8;--ink:#1a2537;--muted:#5b6b83;--gold:#b8860b;--grad:linear-gradient(135deg,#4f46e5,#2f7bd6 45%,#06b6d4);--card-sh:0 10px 30px rgba(15,42,74,.08)}
+  *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,Arial,sans-serif;color:var(--ink);line-height:1.7;font-size:16px;background:#fff;overflow-x:hidden}
+  h1,h2,h3{font-family:'Poppins',sans-serif;line-height:1.15;color:var(--navy)}
+  a{color:var(--blue);text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.3s;padding:16px 0}
+  .nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 6px 24px rgba(15,42,74,.08);padding:10px 0}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .brand{font-family:'Poppins';font-weight:800;font-size:19px;color:#fff;line-height:1;transition:color .3s}
+  .brand span{display:block;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-top:3px}
+  .nav.scrolled .brand{color:var(--navy)}
+  .links{display:flex;flex-wrap:wrap;gap:2px}
+  .links a{color:rgba(255,255,255,.85);font-size:14.5px;font-weight:500;padding:8px 14px;border-radius:8px;position:relative;transition:color .2s}
+  .links a::after{content:"";position:absolute;left:14px;right:14px;bottom:5px;height:2px;background:var(--cyan);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+  .links a:hover::after{transform:scaleX(1)}
+  .nav.scrolled .links a{color:var(--muted)}.nav.scrolled .links a:hover{color:var(--navy)}
+  .links .cta-mini{background:var(--grad);color:#fff!important;font-weight:600}.links .cta-mini::after{display:none}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Poppins';font-weight:600;font-size:15px;padding:13px 26px;border-radius:12px;border:none;cursor:pointer;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 10px 24px rgba(47,123,214,.35)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(47,123,214,.45)}
+  .btn-primary::before{content:"";position:absolute;top:0;left:-120%;width:70%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:left .6s}
+  .btn-primary:hover::before{left:140%}
+  .head{position:relative;background:var(--navy);color:#fff;padding:150px 0 80px;overflow:hidden}
+  .head::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 380px at 20% 10%,rgba(79,70,229,.5),transparent 60%),radial-gradient(600px 400px at 85% 20%,rgba(6,182,212,.45),transparent 60%)}
+  .head .wrap{position:relative;z-index:2;max-width:720px}
+  .head .kicker{display:inline-block;font-family:'Poppins';font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:var(--cyan);margin-bottom:14px}
+  .head h1{font-size:clamp(30px,5vw,46px);font-weight:800;letter-spacing:-.5px;color:#fff}
+  .head p{color:#c4d4ea;font-size:18px;max-width:600px;margin:16px 0 0}
+  .promo{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:linear-gradient(135deg,#f59e0b,#f97316);color:#fff;font-weight:700;font-family:'Poppins';padding:10px 20px;border-radius:100px;box-shadow:0 8px 20px rgba(245,158,11,.4);font-size:14px}
+  section{padding:70px 0}
+  .alt{background:linear-gradient(180deg,#f5f8fd,#eef4fb)}
+  .sec-tag{font-family:'Poppins';font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:12.5px;color:var(--blue);margin-bottom:10px}
+  h2.title{font-size:clamp(24px,3.6vw,34px);font-weight:700;margin-bottom:12px}
+  .lead{color:var(--muted);font-size:17px;max-width:640px;margin-bottom:40px}
+  .offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:24px;align-items:stretch}
+  .offer{background:#fff;border:1px solid #e7eef7;border-radius:20px;padding:28px 26px;box-shadow:var(--card-sh);display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+  .offer:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(15,42,74,.14)}
+  .offer.featured{border:2px solid transparent;background:linear-gradient(#fff,#fff) padding-box,var(--grad) border-box;box-shadow:0 18px 44px rgba(47,123,214,.2)}
+  .ribbon{position:absolute;top:15px;right:-40px;background:var(--grad);color:#fff;font-family:'Poppins';font-size:11px;font-weight:700;padding:5px 46px;transform:rotate(45deg);text-transform:uppercase;letter-spacing:.04em}
+  .offer h3{color:var(--navy);font-size:20px;margin-bottom:6px}
+  .offer .prix{font-family:'Poppins';font-size:27px;font-weight:800;color:var(--blue);margin:4px 0 6px}
+  .offer .prix small{display:block;font-family:'Inter';font-size:13px;font-weight:500;color:#8494ac;margin-top:2px}
+  .offer ul{list-style:none;margin:8px 0 16px}
+  .offer ul li{padding:6px 0 6px 26px;position:relative;font-size:14.5px;color:#39485e}
+  .offer ul li::before{content:"✓";position:absolute;left:0;color:#12b76a;font-weight:800}
+  .offer .pour{margin:auto 0 0;font-size:13px;color:var(--gold);font-weight:600;background:#fffbeb;border-radius:10px;padding:8px 12px}
+  ul.checks{list-style:none;max-width:680px}
+  ul.checks li{padding:10px 0 10px 40px;position:relative;color:#39485e;border-bottom:1px solid #eaf0f8}
+  ul.checks li::before{content:"";position:absolute;left:0;top:8px;width:26px;height:26px;border-radius:8px;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+  ul.checks li:nth-child(1)::before{content:"1"}ul.checks li:nth-child(2)::before{content:"2"}ul.checks li:nth-child(3)::before{content:"3"}ul.checks li:nth-child(4)::before{content:"4"}
+  .proof{background:linear-gradient(135deg,rgba(47,123,214,.08),rgba(6,182,212,.08));border-left:4px solid var(--blue);padding:16px 20px;border-radius:0 12px 12px 0;max-width:700px;color:#2c5282;margin-top:26px}
+  .final{position:relative;background:var(--navy);color:#fff;text-align:center;overflow:hidden}
+  .final::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 0%,rgba(6,182,212,.5),transparent 60%),radial-gradient(500px 300px at 20% 100%,rgba(79,70,229,.5),transparent 60%)}
+  .final .wrap{position:relative;z-index:2}.final h2{color:#fff;font-size:clamp(24px,3.6vw,34px);margin-bottom:12px}.final p{color:#c4d4ea;font-size:17px;max-width:520px;margin:0 auto 20px}
+  .final .tel{font-family:'Poppins';font-weight:700;font-size:19px;color:#fff;margin-top:16px}
+  footer.ft{background:#081a30;color:#a9c0dc;padding:40px 0 28px;font-size:13.5px;line-height:1.7;text-align:center}
+  footer.ft a{color:#7fd4ff}footer.ft .legal{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;margin-top:20px;color:#6f89aa;font-size:12.5px}
+  [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].in{opacity:1;transform:none}.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+  @media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none}}
+  @media(max-width:640px){.links{display:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Ébrange<span>Création Digital</span></a>
+    <div class="links">
+      <a href="index.html">Accueil</a>
+      <a href="sites.html">Sites web</a>
+      <a href="marketing.html">Marketing</a>
+      <a href="offres.html">Offres</a>
+      <a class="cta-mini" href="index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="head">
+  <div class="wrap">
+    <span class="kicker" data-reveal>🌐 Création de sites web</span>
+    <h1 data-reveal class="d1">Le site professionnel de votre commerce</h1>
+    <p data-reveal class="d2">Un site élégant, adapté aux téléphones, avec votre nom de domaine et une adresse email pro. Vous validez la maquette avant la mise en ligne.</p>
+    <div class="promo d3" data-reveal>🎉 −30 % sur la création — 10 premiers clients</div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-tag" data-reveal>Nos formules</div>
+    <h2 class="title" data-reveal>3 formules, selon votre activité</h2>
+    <p class="lead" data-reveal>Du site une page à la boutique en ligne — prix affichés avec l'offre de lancement −30 %.</p>
+    <div class="offers">
+      <div class="offer" data-reveal>
+        <h3>🌱 Essentiel</h3>
+        <div class="prix">343 €<small>au lieu de 490 €</small></div>
+        <ul>
+          <li>Site une page élégant (présentation, photos, horaires, contact)</li>
+          <li>Adapté mobile / tablette / ordinateur</li>
+          <li>Bouton d'appel &amp; itinéraire Google Maps</li>
+          <li>Formulaire de contact</li>
+          <li>Mise en ligne comprise</li>
+        </ul>
+        <div class="pour">Idéal : food-truck, indépendant, activité sur les marchés</div>
+      </div>
+      <div class="offer featured d1" data-reveal>
+        <span class="ribbon">Le + choisi</span>
+        <h3>🏪 Commerce &amp; Artisan</h3>
+        <div class="prix">623 €<small>au lieu de 890 €</small></div>
+        <ul>
+          <li>Site 5 à 6 pages (accueil, prestations, galerie, à propos, contact)</li>
+          <li>Tout le contenu de l'offre Essentiel</li>
+          <li>Référencement Google local de base</li>
+          <li>Galerie de vos réalisations / carte / tarifs</li>
+          <li>Liens vers vos réseaux sociaux</li>
+        </ul>
+        <div class="pour">Idéal : salon de coiffure, restaurant, artisan, boutique</div>
+      </div>
+      <div class="offer d2" data-reveal>
+        <h3>✨ Premium</h3>
+        <div class="prix">1 043 €<small>au lieu de 1 490 €</small></div>
+        <ul>
+          <li>Site 10 pages et plus, sur mesure</li>
+          <li>Tout le contenu de l'offre Commerce &amp; Artisan</li>
+          <li>Prise de rendez-vous ou réservation en ligne</li>
+          <li>Blog / actualités pour animer votre site</li>
+          <li>Référencement local renforcé</li>
+        </ul>
+        <div class="pour">Idéal : institut de beauté, restaurant avec réservation, PME</div>
+      </div>
+    </div>
+    <p style="margin-top:30px" data-reveal><a class="btn btn-primary" href="offres.html">Voir le détail &amp; les options (boutique, logo, textes…)</a></p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-tag" data-reveal>Comment ça se passe</div>
+    <h2 class="title" data-reveal>De l'idée à la mise en ligne</h2>
+    <ul class="checks">
+      <li data-reveal>On cadre ensemble votre besoin, vos pages et votre objectif (devis gratuit).</li>
+      <li data-reveal class="d1">Je conçois la maquette — vous validez avant tout développement.</li>
+      <li data-reveal class="d2">Je développe, adapte au mobile et teste votre site.</li>
+      <li data-reveal class="d3">Mise en ligne, puis hébergement, sauvegarde et maintenance.</li>
+    </ul>
+    <p class="proof" data-reveal>🌿 Exemple concret : la boutique en ligne <strong>Nature Survie &amp; Autonomie</strong> (naturesurvie.net) est développée et maintenue par Ébrange Création Digital — paiement sécurisé, catalogue et suivi de commande.</p>
+  </div>
+</section>
+
+<section class="final" id="contact">
+  <div class="wrap">
+    <h2 data-reveal>Besoin d'un site ou d'une refonte&nbsp;?</h2>
+    <p data-reveal class="d1">Devis gratuit et sans engagement — dites-moi votre activité et vos besoins.</p>
+    <a class="btn btn-primary" data-reveal style="transition-delay:.2s" href="mailto:contact@ecd-digital.com?subject=Projet%20de%20site%20internet">✉️ Demander un devis gratuit</a>
+    <div class="tel" data-reveal style="transition-delay:.28s">📞 06 76 68 34 93</div>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="wrap">
+    <strong>Ébrange Création Digital</strong> — Sites web, hébergement &amp; marketing local · 📞 06 76 68 34 93 · <a href="mailto:contact@ecd-digital.com">contact@ecd-digital.com</a>
+    <div class="legal">SAS à associé unique au capital de 100 € · RCS Paris 105 870 315 · Siège : 47 rue Vivienne, 75002 Paris · Vous restez propriétaire de votre site, de votre domaine et de vos contenus.</div>
+  </div>
+</footer>
+
+<script>
+  var nav=document.getElementById('nav');var s=function(){nav.classList.toggle('scrolled',window.scrollY>40)};s();addEventListener('scroll',s,{passive:true});
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+  document.querySelectorAll('[data-reveal]').forEach(function(el){io.observe(el)});
+</script>
+
+</body>
+</html>

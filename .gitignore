@@ -1,0 +1,10 @@
+# OS / éditeurs
+.DS_Store
+Thumbs.db
+*~
+.vscode/
+.idea/
+
+# Dépendances / build (non utilisés pour ce site statique)
+node_modules/
+.netlify/

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nos offres & tarifs — Ébrange Création Digital</title>
+<meta name="description" content="Grille tarifaire Ébrange Création Digital : création de sites web (dès 343 €), hébergement & maintenance (dès 15 €/mois) et marketing digital local pour commerçants, artisans et indépendants.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b2545;--blue:#2f7bd6;--cyan:#38bdf8;--ink:#1a2537;--muted:#5b6b83;--gold:#b8860b;--grad:linear-gradient(135deg,#4f46e5,#2f7bd6 45%,#06b6d4);--card-sh:0 10px 30px rgba(15,42,74,.08)}
+  *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,Arial,sans-serif;color:var(--ink);line-height:1.7;font-size:16px;background:#fff;overflow-x:hidden}
+  h1,h2,h3{font-family:'Poppins',sans-serif;line-height:1.15;color:var(--navy)}
+  a{color:var(--blue);text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.3s;padding:16px 0}
+  .nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 6px 24px rgba(15,42,74,.08);padding:10px 0}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .brand{font-family:'Poppins';font-weight:800;font-size:19px;color:#fff;line-height:1;transition:color .3s}
+  .brand span{display:block;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-top:3px}
+  .nav.scrolled .brand{color:var(--navy)}
+  .links{display:flex;flex-wrap:wrap;gap:2px}
+  .links a{color:rgba(255,255,255,.85);font-size:14.5px;font-weight:500;padding:8px 14px;border-radius:8px;position:relative;transition:color .2s}
+  .links a::after{content:"";position:absolute;left:14px;right:14px;bottom:5px;height:2px;background:var(--cyan);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+  .links a:hover::after{transform:scaleX(1)}
+  .nav.scrolled .links a{color:var(--muted)}.nav.scrolled .links a:hover{color:var(--navy)}
+  .links .cta-mini{background:var(--grad);color:#fff!important;font-weight:600}.links .cta-mini::after{display:none}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Poppins';font-weight:600;font-size:15px;padding:13px 26px;border-radius:12px;border:none;cursor:pointer;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 10px 24px rgba(47,123,214,.35)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(47,123,214,.45)}
+  .btn-primary::before{content:"";position:absolute;top:0;left:-120%;width:70%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:left .6s}
+  .btn-primary:hover::before{left:140%}
+  .head{position:relative;background:var(--navy);color:#fff;padding:150px 0 72px;overflow:hidden;text-align:center}
+  .head::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 380px at 20% 10%,rgba(79,70,229,.5),transparent 60%),radial-gradient(600px 400px at 85% 20%,rgba(6,182,212,.45),transparent 60%)}
+  .head .wrap{position:relative;z-index:2}
+  .head h1{font-size:clamp(30px,5vw,46px);font-weight:800;letter-spacing:-.5px;color:#fff}
+  .head p{color:#c4d4ea;font-size:18px;max-width:640px;margin:16px auto 0}
+  .promo{display:inline-flex;align-items:center;gap:10px;margin-top:24px;background:linear-gradient(135deg,#f59e0b,#f97316);color:#fff;font-weight:700;font-family:'Poppins';padding:12px 24px;border-radius:100px;box-shadow:0 10px 24px rgba(245,158,11,.4);font-size:15px}
+  section{padding:64px 0}
+  .alt{background:linear-gradient(180deg,#f5f8fd,#eef4fb)}
+  .cat{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .cat .n{width:40px;height:40px;flex:none;border-radius:12px;background:var(--grad);color:#fff;font-family:'Poppins';font-weight:800;display:flex;align-items:center;justify-content:center;font-size:19px}
+  .cat h2{font-size:clamp(22px,3.4vw,30px);font-weight:700}
+  .cat-intro{color:var(--muted);font-size:15.5px;max-width:660px;margin:0 0 30px 54px}
+  .offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:24px;align-items:stretch}
+  .offer{background:#fff;border:1px solid #e7eef7;border-radius:20px;padding:28px 26px;box-shadow:var(--card-sh);display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+  .offer:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(15,42,74,.14)}
+  .offer.featured{border:2px solid transparent;background:linear-gradient(#fff,#fff) padding-box,var(--grad) border-box;box-shadow:0 18px 44px rgba(47,123,214,.2)}
+  .ribbon{position:absolute;top:15px;right:-40px;background:var(--grad);color:#fff;font-family:'Poppins';font-size:11px;font-weight:700;padding:5px 46px;transform:rotate(45deg);text-transform:uppercase;letter-spacing:.04em}
+  .offer h3{color:var(--navy);font-size:20px;margin-bottom:6px}
+  .offer .prix{font-family:'Poppins';font-size:28px;font-weight:800;color:var(--blue);margin:4px 0 6px}
+  .offer .prix small{display:block;font-family:'Inter';font-size:13px;font-weight:500;color:#8494ac;margin-top:2px}
+  .offer ul{list-style:none;margin:8px 0 16px}
+  .offer ul li{padding:6px 0 6px 26px;position:relative;font-size:14.5px;color:#39485e}
+  .offer ul li::before{content:"✓";position:absolute;left:0;color:#12b76a;font-weight:800}
+  .offer .pour{margin:auto 0 0;font-size:13px;color:var(--gold);font-weight:600;background:#fffbeb;border-radius:10px;padding:8px 12px}
+  .opt{margin-top:26px;background:#fff;border:1px solid #e7eef7;border-radius:16px;overflow:hidden;box-shadow:var(--card-sh)}
+  table{border-collapse:collapse;width:100%;font-size:14.5px}
+  th,td{padding:13px 18px;text-align:left;border-bottom:1px solid #eef2f8}
+  thead th{background:var(--navy);color:#fff;font-family:'Poppins';font-weight:600;font-size:13.5px}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:#f7fafd}
+  td.p{text-align:right;font-family:'Poppins';font-weight:700;color:var(--blue);white-space:nowrap}
+  td .desc{color:var(--muted);font-size:13.5px}
+  .cond{margin-top:30px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:22px 26px}
+  .cond h3{font-size:17px;color:var(--navy);margin-bottom:10px}
+  .cond ul{margin:0;padding-left:20px;color:#39485e;font-size:14.5px}.cond li{margin:5px 0}
+  .final{position:relative;background:var(--navy);color:#fff;text-align:center;overflow:hidden}
+  .final::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 0%,rgba(6,182,212,.5),transparent 60%),radial-gradient(500px 300px at 20% 100%,rgba(79,70,229,.5),transparent 60%)}
+  .final .wrap{position:relative;z-index:2}.final h2{color:#fff;font-size:clamp(24px,3.6vw,34px);margin-bottom:12px}.final p{color:#c4d4ea;font-size:17px;max-width:520px;margin:0 auto 28px}
+  footer.ft{background:#081a30;color:#a9c0dc;padding:40px 0 28px;font-size:13.5px;line-height:1.7;text-align:center}
+  footer.ft a{color:#7fd4ff}footer.ft .legal{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;margin-top:20px;color:#6f89aa;font-size:12.5px}
+  [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].in{opacity:1;transform:none}.d1{transition-delay:.1s}.d2{transition-delay:.2s}
+  @media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none}}
+  @media(max-width:640px){.links{display:none}.cat-intro{margin-left:0}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Ébrange<span>Création Digital</span></a>
+    <div class="links">
+      <a href="index.html">Accueil</a>
+      <a href="sites.html">Sites web</a>
+      <a href="marketing.html">Marketing</a>
+      <a href="offres.html">Offres</a>
+      <a class="cta-mini" href="index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="head">
+  <div class="wrap">
+    <h1 data-reveal>Nos offres &amp; tarifs</h1>
+    <p data-reveal class="d1">Création de sites web, hébergement &amp; maintenance et marketing digital local — pour les commerçants, artisans et indépendants.</p>
+    <div class="promo d2" data-reveal>🎉 Offre de lancement : −30 % sur la création de votre site — 10 premiers clients</div>
+  </div>
+</header>
+
+<!-- 1. CREATION SITE WEB -->
+<section>
+  <div class="wrap">
+    <div class="cat" data-reveal><span class="n">1</span><h2>Création de votre site web</h2></div>
+    <p class="cat-intro" data-reveal>Un site professionnel, adapté aux téléphones, avec votre nom de domaine et une adresse email pro. Vous validez la maquette avant la mise en ligne.</p>
+    <div class="offers">
+      <div class="offer" data-reveal>
+        <h3>🌱 Essentiel</h3>
+        <div class="prix">343 €<small>au lieu de 490 € · offre −30 %</small></div>
+        <ul>
+          <li>Site une page élégant (présentation, photos, horaires, contact)</li>
+          <li>Adapté mobile / tablette / ordinateur</li>
+          <li>Bouton d'appel &amp; itinéraire Google Maps</li>
+          <li>Formulaire de contact</li>
+          <li>Mise en ligne comprise</li>
+        </ul>
+        <div class="pour">Idéal : food-truck, indépendant, activité sur les marchés</div>
+      </div>
+      <div class="offer featured d1" data-reveal>
+        <span class="ribbon">Le + choisi</span>
+        <h3>🏪 Commerce &amp; Artisan</h3>
+        <div class="prix">623 €<small>au lieu de 890 € · offre −30 %</small></div>
+        <ul>
+          <li>Site 5 à 6 pages (accueil, prestations, galerie, à propos, contact)</li>
+          <li>Tout le contenu de l'offre Essentiel</li>
+          <li>Référencement Google local de base</li>
+          <li>Galerie de vos réalisations / carte / tarifs</li>
+          <li>Liens vers vos réseaux sociaux</li>
+        </ul>
+        <div class="pour">Idéal : salon de coiffure, restaurant, artisan, boutique</div>
+      </div>
+      <div class="offer d2" data-reveal>
+        <h3>✨ Premium</h3>
+        <div class="prix">1 043 €<small>au lieu de 1 490 € · offre −30 %</small></div>
+        <ul>
+          <li>Site 10 pages et plus, sur mesure</li>
+          <li>Tout le contenu de l'offre Commerce &amp; Artisan</li>
+          <li>Prise de rendez-vous ou réservation en ligne</li>
+          <li>Blog / actualités pour animer votre site</li>
+          <li>Référencement local renforcé</li>
+        </ul>
+        <div class="pour">Idéal : institut de beauté, restaurant avec réservation, PME</div>
+      </div>
+    </div>
+
+    <div class="opt" data-reveal>
+      <table>
+        <thead><tr><th>Options création</th><th style="text-align:right">Tarif</th></tr></thead>
+        <tbody>
+          <tr><td>Boutique en ligne (vente de produits, paiement sécurisé)</td><td class="p">à partir de 1 900 €</td></tr>
+          <tr><td>Page supplémentaire</td><td class="p">90 €</td></tr>
+          <tr><td>Rédaction des textes de votre site</td><td class="p">60 € / page</td></tr>
+          <tr><td>Création de logo simple + couleurs de votre marque</td><td class="p">250 €</td></tr>
+          <tr><td>Traduction du site (anglais ou espagnol)</td><td class="p">45 € / page</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 2. HEBERGEMENT & MAINTENANCE -->
+<section class="alt">
+  <div class="wrap">
+    <div class="cat" data-reveal><span class="n">2</span><h2>Hébergement &amp; maintenance</h2></div>
+    <p class="cat-intro" data-reveal>Votre site doit être hébergé pour être visible — comme un loyer pour votre boutique en ligne. La maintenance le garde à jour, sécurisé et sauvegardé.</p>
+    <div class="offers">
+      <div class="offer" data-reveal>
+        <h3>🔒 Hébergement seul</h3>
+        <div class="prix">15 € / mois<small>ou 150 € / an (2 mois offerts)</small></div>
+        <ul>
+          <li>Nom de domaine (votrenom.fr) inclus</li>
+          <li>Hébergement rapide &amp; sécurisé (https)</li>
+          <li>Adresse email pro (contact@votrenom.fr)</li>
+          <li>Sauvegarde mensuelle</li>
+        </ul>
+      </div>
+      <div class="offer featured d1" data-reveal>
+        <span class="ribbon">Recommandé</span>
+        <h3>🛡️ Sérénité</h3>
+        <div class="prix">29 € / mois<small>ou 290 € / an</small></div>
+        <ul>
+          <li>Tout l'hébergement seul</li>
+          <li>Mises à jour techniques &amp; de sécurité</li>
+          <li>Petites modifs incluses (30 min / mois)</li>
+          <li>Assistance par email sous 48 h</li>
+          <li>Sauvegarde hebdomadaire</li>
+        </ul>
+      </div>
+      <div class="offer d2" data-reveal>
+        <h3>⭐ Tranquillité totale</h3>
+        <div class="prix">49 € / mois<small>ou 490 € / an</small></div>
+        <ul>
+          <li>Tout Sérénité</li>
+          <li>1 h de modifications par mois</li>
+          <li>Rapport mensuel : visites, appels, demandes</li>
+          <li>Assistance prioritaire sous 24 h</li>
+          <li>Mise à jour de votre fiche Google incluse</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. MARKETING DIGITAL -->
+<section>
+  <div class="wrap">
+    <div class="cat" data-reveal><span class="n">3</span><h2>Marketing digital — être trouvé &amp; choisi</h2></div>
+    <p class="cat-intro" data-reveal>Un site, c'est la base ; le marketing, c'est ce qui amène les clients jusqu'à vous. Prestations à la carte, sans engagement.</p>
+    <div class="opt" data-reveal>
+      <table>
+        <thead><tr><th>Prestation</th><th>Ce que ça vous apporte</th><th style="text-align:right">Tarif</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Fiche Google Business optimisée</strong></td><td class="desc">Apparaître sur Google Maps et dans « près de moi » : photos, horaires, réponses aux avis, mots-clés locaux</td><td class="p">190 € une fois</td></tr>
+          <tr><td><strong>Pack visibilité locale</strong></td><td class="desc">Fiche Google + inscription dans les annuaires qui comptent + optimisation « métier + ville »</td><td class="p">390 € une fois</td></tr>
+          <tr><td><strong>Lancement réseaux sociaux</strong></td><td class="desc">Création / mise au propre de vos pages Facebook &amp; Instagram, photo de profil, présentation, premiers visuels</td><td class="p">290 € une fois</td></tr>
+          <tr><td><strong>Animation réseaux sociaux</strong></td><td class="desc">8 publications par mois préparées pour vous (visuels + textes), calendrier de publication</td><td class="p">250 € / mois</td></tr>
+          <tr><td><strong>Publicité locale Google / Facebook</strong></td><td class="desc">Campagne ciblée sur votre ville et vos clients types ; vous fixez le budget (dès 5 €/jour)</td><td class="p">150 € / mois<br>+ budget pub</td></tr>
+          <tr><td><strong>Newsletter clients</strong></td><td class="desc">Mise en place + 1 email par mois à vos clients (promotions, nouveautés, fidélisation)</td><td class="p">190 €<br>+ 90 € / mois</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cond" data-reveal>
+      <h3>Conditions simples et transparentes</h3>
+      <ul>
+        <li><strong>Devis gratuit et sans engagement</strong> — chaque projet reçoit un devis détaillé avant tout démarrage.</li>
+        <li><strong>Paiement en douceur :</strong> 30 % à la commande, le solde à la mise en ligne. Paiement en 2 ou 3 fois sans frais possible.</li>
+        <li><strong>Vous restez propriétaire</strong> de votre site, de votre nom de domaine et de vos contenus.</li>
+        <li><strong>Hébergement &amp; maintenance :</strong> engagement de 12 mois (domaine réservé à l'année), puis renouvellement libre.</li>
+        <li><strong>Marketing digital :</strong> sans engagement, résiliable chaque mois.</li>
+        <li>Tarifs TTC — TVA non applicable, art. 293 B du CGI.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2 data-reveal>Parlons de votre projet</h2>
+    <p data-reveal class="d1">Devis gratuit et sans engagement — dites-moi votre activité et ce dont vous avez besoin.</p>
+    <a class="btn btn-primary" data-reveal style="transition-delay:.2s" href="mailto:contact@ecd-digital.com?subject=Demande%20de%20devis">✉️ Demander un devis gratuit</a>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="wrap">
+    <strong>Ébrange Création Digital</strong> — Création de sites web pour les commerçants, artisans et indépendants<br>
+    📞 06 76 68 34 93 · ✉️ <a href="mailto:contact@ecd-digital.com">contact@ecd-digital.com</a>
+    <div class="legal">SAS à associé unique au capital de 100 € · RCS Paris 105 870 315 · Siège : 47 rue Vivienne, 75002 Paris · Grille tarifaire indicative — juillet 2026.</div>
+  </div>
+</footer>
+
+<script>
+  var nav=document.getElementById('nav');var s=function(){nav.classList.toggle('scrolled',window.scrollY>40)};s();addEventListener('scroll',s,{passive:true});
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.1});
+  document.querySelectorAll('[data-reveal]').forEach(function(el){io.observe(el)});
+</script>
+
+</body>
+</html>
