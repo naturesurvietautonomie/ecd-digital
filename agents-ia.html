@@ -20,8 +20,9 @@
   .nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.3s;padding:16px 0}
   .nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 6px 24px rgba(15,42,74,.08);padding:10px 0}
   .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px}
-  .brand{font-family:'Poppins';font-weight:800;font-size:19px;color:#fff;line-height:1;transition:color .3s}
-  .brand span{display:block;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-top:3px}
+  .brand{font-family:'Poppins';font-weight:800;font-size:19px;color:#fff;line-height:1;transition:color .3s;display:inline-flex;align-items:center;gap:10px}
+  .brand-wm{display:inline-flex;flex-direction:column;line-height:1}
+  .brand-wm span{display:block;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-top:3px}
   .nav.scrolled .brand{color:var(--navy)}
   .links{display:flex;flex-wrap:wrap;gap:2px}
   .links a{color:rgba(255,255,255,.85);font-size:14.5px;font-weight:500;padding:8px 14px;border-radius:8px;position:relative;transition:color .2s}
@@ -99,7 +100,7 @@
 
 <nav class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="index.html">Ébrange<span>Création Digital</span></a>
+    <a class="brand" href="index.html"><svg class="brand-mark" width="34" height="34" viewBox="0 0 58 58" aria-hidden="true" style="flex:0 0 auto"><rect x="0" y="0" width="16" height="16" rx="4" fill="currentColor"/><rect x="21" y="0" width="16" height="16" rx="4" fill="#1FC7A9"/><rect x="42" y="0" width="16" height="16" rx="4" fill="currentColor"/><rect x="0" y="21" width="16" height="16" rx="4" fill="#1FC7A9"/><rect x="21" y="21" width="16" height="16" rx="4" fill="currentColor"/><rect x="42" y="21" width="16" height="16" rx="4" fill="#C9A24B"/><rect x="0" y="42" width="16" height="16" rx="4" fill="currentColor"/><rect x="21" y="42" width="16" height="16" rx="4" fill="#C9A24B"/><rect x="42" y="42" width="16" height="16" rx="4" fill="currentColor"/></svg><span class="brand-wm"><i style="color:#1FC7A9;font-style:normal">É</i>brange<span>Création Digital</span></span></a>
     <div class="links">
       <a href="index.html">Accueil</a>
       <a href="sites.html">Sites web</a>
