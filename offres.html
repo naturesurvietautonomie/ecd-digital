@@ -86,6 +86,7 @@
       <a href="index.html">Accueil</a>
       <a href="sites.html">Sites web</a>
       <a href="marketing.html">Marketing</a>
+      <a href="agents-ia.html">Agents IA</a>
       <a href="guides.html">Guides</a>
       <a href="offres.html">Offres</a>
       <a class="cta-mini" href="index.html#contact">Contact</a>
@@ -237,6 +238,67 @@
   </div>
 </section>
 
+<!-- 4. AGENTS IA SUR MESURE -->
+<section class="alt">
+  <div class="wrap">
+    <div class="cat" data-reveal><span class="n">4</span><h2>Agents IA sur mesure</h2></div>
+    <p class="cat-intro" data-reveal>Votre équipe d'assistants IA, conçue pour votre métier et disponible 24h/24 : SAV, prise de rendez-vous, rédaction, veille, marketing. On conçoit, on installe et on vous forme — cadrage gratuit et sans engagement.</p>
+    <div class="offers">
+      <div class="offer" data-reveal>
+        <h3>🎯 Assistant unique</h3>
+        <div class="prix">dès 390 €<small>clé en main · un usage précis</small></div>
+        <ul>
+          <li>1 agent soigné (SAV, rendez-vous, rédaction, veille…)</li>
+          <li>Documentation en langage simple</li>
+          <li>Séance de prise en main</li>
+          <li>Garde-fous : les actions sensibles demandent votre accord</li>
+        </ul>
+        <div class="pour">Idéal : automatiser une tâche précise et répétitive</div>
+      </div>
+      <div class="offer featured d1" data-reveal>
+        <span class="ribbon">Le + choisi</span>
+        <h3>👥 Petite équipe IA</h3>
+        <div class="prix">dès 890 €<small>2 à 4 agents + orchestrateur</small></div>
+        <ul>
+          <li>Plusieurs agents spécialisés qui collaborent</li>
+          <li>Un « chef d'orchestre » qui les coordonne</li>
+          <li>Documentation complète + prise en main</li>
+          <li>Respect de la confidentialité (aucune donnée en dur)</li>
+        </ul>
+        <div class="pour">Idéal : automatiser tout un pôle (marketing, SAV…)</div>
+      </div>
+      <div class="offer d2" data-reveal>
+        <h3>🚀 Système complet</h3>
+        <div class="prix">sur devis, dès 1 900 €<small>5+ agents · application dédiée</small></div>
+        <ul>
+          <li>Une application dédiée qui fait tourner vos agents</li>
+          <li>Menu &amp; génération de documents</li>
+          <li>Documentation complète + formation</li>
+          <li>Un vrai « service » automatisé sur mesure</li>
+        </ul>
+        <div class="pour">Idéal : un besoin d'automatisation d'envergure</div>
+      </div>
+    </div>
+
+    <div class="opt" data-reveal>
+      <table>
+        <thead><tr><th>Formule Agents IA</th><th style="text-align:right">À partir de</th></tr></thead>
+        <tbody>
+          <tr><td>Assistant unique clé en main</td><td class="p">390 €</td></tr>
+          <tr><td>Petite équipe IA (2 à 4 agents)</td><td class="p">890 €</td></tr>
+          <tr><td>Système complet sur mesure</td><td class="p">sur devis, dès 1 900 €</td></tr>
+          <tr><td>Maintenance &amp; évolutions</td><td class="p">dès 39 € / mois</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:26px;display:flex;flex-wrap:wrap;gap:14px;align-items:center" data-reveal>
+      <a class="btn btn-primary" href="agents-ia.html">Découvrir les Agents IA</a>
+      <a href="mailto:contact@ecd-digital.com?subject=Cadrage%20Agents%20IA">Ou demander un cadrage gratuit ✉️</a>
+    </p>
+  </div>
+</section>
+
 <section class="final">
   <div class="wrap">
     <h2 data-reveal>Parlons de votre projet</h2>
@@ -258,6 +320,8 @@
   var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.1});
   document.querySelectorAll('[data-reveal]').forEach(function(el){io.observe(el)});
 </script>
+
+<script src="chatbot.js" defer></script>
 
 </body>
 </html>

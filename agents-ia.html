@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agents IA sur mesure — Ébrange Création Digital</title>
+<meta name="description" content="Votre équipe d'assistants IA, conçue pour votre métier et disponible 24h/24 : SAV, prise de rendez-vous, rédaction, veille, marketing. Conception, installation et formation par Ébrange Création Digital. Dès 390 €, cadrage gratuit et sans engagement.">
+<meta property="og:title" content="Agents IA sur mesure — Ébrange Création Digital">
+<meta property="og:description" content="Confiez vos tâches répétitives à une équipe d'assistants IA conçue pour votre métier, disponible 24h/24. Dès 390 €. Cadrage gratuit et sans engagement.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b2545;--blue:#2f7bd6;--cyan:#38bdf8;--ink:#1a2537;--muted:#5b6b83;--gold:#b8860b;--grad:linear-gradient(135deg,#4f46e5,#2f7bd6 45%,#06b6d4);--card-sh:0 10px 30px rgba(15,42,74,.08)}
+  *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,Arial,sans-serif;color:var(--ink);line-height:1.7;font-size:16px;background:#fff;overflow-x:hidden}
+  h1,h2,h3{font-family:'Poppins',sans-serif;line-height:1.15;color:var(--navy)}
+  a{color:var(--blue);text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.3s;padding:16px 0}
+  .nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 6px 24px rgba(15,42,74,.08);padding:10px 0}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .brand{font-family:'Poppins';font-weight:800;font-size:19px;color:#fff;line-height:1;transition:color .3s}
+  .brand span{display:block;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-top:3px}
+  .nav.scrolled .brand{color:var(--navy)}
+  .links{display:flex;flex-wrap:wrap;gap:2px}
+  .links a{color:rgba(255,255,255,.85);font-size:14.5px;font-weight:500;padding:8px 14px;border-radius:8px;position:relative;transition:color .2s}
+  .links a::after{content:"";position:absolute;left:14px;right:14px;bottom:5px;height:2px;background:var(--cyan);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+  .links a:hover::after{transform:scaleX(1)}
+  .nav.scrolled .links a{color:var(--muted)}.nav.scrolled .links a:hover{color:var(--navy)}
+  .links .cta-mini{background:var(--grad);color:#fff!important;font-weight:600}.links .cta-mini::after{display:none}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Poppins';font-weight:600;font-size:15px;padding:13px 26px;border-radius:12px;border:none;cursor:pointer;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 10px 24px rgba(47,123,214,.35)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(47,123,214,.45)}
+  .btn-primary::before{content:"";position:absolute;top:0;left:-120%;width:70%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:left .6s}
+  .btn-primary:hover::before{left:140%}
+  .head{position:relative;background:var(--navy);color:#fff;padding:150px 0 80px;overflow:hidden}
+  .head::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 380px at 20% 10%,rgba(79,70,229,.5),transparent 60%),radial-gradient(600px 400px at 85% 20%,rgba(6,182,212,.45),transparent 60%)}
+  .head .wrap{position:relative;z-index:2;max-width:720px}
+  .head .kicker{display:inline-block;font-family:'Poppins';font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:var(--cyan);margin-bottom:14px}
+  .head h1{font-size:clamp(30px,5vw,46px);font-weight:800;letter-spacing:-.5px;color:#fff}
+  .head p{color:#c4d4ea;font-size:18px;max-width:620px;margin:16px 0 0}
+  .head .meta{display:inline-flex;align-items:center;gap:8px;margin-top:24px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#e6eefb;font-weight:600;font-family:'Poppins';padding:9px 18px;border-radius:100px;font-size:13.5px}
+  .head .cta{margin-top:26px}
+  section{padding:70px 0}
+  .alt{background:linear-gradient(180deg,#f5f8fd,#eef4fb)}
+  .sec-tag{font-family:'Poppins';font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:12.5px;color:var(--blue);margin-bottom:10px}
+  h2.title{font-size:clamp(24px,3.6vw,34px);font-weight:700;margin-bottom:12px}
+  .lead{color:var(--muted);font-size:17px;max-width:660px;margin-bottom:40px}
+  .split{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center}
+  @media(max-width:820px){.split{grid-template-columns:1fr;gap:22px}}
+  .split ul{list-style:none;margin:14px 0 0}
+  .split ul li{padding:7px 0 7px 30px;position:relative;color:#39485e;font-size:15px}
+  .split ul li::before{content:"↻";position:absolute;left:0;top:6px;color:var(--blue);font-weight:800}
+  .principle{background:linear-gradient(135deg,rgba(47,123,214,.08),rgba(6,182,212,.08));border-left:4px solid var(--blue);padding:20px 24px;border-radius:0 14px 14px 0;color:#2c5282;font-size:16px}
+  .principle strong{color:var(--navy)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
+  .card{background:#fff;border:1px solid #e7eef7;border-radius:18px;padding:26px 24px;box-shadow:var(--card-sh);position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
+  .card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+  .card:hover{transform:translateY(-8px);box-shadow:0 22px 44px rgba(15,42,74,.14)}.card:hover::before{transform:scaleX(1)}
+  .card .ico{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,rgba(47,123,214,.14),rgba(6,182,212,.14));display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:14px;transition:transform .3s}
+  .card:hover .ico{transform:scale(1.1) rotate(-4deg)}
+  .card h3{font-size:18px;margin-bottom:7px}.card p{color:var(--muted);font-size:14.5px;flex:1}
+  .formats{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;align-items:stretch}
+  .format{background:#fff;border:1px solid #e7eef7;border-radius:20px;padding:28px 26px;box-shadow:var(--card-sh);display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+  .format:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(15,42,74,.14)}
+  .format.featured{border:2px solid transparent;background:linear-gradient(#fff,#fff) padding-box,var(--grad) border-box;box-shadow:0 18px 44px rgba(47,123,214,.2)}
+  .ribbon{position:absolute;top:16px;right:-42px;background:var(--grad);color:#fff;font-family:'Poppins';font-size:11px;font-weight:700;padding:5px 48px;transform:rotate(45deg);text-transform:uppercase;letter-spacing:.04em}
+  .format h3{color:var(--navy);font-size:19px;margin-bottom:6px}
+  .format .prix{font-family:'Poppins';font-weight:800;color:var(--blue);font-size:25px;margin:2px 0 10px}
+  .format .prix small{font-family:'Inter';font-weight:500;font-size:13px;color:#8494ac;display:block}
+  .format p{color:var(--muted);font-size:14.5px}
+  .opt{margin-top:26px;background:#fff;border:1px solid #e7eef7;border-radius:16px;overflow:hidden;box-shadow:var(--card-sh)}
+  table{border-collapse:collapse;width:100%;font-size:14.5px}
+  th,td{padding:13px 18px;text-align:left;border-bottom:1px solid #eef2f8}
+  thead th{background:var(--navy);color:#fff;font-family:'Poppins';font-weight:600;font-size:13.5px}
+  tbody tr:last-child td{border-bottom:none}tbody tr:hover{background:#f7fafd}
+  td.p{text-align:right;font-family:'Poppins';font-weight:700;color:var(--blue);white-space:nowrap}
+  td .desc{color:var(--muted);font-size:13.5px}
+  .note{margin-top:14px;font-size:13px;color:var(--muted)}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+  .step{background:#fff;border-radius:18px;padding:26px 24px;box-shadow:var(--card-sh);position:relative;transition:transform .3s}
+  .step:hover{transform:translateY(-6px)}
+  .step .num{width:44px;height:44px;border-radius:12px;background:var(--grad);color:#fff;font-family:'Poppins';font-weight:800;display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:14px}
+  .step h3{font-size:17px;margin-bottom:6px}.step p{color:var(--muted);font-size:14.5px}
+  .final{position:relative;background:var(--navy);color:#fff;text-align:center;overflow:hidden}
+  .final::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 0%,rgba(6,182,212,.5),transparent 60%),radial-gradient(500px 300px at 20% 100%,rgba(79,70,229,.5),transparent 60%)}
+  .final .wrap{position:relative;z-index:2}.final h2{color:#fff;font-size:clamp(24px,3.6vw,34px);margin-bottom:12px}.final p{color:#c4d4ea;font-size:17px;max-width:540px;margin:0 auto 20px}
+  .final .tel{font-family:'Poppins';font-weight:700;font-size:19px;color:#fff;margin-top:16px}
+  footer.ft{background:#081a30;color:#a9c0dc;padding:40px 0 28px;font-size:13.5px;line-height:1.7;text-align:center}
+  footer.ft a{color:#7fd4ff}footer.ft .legal{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;margin-top:20px;color:#6f89aa;font-size:12.5px}
+  [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].in{opacity:1;transform:none}.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+  @media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none}}
+  @media(max-width:640px){.links{display:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Ébrange<span>Création Digital</span></a>
+    <div class="links">
+      <a href="index.html">Accueil</a>
+      <a href="sites.html">Sites web</a>
+      <a href="marketing.html">Marketing</a>
+      <a href="agents-ia.html">Agents IA</a>
+      <a href="guides.html">Guides</a>
+      <a href="offres.html">Offres</a>
+      <a class="cta-mini" href="index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="head">
+  <div class="wrap">
+    <span class="kicker" data-reveal>🤖 Nouveau · Agents IA sur mesure</span>
+    <h1 data-reveal class="d1">Votre équipe d'assistants IA, sur mesure</h1>
+    <p data-reveal class="d2">Conçue pour votre métier et disponible 24h/24. Nous concevons, installons et vous formons — sans jargon, avec des garde-fous et le respect de vos données.</p>
+    <div class="meta d2" data-reveal>💡 Dès 390 € · 🗓️ Cadrage gratuit et sans engagement</div>
+    <div class="cta d3" data-reveal>
+      <a class="btn btn-primary" href="mailto:contact@ecd-digital.com?subject=Cadrage%20Agents%20IA">✨ Demander un cadrage gratuit</a>
+    </div>
+  </div>
+</header>
+
+<!-- LE PROBLEME -->
+<section>
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="sec-tag" data-reveal>Le problème que ça résout</div>
+        <h2 class="title" data-reveal>Reprenez le temps volé par les tâches répétitives</h2>
+        <p class="lead" data-reveal style="margin-bottom:0">Chaque semaine, des heures partent dans des tâches qui reviennent sans arrêt — importantes, mais chronophages :</p>
+        <ul data-reveal>
+          <li>Répondre aux mêmes questions clients</li>
+          <li>Rédiger e-mails, textes et fiches produit</li>
+          <li>Trier les demandes, faire de la veille, préparer des comptes rendus</li>
+          <li>Relancer, planifier, organiser</li>
+        </ul>
+      </div>
+      <div class="principle" data-reveal>
+        <p><strong>Un agent IA</strong>, c'est un assistant numérique spécialisé à qui vous confiez une mission précise. Il travaille à votre place, selon vos consignes, <strong>24h/24, sans fatigue et sans oubli</strong>. Plusieurs agents peuvent collaborer comme une petite équipe, coordonnés par un « chef d'orchestre ».</p>
+        <p style="margin-top:14px">Notre principe : <strong>un agent = une responsabilité claire.</strong> Mieux vaut plusieurs assistants spécialisés qu'un seul « fourre-tout » qui fait tout à moitié.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXEMPLES PAR METIER -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-tag" data-reveal>Pour qui · pour quoi faire</div>
+    <h2 class="title" data-reveal>Des usages concrets, métier par métier</h2>
+    <p class="lead" data-reveal>Pour les indépendants, TPE, PME et associations qui veulent gagner du temps sans embaucher. Pas besoin d'être technique : on s'occupe de tout et on vous forme.</p>
+    <div class="grid">
+      <div class="card" data-reveal>
+        <div class="ico">🛍️</div><h3>Commerce &amp; e-commerce</h3>
+        <p>Répondre aux questions clients (SAV), rédiger les fiches produit, préparer les posts réseaux sociaux.</p>
+      </div>
+      <div class="card d1" data-reveal>
+        <div class="ico">🔨</div><h3>Artisan &amp; prestataire</h3>
+        <p>Pré-qualifier les demandes de devis, proposer des créneaux de rendez-vous, relancer les prospects.</p>
+      </div>
+      <div class="card d2" data-reveal>
+        <div class="ico">🍽️</div><h3>Restaurant &amp; salon</h3>
+        <p>Gérer les demandes de réservation, répondre aux avis Google, tenir la page à jour.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="ico">🎓</div><h3>Consultant &amp; formateur</h3>
+        <p>Rédiger newsletters et articles, résumer des documents, préparer des supports.</p>
+      </div>
+      <div class="card d1" data-reveal>
+        <div class="ico">🏠</div><h3>Immobilier &amp; courtage</h3>
+        <p>Trier les demandes entrantes, rédiger les annonces, suivre les relances.</p>
+      </div>
+      <div class="card d2" data-reveal>
+        <div class="ico">📣</div><h3>Marketing &amp; communication</h3>
+        <p>Produire des idées de contenu, décliner un message sur plusieurs canaux, faire de la veille concurrentielle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LES 3 FORMATS -->
+<section>
+  <div class="wrap">
+    <div class="sec-tag" data-reveal>Ce que vous obtenez</div>
+    <h2 class="title" data-reveal>3 formats, selon votre besoin</h2>
+    <p class="lead" data-reveal>Dans tous les cas : vos agents configurés pour votre métier, une documentation en langage simple, une séance de prise en main, des garde-fous (les actions sensibles demandent toujours votre confirmation) et le respect de la confidentialité.</p>
+    <div class="formats">
+      <div class="format" data-reveal>
+        <h3>🎯 Assistant unique</h3>
+        <div class="prix">dès 390 €<small>clé en main · paiement unique*</small></div>
+        <p>Un agent très soigné pour un usage précis : SAV, prise de rendez-vous, rédaction, veille… Livré avec documentation et prise en main.</p>
+      </div>
+      <div class="format featured d1" data-reveal>
+        <span class="ribbon">Le + choisi</span>
+        <h3>👥 Petite équipe IA</h3>
+        <div class="prix">dès 890 €<small>2 à 4 agents + orchestrateur</small></div>
+        <p>Pour automatiser tout un pôle (marketing, SAV…) : plusieurs agents spécialisés coordonnés, doc complète et prise en main.</p>
+      </div>
+      <div class="format d2" data-reveal>
+        <h3>🚀 Système complet</h3>
+        <div class="prix">sur devis, dès 1 900 €<small>5+ agents · application dédiée</small></div>
+        <p>Un vrai « service » automatisé : une application dédiée avec menu et génération de documents, documentation complète.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GRILLE DE PRIX -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-tag" data-reveal>Formules &amp; tarifs</div>
+    <h2 class="title" data-reveal>Une grille claire, un cadrage gratuit</h2>
+    <p class="lead" data-reveal>Tarifs de lancement, à partir de. Le prix final dépend du nombre d'agents, de la complexité et des outils à connecter — un devis précis vous est remis après le cadrage, gratuit et sans engagement.</p>
+    <div class="opt" data-reveal>
+      <table>
+        <thead><tr><th>Formule</th><th>Pour qui</th><th style="text-align:right">À partir de</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Assistant unique clé en main</strong></td><td class="desc">Un besoin précis, un seul usage — 1 agent + doc + prise en main</td><td class="p">390 €</td></tr>
+          <tr><td><strong>Petite équipe IA (2-4 agents)</strong></td><td class="desc">Automatiser un pôle — agents spécialisés + orchestrateur + doc + prise en main</td><td class="p">890 €</td></tr>
+          <tr><td><strong>Système complet sur mesure</strong></td><td class="desc">Un vrai « service » automatisé — 5+ agents, application dédiée, doc complète</td><td class="p">sur devis, dès 1 900 €</td></tr>
+          <tr><td><strong>Maintenance &amp; évolutions</strong></td><td class="desc">Garder le système à jour — ajustements, ajout d'agents, support</td><td class="p">dès 39 € / mois</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" data-reveal>* Acompte de 30 % à la commande, solde à la livraison (sauf conditions particulières au devis). À prévoir de votre côté : certains agents nécessitent un accès à un service d'IA (ex. un abonnement Claude) et, selon les cas, un ordinateur ou un hébergement — nous vous l'indiquons précisément au cadrage, sans mauvaise surprise.</p>
+  </div>
+</section>
+
+<!-- LE DEROULE -->
+<section>
+  <div class="wrap">
+    <div class="sec-tag" data-reveal>Comment ça se passe</div>
+    <h2 class="title" data-reveal>Du premier échange à la maintenance, en 6 étapes</h2>
+    <p class="lead" data-reveal>Vous êtes accompagné à chaque étape, et vous validez avant chaque avancée.</p>
+    <div class="steps">
+      <div class="step" data-reveal><div class="num">1</div><h3>Cadrage (gratuit)</h3><p>On identifie ensemble les tâches à déléguer et le résultat attendu. Vous recevez un devis précis.</p></div>
+      <div class="step d1" data-reveal><div class="num">2</div><h3>Conception</h3><p>On dessine votre système : combien d'agents, quels rôles, comment ils collaborent. Vous validez le plan.</p></div>
+      <div class="step d2" data-reveal><div class="num">3</div><h3>Construction</h3><p>On configure vos agents, on rédige leurs consignes et on met en place les garde-fous.</p></div>
+      <div class="step d3" data-reveal><div class="num">4</div><h3>Vérification</h3><p>On teste, on ajuste et on documente honnêtement ce que le système sait faire — et ses limites.</p></div>
+      <div class="step" data-reveal><div class="num">5</div><h3>Livraison &amp; prise en main</h3><p>On installe chez vous et on vous forme pas à pas, jusqu'à ce que vous soyez autonome.</p></div>
+      <div class="step d1" data-reveal><div class="num">6</div><h3>Maintenance</h3><p>En option : on fait évoluer vos agents dans le temps — nouveaux besoins, ajustements, nouveaux assistants.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="contact">
+  <div class="wrap">
+    <h2 data-reveal>Quelle tâche aimeriez-vous déléguer en premier&nbsp;?</h2>
+    <p data-reveal class="d1">Le cadrage est gratuit et sans engagement. Dites-nous ce qui vous prend le plus de temps — on vous dit ce qui est possible.</p>
+    <a class="btn btn-primary" data-reveal style="transition-delay:.2s" href="mailto:contact@ecd-digital.com?subject=Cadrage%20Agents%20IA">✉️ Demander un cadrage gratuit</a>
+    <div class="tel" data-reveal style="transition-delay:.28s">📞 06 76 68 34 93</div>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="wrap">
+    <strong>Ébrange Création Digital</strong> — Sites web, hébergement, marketing local &amp; agents IA sur mesure · 📞 06 76 68 34 93 · <a href="mailto:contact@ecd-digital.com">contact@ecd-digital.com</a>
+    <div class="legal">SAS à associé unique au capital de 100 € · RCS Paris 105 870 315 · Siège : 47 rue Vivienne, 75002 Paris · Tarifs de lancement indicatifs — devis précis après cadrage gratuit.</div>
+  </div>
+</footer>
+
+<script>
+  var nav=document.getElementById('nav');var s=function(){nav.classList.toggle('scrolled',window.scrollY>40)};s();addEventListener('scroll',s,{passive:true});
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+  document.querySelectorAll('[data-reveal]').forEach(function(el){io.observe(el)});
+</script>
+
+<script src="chatbot.js" defer></script>
+
+</body>
+</html>
