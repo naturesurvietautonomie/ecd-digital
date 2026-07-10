@@ -113,18 +113,18 @@
 
   var reponses = {
     site: 'Nous créons des sites pros pour les commerçants, artisans et indépendants 🌐<br><br>' +
-          '• <strong>Essentiel</strong> : à partir de 490&nbsp;€ <em>(soit 343&nbsp;€ avec le code <strong>LANCEMENT30</strong>)</em><br>' +
+          '• <strong>Essentiel</strong> : à partir de 790&nbsp;€ <em>(soit 632&nbsp;€ avec le code <strong>LANCEMENT20</strong>, −20&nbsp;% sur les 3 formules site)</em><br>' +
           '• Formules <strong>Commerce &amp; Artisan</strong> et <strong>Premium</strong> pour aller plus loin<br>' +
-          '• Hébergement &amp; maintenance <strong>dès 15&nbsp;€/mois</strong><br><br>' +
+          '• Hébergement &amp; maintenance <strong>dès 19&nbsp;€/mois</strong><br><br>' +
           'Vous validez toujours la maquette avant la mise en ligne.' +
           '<br><a class="ecb-link" href="sites.html">Découvrir la création de sites</a>',
 
     tarifs: 'Voici nos repères de prix 💰<br><br>' +
-          '• <strong>Site web</strong> : dès 490&nbsp;€ (343&nbsp;€ avec le code LANCEMENT30)<br>' +
-          '• <strong>Hébergement &amp; maintenance</strong> : dès 15&nbsp;€/mois<br>' +
+          '• <strong>Site web</strong> : dès 790&nbsp;€ (dès 632&nbsp;€ avec le code LANCEMENT20, −20&nbsp;% sur la création)<br>' +
+          '• <strong>Hébergement &amp; maintenance</strong> : dès 19&nbsp;€/mois<br>' +
           '• <strong>Guides PDF</strong> : 27&nbsp;€ l\'unité<br>' +
-          '• <strong>Agents IA sur mesure</strong> : dès 390&nbsp;€<br>' +
-          '• <strong>Automatisations sur mesure</strong> : dès 390&nbsp;€<br><br>' +
+          '• <strong>Agents IA sur mesure</strong> : dès 690&nbsp;€<br>' +
+          '• <strong>Automatisations sur mesure</strong> : dès 690&nbsp;€<br><br>' +
           'La grille complète (options, marketing, maintenance) est sur la page Offres.' +
           '<br><a class="ecb-link" href="offres.html">Voir toutes les offres &amp; tarifs</a>',
 
@@ -135,16 +135,16 @@
           '<br><a class="ecb-link" href="guides.html">Voir les guides</a>',
 
     agents: 'Les <strong>Agents IA sur mesure</strong> 🤖 : votre équipe d\'assistants IA, conçue pour votre métier et disponible 24h/24 (SAV, rendez-vous, rédaction, veille…).<br><br>' +
-          '• Assistant unique clé en main : <strong>dès 390&nbsp;€</strong><br>' +
-          '• Petite équipe IA (2-4 agents) : dès 890&nbsp;€<br>' +
-          '• Système complet : sur devis, dès 1&nbsp;900&nbsp;€<br><br>' +
+          '• Assistant unique clé en main : <strong>dès 690&nbsp;€</strong><br>' +
+          '• Petite équipe IA (2-4 agents) : dès 1&nbsp;490&nbsp;€<br>' +
+          '• Système complet : sur devis, dès 2&nbsp;900&nbsp;€<br><br>' +
           'Cadrage gratuit et sans engagement.' +
           '<br><a class="ecb-link" href="agents-ia.html">Découvrir les Agents IA</a>',
 
     automatisations: 'Les <strong>Automatisations sur mesure</strong> ⚙️ : vos tâches répétitives tournent toutes seules. Fichier client, relances de devis, rappels de rendez-vous et demandes d\'avis — vos outils se parlent enfin et travaillent pour vous.<br><br>' +
-          '• Pack Essentiel : <strong>dès 390&nbsp;€</strong><br>' +
-          '• Pack Pro (relances, avis, rappels) : dès 890&nbsp;€<br>' +
-          '• Pack Sur-mesure (connexion multi-outils) : sur devis, dès 1&nbsp;900&nbsp;€<br><br>' +
+          '• Pack Essentiel : <strong>dès 690&nbsp;€</strong><br>' +
+          '• Pack Pro (relances, avis, rappels) : dès 1&nbsp;490&nbsp;€<br>' +
+          '• Pack Sur-mesure (connexion multi-outils) : sur devis, dès 2&nbsp;900&nbsp;€<br><br>' +
           'Mini-diagnostic gratuit et sans engagement.' +
           '<br><a class="ecb-link" href="automatisations.html">Découvrir les Automatisations</a>',
 
