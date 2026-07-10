@@ -123,7 +123,8 @@
           '• <strong>Site web</strong> : dès 490&nbsp;€ (343&nbsp;€ avec le code LANCEMENT30)<br>' +
           '• <strong>Hébergement &amp; maintenance</strong> : dès 15&nbsp;€/mois<br>' +
           '• <strong>Guides PDF</strong> : 27&nbsp;€ l\'unité<br>' +
-          '• <strong>Agents IA sur mesure</strong> : dès 390&nbsp;€<br><br>' +
+          '• <strong>Agents IA sur mesure</strong> : dès 390&nbsp;€<br>' +
+          '• <strong>Automatisations sur mesure</strong> : dès 390&nbsp;€<br><br>' +
           'La grille complète (options, marketing, maintenance) est sur la page Offres.' +
           '<br><a class="ecb-link" href="offres.html">Voir toutes les offres &amp; tarifs</a>',
 
@@ -140,6 +141,13 @@
           'Cadrage gratuit et sans engagement.' +
           '<br><a class="ecb-link" href="agents-ia.html">Découvrir les Agents IA</a>',
 
+    automatisations: 'Les <strong>Automatisations sur mesure</strong> ⚙️ : vos tâches répétitives tournent toutes seules. Fichier client, relances de devis, rappels de rendez-vous et demandes d\'avis — vos outils se parlent enfin et travaillent pour vous.<br><br>' +
+          '• Pack Essentiel : <strong>dès 390&nbsp;€</strong><br>' +
+          '• Pack Pro (relances, avis, rappels) : dès 890&nbsp;€<br>' +
+          '• Pack Sur-mesure (connexion multi-outils) : sur devis, dès 1&nbsp;900&nbsp;€<br><br>' +
+          'Mini-diagnostic gratuit et sans engagement.' +
+          '<br><a class="ecb-link" href="automatisations.html">Découvrir les Automatisations</a>',
+
     contact: CONTACT_HTML
   };
 
@@ -148,6 +156,7 @@
     { label: "Tarifs", key: "tarifs" },
     { label: "Les guides à 27 €", key: "guides" },
     { label: "Agents IA", key: "agents" },
+    { label: "Automatisations", key: "automatisations" },
     { label: "Nous contacter", key: "contact" }
   ];
 
