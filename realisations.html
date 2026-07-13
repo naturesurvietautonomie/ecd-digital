@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Nos réalisations — Ébrange Création Digital</title>
+<meta name="description" content="Découvrez les sites créés et maintenus par Ébrange Création Digital : notre site vitrine ecd-digital.com et la boutique e-commerce naturesurvie.net (paiement Stripe, 133 produits, emails automatisés). On ne fait pas que conseiller, on construit.">
+<meta property="og:title" content="Nos réalisations — Ébrange Création Digital">
+<meta property="og:description" content="Les sites que nous avons créés et que nous faisons vivre au quotidien : vitrine et boutique e-commerce complète.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b2545;--blue:#2f7bd6;--cyan:#38bdf8;--ink:#1a2537;--muted:#5b6b83;--gold:#b8860b;--grad:linear-gradient(135deg,#4f46e5,#2f7bd6 45%,#06b6d4);--card-sh:0 10px 30px rgba(15,42,74,.08)}
+  *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,Arial,sans-serif;color:var(--ink);line-height:1.7;font-size:16px;background:#fff;overflow-x:hidden}
+  h1,h2,h3{font-family:'Poppins',sans-serif;line-height:1.15;color:var(--navy)}
+  a{color:var(--blue);text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.3s;padding:16px 0}
+  .nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 6px 24px rgba(15,42,74,.08);padding:10px 0}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .brand{font-family:'Poppins';font-weight:800;font-size:19px;color:#fff;line-height:1;transition:color .3s;display:inline-flex;align-items:center;gap:10px}
+  .brand-wm{display:inline-flex;flex-direction:column;line-height:1}
+  .brand-wm span{display:block;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-top:3px}
+  .nav.scrolled .brand{color:var(--navy)}
+  .links{display:flex;flex-wrap:wrap;gap:2px}
+  .links a{color:rgba(255,255,255,.85);font-size:14.5px;font-weight:500;padding:8px 10px;border-radius:8px;position:relative;transition:color .2s}
+  .links a::after{content:"";position:absolute;left:10px;right:10px;bottom:5px;height:2px;background:var(--cyan);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+  .links a:hover::after{transform:scaleX(1)}
+  .links a.active{color:#fff}.links a.active::after{transform:scaleX(1)}
+  .nav.scrolled .links a{color:var(--muted)}.nav.scrolled .links a:hover,.nav.scrolled .links a.active{color:var(--navy)}
+  .links .cta-mini{background:var(--grad);color:#fff!important;font-weight:600}.links .cta-mini::after{display:none}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Poppins';font-weight:600;font-size:15px;padding:13px 26px;border-radius:12px;border:none;cursor:pointer;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 10px 24px rgba(47,123,214,.35)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(47,123,214,.45)}
+  .btn-primary::before{content:"";position:absolute;top:0;left:-120%;width:70%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:left .6s}
+  .btn-primary:hover::before{left:140%}
+  .btn-ghost{background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff}
+  .btn-ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-3px)}
+  .head{position:relative;background:var(--navy);color:#fff;padding:150px 0 80px;overflow:hidden}
+  .head::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 380px at 20% 10%,rgba(79,70,229,.5),transparent 60%),radial-gradient(600px 400px at 85% 20%,rgba(6,182,212,.45),transparent 60%)}
+  .head .wrap{position:relative;z-index:2;max-width:760px}
+  .head .kicker{display:inline-block;font-family:'Poppins';font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:var(--cyan);margin-bottom:14px}
+  .head h1{font-size:clamp(30px,5vw,46px);font-weight:800;letter-spacing:-.5px;color:#fff}
+  .head p{color:#c4d4ea;font-size:18px;max-width:640px;margin:16px 0 0}
+  section{padding:70px 0}
+  .alt{background:linear-gradient(180deg,#f5f8fd,#eef4fb)}
+  .sec-tag{font-family:'Poppins';font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:12.5px;color:var(--blue);margin-bottom:10px}
+  h2.title{font-size:clamp(24px,3.6vw,34px);font-weight:700;margin-bottom:12px}
+  .lead{color:var(--muted);font-size:17px;max-width:660px;margin-bottom:44px}
+  /* Études de cas */
+  .cases{display:grid;gap:30px}
+  .case{background:#fff;border:1px solid #e7eef7;border-radius:22px;box-shadow:var(--card-sh);overflow:hidden;display:grid;grid-template-columns:1fr;transition:transform .3s,box-shadow .3s}
+  .case:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(15,42,74,.14)}
+  @media(min-width:820px){.case{grid-template-columns:300px 1fr}}
+  .case .visual{position:relative;background:var(--navy);color:#fff;padding:34px 28px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;min-height:220px}
+  .case .visual::before{content:"";position:absolute;inset:0;background:radial-gradient(400px 260px at 30% 20%,rgba(79,70,229,.55),transparent 60%),radial-gradient(360px 260px at 85% 90%,rgba(6,182,212,.5),transparent 60%)}
+  .case .visual > *{position:relative;z-index:2}
+  .case .kind{font-family:'Poppins';font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:11px;color:var(--cyan);margin-bottom:10px}
+  .case .visual h3{color:#fff;font-size:24px;margin-bottom:8px}
+  .case .url{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:#c4d4ea;word-break:break-all}
+  .case .stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .case .stats span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:100px;padding:5px 12px;font-size:12px;font-weight:600;color:#eaf2ff}
+  .case .body{padding:32px 30px}
+  .case .body h4{font-family:'Poppins';font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin:0 0 6px}
+  .case .body .block{margin-bottom:18px}
+  .case .body .block:last-of-type{margin-bottom:0}
+  .case .body p{color:#39485e;font-size:15px}
+  .case ul{list-style:none;margin:6px 0 0}
+  .case ul li{padding:5px 0 5px 26px;position:relative;font-size:14.5px;color:#39485e}
+  .case ul li::before{content:"✓";position:absolute;left:0;color:#12b76a;font-weight:800}
+  .case .result{background:linear-gradient(135deg,rgba(47,123,214,.08),rgba(6,182,212,.08));border-left:4px solid var(--blue);padding:14px 18px;border-radius:0 12px 12px 0;color:#2c5282;font-size:14.5px}
+  .case .visit{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-family:'Poppins';font-weight:600;font-size:14.5px;color:var(--blue)}
+  .case .visit::after{content:"↗";transition:transform .2s}.case .visit:hover::after{transform:translate(3px,-3px)}
+  /* Honnêteté */
+  .note{max-width:720px;margin:34px auto 0;text-align:center;color:var(--muted);font-size:14.5px}
+  /* Ce que ça peut donner */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+  .card{background:#fff;border:1px solid #e7eef7;border-radius:18px;padding:26px 24px;box-shadow:var(--card-sh);position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+  .card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+  .card:hover{transform:translateY(-8px);box-shadow:0 22px 44px rgba(15,42,74,.14)}
+  .card:hover::before{transform:scaleX(1)}
+  .card .ico{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,rgba(47,123,214,.14),rgba(6,182,212,.14));display:flex;align-items:center;justify-content:center;font-size:25px;margin-bottom:14px}
+  .card h3{font-size:18px;margin-bottom:6px}
+  .card p{color:var(--muted);font-size:14.5px}
+  .card .go{display:inline-block;margin-top:12px;font-weight:600;color:var(--blue);font-size:14.5px}
+  .card .go::after{content:" →";transition:margin .2s}.card:hover .go::after{margin-left:5px}
+  .final{position:relative;background:var(--navy);color:#fff;text-align:center;overflow:hidden}
+  .final::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 0%,rgba(6,182,212,.5),transparent 60%),radial-gradient(500px 300px at 20% 100%,rgba(79,70,229,.5),transparent 60%)}
+  .final .wrap{position:relative;z-index:2}.final h2{color:#fff;font-size:clamp(24px,3.6vw,34px);margin-bottom:12px}.final p{color:#c4d4ea;font-size:17px;max-width:540px;margin:0 auto 20px}
+  .final .tel{font-family:'Poppins';font-weight:700;font-size:19px;color:#fff;margin-top:16px}
+  footer.ft{background:#081a30;color:#a9c0dc;padding:40px 0 28px;font-size:13.5px;line-height:1.7;text-align:center}
+  footer.ft a{color:#7fd4ff}footer.ft .legal{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;margin-top:20px;color:#6f89aa;font-size:12.5px}
+  [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].in{opacity:1;transform:none}.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+  @media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none}}
+  @media(max-width:640px){.links{display:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="brand-mark" width="34" height="34" viewBox="0 0 58 58" aria-hidden="true" style="flex:0 0 auto"><rect x="0" y="0" width="16" height="16" rx="4" fill="currentColor"/><rect x="21" y="0" width="16" height="16" rx="4" fill="#1FC7A9"/><rect x="42" y="0" width="16" height="16" rx="4" fill="currentColor"/><rect x="0" y="21" width="16" height="16" rx="4" fill="#1FC7A9"/><rect x="21" y="21" width="16" height="16" rx="4" fill="currentColor"/><rect x="42" y="21" width="16" height="16" rx="4" fill="#C9A24B"/><rect x="0" y="42" width="16" height="16" rx="4" fill="currentColor"/><rect x="21" y="42" width="16" height="16" rx="4" fill="#C9A24B"/><rect x="42" y="42" width="16" height="16" rx="4" fill="currentColor"/></svg><span class="brand-wm"><i style="color:#1FC7A9;font-style:normal">É</i>brange<span>Création Digital</span></span></a>
+    <div class="links">
+      <a href="index.html">Accueil</a>
+      <a href="sites.html">Sites web</a>
+      <a href="marketing.html">Marketing</a>
+      <a href="agents-ia.html">Agents IA</a>
+      <a href="automatisations.html">Automatisations</a>
+      <a href="realisations.html" class="active" aria-current="page">Réalisations</a>
+      <a href="guides.html">Guides</a>
+      <a href="blog.html">Blog</a>
+      <a href="offres.html">Offres</a>
+      <a class="cta-mini" href="index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="head">
+  <div class="wrap">
+    <span class="kicker" data-reveal>🏆 Nos réalisations</span>
+    <h1 data-reveal class="d1">On ne fait pas que conseiller —<br>on construit et on fait vivre nos sites</h1>
+    <p data-reveal class="d2">La meilleure preuve de notre savoir-faire, ce sont nos propres sites : nous les avons conçus, mis en ligne, et nous les entretenons chaque jour. Voici deux cas concrets, sans faux clients ni chiffres inventés.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-tag" data-reveal>Études de cas</div>
+    <h2 class="title" data-reveal>Deux projets, deux besoins</h2>
+    <p class="lead" data-reveal>Un site vitrine pensé pour rassurer et convertir, et une boutique e-commerce complète que nous exploitons au quotidien.</p>
+
+    <div class="cases">
+
+      <!-- Étude de cas 1 : ecd-digital.com -->
+      <article class="case" data-reveal>
+        <div class="visual">
+          <div class="kind">Site vitrine</div>
+          <h3>ecd-digital.com</h3>
+          <a class="url" href="https://ecd-digital.com" target="_blank" rel="noopener">🔗 ecd-digital.com</a>
+          <div class="stats">
+            <span>Mobile d'abord</span>
+            <span>Chargement rapide</span>
+            <span>SEO local</span>
+          </div>
+        </div>
+        <div class="body">
+          <div class="block">
+            <h4>Le contexte</h4>
+            <p>Notre propre vitrine devait faire ce que nous vendons à nos clients : rassurer dès la première seconde, être parfaitement lisible sur téléphone, et transformer un visiteur curieux en demande de devis.</p>
+          </div>
+          <div class="block">
+            <h4>Ce qui a été fait</h4>
+            <ul>
+              <li>Site statique HTML/CSS/JS, hébergé sur Netlify avec HTTPS</li>
+              <li>Design « mobile d'abord », menu accessible et navigation clavier</li>
+              <li>Un fichier CSS unique et des images optimisées pour un affichage instantané</li>
+              <li>SEO de base sur chaque page (titre, meta description, structure de titres)</li>
+              <li>Appels à l'action clairs vers le devis gratuit et le téléphone</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>Le résultat</h4>
+            <p class="result">Un site en ligne, clair et rapide, qui présente nos offres et centralise les demandes de contact — la vitrine que vous êtes en train de consulter.</p>
+          </div>
+          <a class="visit" href="https://ecd-digital.com" target="_blank" rel="noopener">Visiter le site</a>
+        </div>
+      </article>
+
+      <!-- Étude de cas 2 : naturesurvie.net -->
+      <article class="case d1" data-reveal>
+        <div class="visual">
+          <div class="kind">Boutique e-commerce</div>
+          <h3>naturesurvie.net</h3>
+          <a class="url" href="https://naturesurvie.net" target="_blank" rel="noopener">🔗 naturesurvie.net</a>
+          <div class="stats">
+            <span>133 produits</span>
+            <span>Paiement Stripe</span>
+            <span>Emails automatisés</span>
+          </div>
+        </div>
+        <div class="body">
+          <div class="block">
+            <h4>Le contexte</h4>
+            <p>Une boutique en ligne complète sur le thème de la survie et de l'autonomie, à créer de A à Z puis à faire vivre : catalogue, ventes, paiement sécurisé et relation client.</p>
+          </div>
+          <div class="block">
+            <h4>Ce qui a été fait</h4>
+            <ul>
+              <li>Boutique avec 133 fiches produits détaillées</li>
+              <li>Paiement en ligne sécurisé via Stripe</li>
+              <li>Emails automatisés (confirmation de commande, suivi client)</li>
+              <li>Référencement pensé pour être trouvé sur Google</li>
+              <li>Maintenance continue : mises à jour, sécurité et évolutions du catalogue</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>L'atout</h4>
+            <p class="result">Un e-commerce autonome que nous exploitons nous-mêmes : c'est ce même savoir-faire (fiches produits, paiement, automatisations) que nous mettons au service de votre boutique.</p>
+          </div>
+          <a class="visit" href="https://naturesurvie.net" target="_blank" rel="noopener">Visiter la boutique</a>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="note" data-reveal>Nous préférons vous montrer nos propres sites, ceux que nous maîtrisons de bout en bout, plutôt que d'afficher de faux exemples. Votre projet rejoindra bientôt cette page.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-tag" data-reveal>Et pour vous&nbsp;?</div>
+    <h2 class="title" data-reveal>Ce que ça peut donner pour votre activité</h2>
+    <p class="lead" data-reveal>Le même savoir-faire, adapté à votre commerce : un site qui vous ressemble, visible, et qui travaille pour vous.</p>
+    <div class="grid">
+      <div class="card" data-reveal>
+        <div class="ico">🌐</div>
+        <h3>Votre site web</h3>
+        <p>Vitrine ou boutique en ligne, élégant et adapté au mobile, avec votre nom de domaine. Dès 632 € (offre de lancement −20 %).</p>
+        <a class="go" href="sites.html">Découvrir les formules</a>
+      </div>
+      <div class="card d1" data-reveal>
+        <div class="ico">📈</div>
+        <h3>Votre visibilité</h3>
+        <p>Fiche Google, réseaux sociaux et marketing local pour amener les clients de votre ville jusqu'à vous.</p>
+        <a class="go" href="marketing.html">Voir le marketing local</a>
+      </div>
+      <div class="card d2" data-reveal>
+        <div class="ico">🤖</div>
+        <h3>Vos agents IA</h3>
+        <p>Un assistant qui répond à vos visiteurs et qualifie vos demandes, jour et nuit.</p>
+        <a class="go" href="agents-ia.html">Découvrir les agents IA</a>
+      </div>
+      <div class="card d3" data-reveal>
+        <div class="ico">⚙️</div>
+        <h3>Vos automatisations</h3>
+        <p>Relances de devis, rappels de rendez-vous, emails automatiques : vos tâches répétitives tournent toutes seules.</p>
+        <a class="go" href="automatisations.html">Découvrir</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="contact">
+  <div class="wrap">
+    <h2 data-reveal>Envie du même résultat pour votre commerce&nbsp;?</h2>
+    <p data-reveal class="d1">Dites-moi votre activité et ce dont vous avez besoin — je vous réponds avec un devis gratuit et sans engagement.</p>
+    <a class="btn btn-primary" data-reveal style="transition-delay:.2s" href="mailto:contact@ecd-digital.com?subject=Demande%20de%20devis">✉️ Demander un devis gratuit</a>
+    <div class="tel" data-reveal style="transition-delay:.28s">📞 06 76 68 34 93</div>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="wrap">
+    <nav aria-label="Navigation du site" style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.1);font-weight:500">
+      <a href="index.html">Accueil</a>
+      <a href="sites.html">Création de sites</a>
+      <a href="marketing.html">Marketing</a>
+      <a href="agents-ia.html">Agents IA</a>
+      <a href="automatisations.html">Automatisations</a>
+      <a href="realisations.html">Réalisations</a>
+      <a href="guides.html">Guides</a>
+      <a href="blog.html">Blog</a>
+      <a href="offres.html">Offres &amp; tarifs</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </nav>
+    <strong>Ébrange Création Digital</strong> — Sites web, hébergement &amp; marketing local · 📞 06 76 68 34 93 · <a href="mailto:contact@ecd-digital.com">contact@ecd-digital.com</a>
+    <div class="legal"><a href="mentions-legales.html">Mentions légales</a> · SAS à associé unique au capital de 100 € · RCS Paris 105 870 315 · Siège : 47 rue Vivienne, 75002 Paris · Vous restez propriétaire de votre site, de votre domaine et de vos contenus.</div>
+  </div>
+</footer>
+
+<script>
+  var nav=document.getElementById('nav');var s=function(){nav.classList.toggle('scrolled',window.scrollY>40)};s();addEventListener('scroll',s,{passive:true});
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+  document.querySelectorAll('[data-reveal]').forEach(function(el){io.observe(el)});
+</script>
+
+<script src="nav.js" defer></script>
+<script src="chatbot.js" defer></script>
+
+</body>
+</html>

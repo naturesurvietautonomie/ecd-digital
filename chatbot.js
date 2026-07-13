@@ -27,6 +27,9 @@
   var MAIL = "contact@ecd-digital.com";
   var MAIL_LINK = "mailto:contact@ecd-digital.com?subject=Question%20depuis%20le%20site";
 
+  /* Préfixe des liens internes : les pages du blog sont dans /blog/, il leur faut "../" */
+  var BASE = /(^|\/)blog\/[^\/]*$/.test(window.location.pathname) ? "../" : "";
+
   /* ---------- 1. CSS (charte Ébrange) ---------- */
   var css = "\
   .ecb-launch{position:fixed;bottom:22px;right:22px;z-index:9998;width:60px;height:60px;border:none;border-radius:50%;cursor:pointer;\
@@ -117,7 +120,7 @@
           '• Formules <strong>Commerce &amp; Artisan</strong> et <strong>Premium</strong> pour aller plus loin<br>' +
           '• Hébergement &amp; maintenance <strong>dès 19&nbsp;€/mois</strong><br><br>' +
           'Vous validez toujours la maquette avant la mise en ligne.' +
-          '<br><a class="ecb-link" href="sites.html">Découvrir la création de sites</a>',
+          '<br><a class="ecb-link" href="' + BASE + 'sites.html">Découvrir la création de sites</a>',
 
     tarifs: 'Voici nos repères de prix 💰<br><br>' +
           '• <strong>Site web</strong> : dès 790&nbsp;€ (dès 632&nbsp;€ avec le code LANCEMENT20, −20&nbsp;% sur la création)<br>' +
@@ -126,27 +129,27 @@
           '• <strong>Agents IA sur mesure</strong> : dès 690&nbsp;€<br>' +
           '• <strong>Automatisations sur mesure</strong> : dès 690&nbsp;€<br><br>' +
           'La grille complète (options, marketing, maintenance) est sur la page Offres.' +
-          '<br><a class="ecb-link" href="offres.html">Voir toutes les offres &amp; tarifs</a>',
+          '<br><a class="ecb-link" href="' + BASE + 'offres.html">Voir toutes les offres &amp; tarifs</a>',
 
     guides: 'Nos guides pratiques au format PDF, à 27&nbsp;€ 📚 — paiement unique, accès immédiat.<br><br>' +
           '• <strong>Visible en Ligne</strong> : devenir en 30 jours le commerce qu\'on trouve en premier sur Google <em>(disponible)</em><br>' +
           '• <strong>Avis 5 Étoiles</strong> <em>(bientôt)</em><br>' +
           '• <strong>Ta Fiche Google au Top</strong> <em>(bientôt)</em>' +
-          '<br><a class="ecb-link" href="guides.html">Voir les guides</a>',
+          '<br><a class="ecb-link" href="' + BASE + 'guides.html">Voir les guides</a>',
 
     agents: 'Les <strong>Agents IA sur mesure</strong> 🤖 : votre équipe d\'assistants IA, conçue pour votre métier et disponible 24h/24 (SAV, rendez-vous, rédaction, veille…).<br><br>' +
           '• Assistant unique clé en main : <strong>dès 690&nbsp;€</strong><br>' +
           '• Petite équipe IA (2-4 agents) : dès 1&nbsp;490&nbsp;€<br>' +
           '• Système complet : sur devis, dès 2&nbsp;900&nbsp;€<br><br>' +
           'Cadrage gratuit et sans engagement.' +
-          '<br><a class="ecb-link" href="agents-ia.html">Découvrir les Agents IA</a>',
+          '<br><a class="ecb-link" href="' + BASE + 'agents-ia.html">Découvrir les Agents IA</a>',
 
     automatisations: 'Les <strong>Automatisations sur mesure</strong> ⚙️ : vos tâches répétitives tournent toutes seules. Fichier client, relances de devis, rappels de rendez-vous et demandes d\'avis — vos outils se parlent enfin et travaillent pour vous.<br><br>' +
           '• Pack Essentiel : <strong>dès 690&nbsp;€</strong><br>' +
           '• Pack Pro (relances, avis, rappels) : dès 1&nbsp;490&nbsp;€<br>' +
-          '• Pack Sur-mesure (connexion multi-outils) : sur devis, dès 2&nbsp;900&nbsp;€<br><br>' +
+          '• Pack Tout connecté (site, fichier, e-mail, facturation reliés) : sur devis, dès 2&nbsp;900&nbsp;€<br><br>' +
           'Mini-diagnostic gratuit et sans engagement.' +
-          '<br><a class="ecb-link" href="automatisations.html">Découvrir les Automatisations</a>',
+          '<br><a class="ecb-link" href="' + BASE + 'automatisations.html">Découvrir les Automatisations</a>',
 
     contact: CONTACT_HTML
   };
