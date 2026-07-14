@@ -3,6 +3,10 @@
   publish = "."
   command = ""
 
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 # Sécurité / cache basiques
 [[headers]]
   for = "/*"
@@ -10,3 +14,16 @@
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+# La page des appels contient la prospection : elle ne doit jamais être indexée,
+# ni mise en cache par un intermédiaire.
+[[headers]]
+  for = "/appels.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Cache-Control = "no-store"

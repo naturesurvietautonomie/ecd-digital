@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Appels — Ébrange</title>
+<link rel="icon" href="/favicon.svg">
+<style>
+  :root {
+    --ink:#16181C; --ink-2:#3A3F47; --muted:#6D7480; --faint:#99A0AB;
+    --ground:#FBFAF8; --panel:#FFF; --line:#E3E1DC; --line-soft:#EFEDE8;
+    --accent:#0F5F58; --accent-soft:#E4F0EE;
+    --ok:#1E7A45; --ok-soft:#E3F2E8;
+    --warn:#9A5B08; --warn-soft:#FBEEDC;
+    --crit:#A8301F; --crit-soft:#FBE7E3;
+    --hold:#5A5F6B; --hold-soft:#ECEDF0;
+    --shadow:0 1px 2px rgba(22,24,28,.04), 0 8px 24px -12px rgba(22,24,28,.10);
+    --display:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --body:"Segoe UI",system-ui,-apple-system,sans-serif;
+    --data:"Cascadia Mono",Consolas,ui-monospace,monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink:#ECEAE5; --ink-2:#C3C7CD; --muted:#8B929E; --faint:#666D79;
+      --ground:#101216; --panel:#191C21; --line:#2B2F36; --line-soft:#23262C;
+      --accent:#4FBFB2; --accent-soft:#12312F;
+      --ok:#57C07E; --ok-soft:#14301F;
+      --warn:#D9A056; --warn-soft:#33240F;
+      --crit:#E4796A; --crit-soft:#351915;
+      --hold:#9AA1AD; --hold-soft:#24272D;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+    }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink);
+         font:15px/1.5 var(--body); -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:820px; margin:0 auto; padding:0 18px 80px; }
+  .damier { height:8px;
+    background-image:linear-gradient(45deg,var(--ink) 25%,transparent 25%,transparent 75%,var(--ink) 75%),
+                     linear-gradient(45deg,var(--ink) 25%,transparent 25%,transparent 75%,var(--ink) 75%);
+    background-size:16px 16px; background-position:0 0,8px 8px; opacity:.9; }
+
+  header { padding:24px 0 16px; }
+  .mark { font-family:var(--display); font-size:25px; font-weight:600; letter-spacing:-.015em; }
+  .mark em { font-style:normal; color:var(--accent); }
+  .sub { color:var(--muted); font-size:13.5px; margin-top:3px; }
+
+  /* ---- porte d'entrée ---- */
+  #gate { max-width:380px; margin:60px auto; background:var(--panel);
+          border:1px solid var(--line); border-radius:6px; padding:22px;
+          box-shadow:var(--shadow); }
+  #gate h1 { font-family:var(--display); font-size:21px; font-weight:600; margin:0 0 6px; }
+  #gate p { color:var(--muted); font-size:13.5px; margin:0 0 16px; }
+  #gate input { width:100%; font:inherit; font-size:16px; padding:11px 13px;
+                border:1px solid var(--line); border-radius:4px;
+                background:var(--ground); color:var(--ink); margin-bottom:10px; }
+  #gate .err { color:var(--crit); font-size:13px; min-height:18px; margin:0 0 8px; }
+
+  .btn { border:1px solid var(--line); background:var(--panel); color:var(--ink);
+         border-radius:4px; padding:8px 13px; font:inherit; font-size:13.5px;
+         font-weight:620; cursor:pointer; white-space:nowrap; }
+  .btn:hover { border-color:var(--accent); }
+  .btn.primary { background:var(--accent); border-color:var(--accent); color:var(--panel); width:100%;
+                 padding:11px; font-size:15px; }
+  :focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+
+  /* ---- appli ---- */
+  .bar { height:6px; background:var(--line-soft); border-radius:99px; overflow:hidden; margin:14px 0 10px; }
+  .bar > i { display:block; height:100%; width:0; background:var(--accent);
+             border-radius:99px; transition:width .35s ease; }
+  .chips { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:6px; }
+  .chip { font-family:var(--data); font-size:12px; padding:4px 10px; border-radius:99px;
+          background:var(--hold-soft); color:var(--hold); font-variant-numeric:tabular-nums; }
+  .chip.ok { background:var(--ok-soft); color:var(--ok); }
+  .chip.warn { background:var(--warn-soft); color:var(--warn); }
+
+  .toolbar { display:flex; gap:8px; flex-wrap:wrap; align-items:center;
+             position:sticky; top:0; z-index:20; background:var(--ground);
+             padding:12px 0; border-bottom:1px solid var(--line); }
+  .days { display:flex; gap:4px; overflow-x:auto; flex:1; scrollbar-width:none; }
+  .days::-webkit-scrollbar { display:none; }
+  .day-btn { flex:0 0 auto; border:1px solid var(--line); background:var(--panel);
+             color:var(--muted); border-radius:999px; padding:6px 12px; font:inherit;
+             font-size:13px; font-weight:620; cursor:pointer; white-space:nowrap; }
+  .day-btn[aria-pressed="true"] { background:var(--ink); color:var(--ground); border-color:var(--ink); }
+  .day-btn .n { font-family:var(--data); font-size:11px; opacity:.7; margin-left:5px; }
+
+  .call { background:var(--panel); border:1px solid var(--line); border-radius:4px;
+          margin-top:12px; box-shadow:var(--shadow); overflow:hidden; border-left:3px solid var(--line); }
+  .call[data-r="rdv"]{border-left-color:var(--ok)}
+  .call[data-r="rappeler"]{border-left-color:var(--warn)}
+  .call[data-r="non"]{border-left-color:var(--crit)}
+  .call[data-r="repondeur"]{border-left-color:var(--hold)}
+  .call[data-r="parle"]{border-left-color:var(--accent)}
+  .call.done .head { opacity:.7; }
+  .head { display:grid; grid-template-columns:auto 1fr auto; gap:12px;
+          align-items:center; padding:13px 16px; cursor:pointer; }
+  .time { font-family:var(--data); font-weight:700; font-size:14px; color:var(--accent);
+          min-width:44px; font-variant-numeric:tabular-nums; }
+  .who { min-width:0; }
+  .nm { font-weight:650; font-size:15px; line-height:1.3; }
+  .mt { font-size:12.5px; color:var(--muted); }
+  .tag { font-family:var(--data); font-size:10px; font-weight:700; text-transform:uppercase;
+         letter-spacing:.07em; padding:3px 8px; border-radius:3px; white-space:nowrap;
+         background:var(--hold-soft); color:var(--hold); }
+  .tag.rdv{background:var(--ok-soft);color:var(--ok)}
+  .tag.rappeler{background:var(--warn-soft);color:var(--warn)}
+  .tag.non{background:var(--crit-soft);color:var(--crit)}
+  .tag.parle{background:var(--accent-soft);color:var(--accent)}
+
+  .cbody { display:none; padding:0 16px 16px; border-top:1px solid var(--line-soft); }
+  .call.open .cbody { display:block; }
+  a.tel { display:inline-flex; align-items:center; gap:8px; margin:14px 0;
+          font-family:var(--data); font-weight:700; font-size:18px; color:var(--ink);
+          text-decoration:none; background:var(--ground); border:1px solid var(--line);
+          padding:10px 16px; border-radius:4px; font-variant-numeric:tabular-nums; }
+  a.tel:hover { border-color:var(--accent); color:var(--accent); }
+
+  .angle { background:var(--ground); border-radius:4px; padding:12px 14px; margin-bottom:14px; }
+  .lbl { font-family:var(--data); font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+         color:var(--faint); font-weight:700; margin-bottom:7px; }
+  .lbl2 { font-family:var(--data); font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+          color:var(--faint); font-weight:700; margin:16px 0 8px; }
+  .angle p { margin:0 0 5px; font-size:14.5px; }
+  .angle p:last-child { margin:0; }
+  .hot { margin-top:10px; padding-top:10px; border-top:1px dashed var(--line);
+         color:var(--crit); font-weight:620; font-size:13.5px; }
+
+  .opts { display:flex; flex-wrap:wrap; gap:6px; }
+  .opt { border:1px solid var(--line); background:var(--panel); color:var(--ink);
+         border-radius:999px; padding:7px 14px; font:inherit; font-size:13.5px;
+         font-weight:620; cursor:pointer; }
+  .opt[aria-pressed="true"] { color:var(--panel); }
+  .opt[data-v="parle"][aria-pressed="true"]{background:var(--accent);border-color:var(--accent)}
+  .opt[data-v="rdv"][aria-pressed="true"]{background:var(--ok);border-color:var(--ok)}
+  .opt[data-v="rappeler"][aria-pressed="true"]{background:var(--warn);border-color:var(--warn)}
+  .opt[data-v="repondeur"][aria-pressed="true"]{background:var(--hold);border-color:var(--hold)}
+  .opt[data-v="non"][aria-pressed="true"]{background:var(--crit);border-color:var(--crit)}
+  .opt:disabled { opacity:.5; cursor:wait; }
+
+  .frow { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:13px; }
+  textarea, input[type="date"] { font:inherit; font-size:14px; color:var(--ink);
+    background:var(--ground); border:1px solid var(--line); border-radius:4px; padding:9px 11px; }
+  textarea { width:100%; min-height:68px; resize:vertical; }
+  .cbx { display:inline-flex; align-items:center; gap:7px; font-size:13.5px; cursor:pointer; }
+  .cbx input { width:17px; height:17px; accent-color:var(--accent); }
+
+  .sync { font-family:var(--data); font-size:11px; color:var(--faint); }
+  .sync.on { color:var(--accent); }
+  .sync.bad { color:var(--crit); }
+
+  footer { margin-top:40px; padding-top:16px; border-top:1px solid var(--line-soft);
+           font-size:12.5px; color:var(--faint); line-height:1.65; }
+  .toast { position:fixed; left:50%; bottom:20px; transform:translateX(-50%);
+           background:var(--ink); color:var(--ground); padding:9px 18px; border-radius:999px;
+           font-size:13.5px; font-weight:620; opacity:0; pointer-events:none;
+           transition:opacity .2s; z-index:50; }
+  .toast.show { opacity:1; }
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; } }
+</style>
+</head>
+<body>
+<div class="damier"></div>
+<div class="wrap">
+
+  <div id="gate">
+    <h1>Les 23 appels</h1>
+    <p>Cette page lit et écrit directement dans Airtable. Elle demande ton code.</p>
+    <input id="code" type="password" inputmode="numeric" autocomplete="current-password" placeholder="Code d'accès">
+    <p class="err" id="err"></p>
+    <button class="btn primary" id="go" type="button">Entrer</button>
+  </div>
+
+  <div id="app" hidden>
+    <header>
+      <div class="mark">Ébrange <em>·</em> Les 23 appels</div>
+      <div class="sub">Semaine du lundi 20 juillet. Tu coches, c'est écrit dans Airtable dans la seconde.</div>
+    </header>
+
+    <div class="bar"><i id="bar"></i></div>
+    <div class="chips" id="chips"></div>
+
+    <div class="toolbar">
+      <div class="days" id="days"></div>
+      <span class="sync" id="sync">—</span>
+      <button class="btn" id="reload" type="button">Recharger</button>
+    </div>
+
+    <div id="list"></div>
+
+    <footer>
+      Chaque case cochée part immédiatement dans Airtable — il n'y a rien à exporter, rien à recopier.
+      Si le voyant passe au rouge, ta réponse n'est <strong>pas</strong> enregistrée : note-la sur un papier et recharge.<br><br>
+      <strong>Jamais de message vocal</strong> — on raccroche, on envoie le SMS dans les 5 minutes.
+      <strong>On raccroche toujours avec une date</strong> : « je vous rappelle jeudi » en est une, « je vous recontacte » non.
+    </footer>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  var ACC = {
+    "Boulangerie": ["— Je fais des sites pour les boulangers.",
+      "— Vos horaires et vos fermetures, aujourd'hui, personne ne les trouve en ligne — et les gens qui arrivent devant un rideau baissé ne reviennent pas."],
+    "BTP": ["— Je fais des sites pour les artisans du bâtiment.",
+      "— Un particulier qui cherche un électricien à Pessac tape sur Google : celui qui apparaît prend le chantier, les autres ne sont jamais appelés."],
+    "Restauration & Food": ["— Je fais des sites pour les restos.",
+      "— Une carte à jour et des photos correctes, c'est ce que les gens regardent trente secondes avant de choisir entre vous et le voisin."],
+    "Beauté & Onglerie": ["— Je fais des sites pour les instituts.",
+      "— Une page avec vos prestations, vos prix et un bouton pour réserver, ça vous enlève les appels pendant que vous avez les mains dans un soin."],
+    "Beauté & Bien-être": ["— Je fais des sites pour les instituts.",
+      "— Une page avec vos prestations, vos prix et un bouton pour réserver, ça vous enlève les appels pendant que vous avez les mains dans un soin."],
+    "Caviste": ["— Je fais des sites pour les cavistes.",
+      "— Les gens photographient l'étiquette chez vous et achètent la bouteille en ligne le soir même : autant que ce soit sur votre site à vous."],
+    "Artisan": ["— Je fais des sites pour les artisans.",
+      "— Votre travail, il se voit en photo : sans photos en ligne, vous vendez un devis alors que les autres vendent un résultat."],
+    "Immobilier": ["— Je fais des sites pour les agences.",
+      "— Vos biens vivent sur les portails, qui vous facturent chaque annonce — la vitrine qui vous appartient vraiment, vous ne l'avez pas."],
+    "Fleuriste": ["— Je fais des sites pour les fleuristes.",
+      "— On vous trouve si on passe devant votre étal, et pas autrement. Les mariages et les enterrements, eux, se cherchent sur Google."]
+  };
+  var DEFAUT = ["— Je fais des sites pour les commerçants du coin.",
+    "— Un client qui vous découvre aujourd'hui, il ne trouve rien en ligne à votre nom."];
+
+  var HOT = {
+    "R2PCS": "Certifié RGE Qualit'EnR — et rien en ligne pour le dire. C'est un label que ses concurrents affichent.",
+    "Cérès Boulangerie": "4,9/5 sur plus de 80 avis, et zéro site. Il a déjà la confiance : il ne lui manque que la vitrine.",
+    "Au Pétrin Moissagais": "« La plus ancienne boulangerie de Bordeaux » — et son site déclenche une alerte de sécurité au navigateur. À dire tel quel : « votre site fait peur à Chrome. »",
+    "Julien Peyré Menuisier Agenceur": "Il AVAIT un site — un business.site, que Google a fermé. Il sait ce que ça fait de ne plus exister en ligne. Le plus facile de la semaine.",
+    "Marlhiac Paysagiste": "Même cas que Julien Peyré : son business.site a été fermé par Google. Il a eu un site, il n'en a plus."
+  };
+
+  var ST = [
+    {v:"parle",     l:"Je lui ai parlé"},
+    {v:"rdv",       l:"Devis à envoyer"},
+    {v:"rappeler",  l:"À rappeler"},
+    {v:"repondeur", l:"Pas décroché"},
+    {v:"non",       l:"Pas intéressé"}
+  ];
+  var STL = {}; ST.forEach(function (s) { STL[s.v] = s.l; });
+  var ORDRE = ["Lun 20/07","Mar 21/07","Mer 22/07","Jeu 23/07","Ven 24/07","Lun 27/07 — rappels"];
+
+  var code = "";
+  try { code = sessionStorage.getItem("ecd-code") || ""; } catch (e) {}
+  var appels = [];
+  var openJour = null;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var toastEl = $("toast"), tT;
+  function toast(m) {
+    toastEl.textContent = m; toastEl.classList.add("show");
+    clearTimeout(tT); tT = setTimeout(function () { toastEl.classList.remove("show"); }, 1700);
+  }
+  function sync(txt, cls) {
+    var el = $("sync");
+    el.textContent = txt;
+    el.className = "sync" + (cls ? " " + cls : "");
+  }
+  function fmt(t) {
+    var n = (t || "").replace(/^\+33/, "0").replace(/\D/g, "");
+    return n.replace(/(\d{2})(?=\d)/g, "$1 ").trim();
+  }
+
+  async function api(method, body) {
+    var r = await fetch("/api/appels", {
+      method: method,
+      headers: { "x-ecd-code": code, "content-type": "application/json" },
+      body: body ? JSON.stringify(body) : undefined
+    });
+    if (r.status === 401) { throw new Error("code"); }
+    if (!r.ok) { throw new Error((await r.json().catch(function(){return{};})).error || "erreur"); }
+    return r.json();
+  }
+
+  async function charger() {
+    sync("chargement…");
+    var data = await api("GET");
+    appels = data.appels.sort(function (a, b) {
+      var d = ORDRE.indexOf(a.jour) - ORDRE.indexOf(b.jour);
+      return d !== 0 ? d : (a.heure || "").localeCompare(b.heure || "", "fr", { numeric: true });
+    });
+    if (!openJour) {
+      var jours = ORDRE.filter(function (j) { return appels.some(function (a) { return a.jour === j; }); });
+      openJour = jours[0] || null;
+    }
+    render();
+    sync("à jour", "on");
+  }
+
+  async function pousser(a, patch) {
+    sync("enregistrement…");
+    try {
+      await api("POST", Object.assign({ id: a.id }, patch));
+      sync("enregistré dans Airtable", "on");
+      return true;
+    } catch (e) {
+      sync("échec — non enregistré", "bad");
+      toast("Airtable n'a pas pris. Note-le et recharge.");
+      return false;
+    }
+  }
+
+  function render() {
+    var jours = ORDRE.filter(function (j) { return appels.some(function (a) { return a.jour === j; }); });
+
+    $("days").innerHTML = "";
+    jours.forEach(function (j) {
+      var duJour = appels.filter(function (a) { return a.jour === j; });
+      var faits = duJour.filter(function (a) { return a.resultat; }).length;
+      var b = document.createElement("button");
+      b.className = "day-btn"; b.type = "button";
+      b.setAttribute("aria-pressed", String(j === openJour));
+      b.innerHTML = j.replace("/07", "") + ' <span class="n">' + faits + "/" + duJour.length + "</span>";
+      b.addEventListener("click", function () { openJour = j; render(); });
+      $("days").appendChild(b);
+    });
+
+    var tot = appels.length;
+    var don = appels.filter(function (a) { return a.resultat; }).length;
+    var par = appels.filter(function (a) { return ["parle","rdv","rappeler"].indexOf(a.resultat) >= 0; }).length;
+    var rdv = appels.filter(function (a) { return a.resultat === "rdv"; }).length;
+    var rap = appels.filter(function (a) { return a.resultat === "rappeler"; }).length;
+    $("bar").style.width = (tot ? don / tot * 100 : 0) + "%";
+    $("chips").innerHTML =
+      '<span class="chip"><b>' + don + "</b> / " + tot + " appelés</span>" +
+      '<span class="chip"><b>' + par + "</b> au bout du fil</span>" +
+      '<span class="chip ok"><b>' + rdv + "</b> devis à envoyer</span>" +
+      '<span class="chip warn"><b>' + rap + "</b> à rappeler</span>";
+
+    var list = $("list");
+    list.innerHTML = "";
+    appels.filter(function (a) { return a.jour === openJour; }).forEach(function (a) {
+      list.appendChild(carte(a));
+    });
+  }
+
+  function carte(a) {
+    var el = document.createElement("article");
+    el.className = "call" + (a.resultat ? " done" : "");
+    el.setAttribute("data-cid", a.id);
+    if (a.resultat) el.setAttribute("data-r", a.resultat);
+
+    var head = document.createElement("div");
+    head.className = "head"; head.setAttribute("role", "button"); head.tabIndex = 0;
+    head.innerHTML =
+      '<span class="time">' + (a.heure || "—") + "</span>" +
+      '<span class="who"><span class="nm"></span><span class="mt"></span></span>' +
+      (a.resultat ? '<span class="tag ' + a.resultat + '">' + STL[a.resultat] + "</span>"
+                  : '<span class="tag">' + (a.secteur || "—") + "</span>");
+    head.querySelector(".nm").textContent = a.nom;
+    head.querySelector(".mt").textContent = (a.secteur || "") + (a.ville ? " · " + a.ville : "");
+    function tg() { el.classList.toggle("open"); }
+    head.addEventListener("click", tg);
+    head.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); tg(); }
+    });
+    el.appendChild(head);
+
+    var b = document.createElement("div");
+    b.className = "cbody";
+
+    if (a.tel) {
+      var lien = document.createElement("a");
+      lien.className = "tel";
+      lien.href = "tel:" + (a.tel[0] === "+" ? a.tel : "+33" + a.tel.slice(1));
+      lien.textContent = "📞 " + fmt(a.tel);
+      b.appendChild(lien);
+    }
+
+    var acc = ACC[a.secteur] || DEFAUT;
+    var ang = document.createElement("div");
+    ang.className = "angle";
+    ang.innerHTML = '<div class="lbl">Ce que tu dis en ouvrant</div>' +
+      "<p>— Oui bonjour, Louis, d'Ébrange.</p><p></p><p></p>" +
+      "<p>— Vous avez une minute, ou je tombe mal ?</p>";
+    var ps = ang.querySelectorAll("p");
+    ps[1].textContent = acc[0];
+    ps[2].textContent = acc[1];
+    if (HOT[a.nom]) {
+      var h = document.createElement("div");
+      h.className = "hot"; h.textContent = HOT[a.nom];
+      ang.appendChild(h);
+    }
+    b.appendChild(ang);
+
+    var l1 = document.createElement("div");
+    l1.className = "lbl2"; l1.textContent = "Comment ça s'est passé";
+    b.appendChild(l1);
+
+    var opts = document.createElement("div");
+    opts.className = "opts";
+    ST.forEach(function (s) {
+      var o = document.createElement("button");
+      o.className = "opt"; o.type = "button";
+      o.setAttribute("data-v", s.v);
+      o.setAttribute("aria-pressed", String(a.resultat === s.v));
+      o.textContent = s.l;
+      o.addEventListener("click", async function () {
+        var avant = a.resultat;
+        var nouveau = (a.resultat === s.v) ? null : s.v;
+        Array.prototype.forEach.call(opts.children, function (c) { c.disabled = true; });
+        var ok = await pousser(a, { resultat: nouveau });
+        Array.prototype.forEach.call(opts.children, function (c) { c.disabled = false; });
+        if (ok) {
+          a.resultat = nouveau;
+          render();
+          var again = $("list").querySelector('[data-cid="' + a.id + '"]');
+          if (again) again.classList.add("open");
+          if (nouveau) toast("Noté — " + s.l.toLowerCase());
+        } else {
+          a.resultat = avant;
+        }
+      });
+      opts.appendChild(o);
+    });
+    b.appendChild(opts);
+
+    var row = document.createElement("div");
+    row.className = "frow";
+
+    var dl = document.createElement("label");
+    dl.className = "cbx";
+    dl.appendChild(document.createTextNode("Rappeler le"));
+    var di = document.createElement("input");
+    di.type = "date"; di.value = (a.rappel || "").slice(0, 10);
+    di.addEventListener("change", async function () {
+      if (await pousser(a, { rappel: di.value })) { a.rappel = di.value; toast("Rappel enregistré"); }
+    });
+    dl.appendChild(di);
+    row.appendChild(dl);
+
+    var sl = document.createElement("label");
+    sl.className = "cbx";
+    var si = document.createElement("input");
+    si.type = "checkbox"; si.checked = !!a.sms;
+    si.addEventListener("change", async function () {
+      if (await pousser(a, { sms: si.checked })) {
+        a.sms = si.checked;
+        toast(si.checked ? "SMS envoyé ✓" : "SMS décoché");
+      } else { si.checked = !si.checked; }
+    });
+    sl.appendChild(si);
+    sl.appendChild(document.createTextNode("SMS envoyé"));
+    row.appendChild(sl);
+    b.appendChild(row);
+
+    var l2 = document.createElement("div");
+    l2.className = "lbl2"; l2.textContent = "Ce qu'il a dit";
+    b.appendChild(l2);
+
+    var ta = document.createElement("textarea");
+    ta.value = a.notes || "";
+    ta.placeholder = "Ses mots à lui, pas ton résumé. « Rappelez en septembre », « mon neveu fait ça »…";
+    var dbn;
+    ta.addEventListener("input", function () {
+      clearTimeout(dbn);
+      dbn = setTimeout(async function () {
+        if (await pousser(a, { notes: ta.value })) { a.notes = ta.value; }
+      }, 900);
+    });
+    b.appendChild(ta);
+
+    el.appendChild(b);
+    return el;
+  }
+
+  async function entrer() {
+    code = $("code").value.trim();
+    if (!code) { $("err").textContent = "Il faut le code."; return; }
+    $("go").disabled = true;
+    $("err").textContent = "";
+    try {
+      await charger();
+      try { sessionStorage.setItem("ecd-code", code); } catch (e) {}
+      $("gate").hidden = true;
+      $("app").hidden = false;
+    } catch (e) {
+      $("err").textContent = (e.message === "code")
+        ? "Code refusé."
+        : "Airtable ne répond pas. Réessaie dans un instant.";
+    }
+    $("go").disabled = false;
+  }
+
+  $("go").addEventListener("click", entrer);
+  $("code").addEventListener("keydown", function (e) { if (e.key === "Enter") entrer(); });
+  $("reload").addEventListener("click", function () { charger().catch(function () { sync("échec", "bad"); }); });
+
+  // Si le code est déjà en session, on entre directement.
+  if (code) {
+    charger().then(function () {
+      $("gate").hidden = true;
+      $("app").hidden = false;
+    }).catch(function () {
+      code = "";
+      try { sessionStorage.removeItem("ecd-code"); } catch (e) {}
+    });
+  }
+})();
+</script>
+</body>
+</html>
