@@ -62,6 +62,11 @@
   .lead{color:var(--muted);font-size:17px;max-width:620px;margin-bottom:44px}
   .alt{background:linear-gradient(180deg,#f5f8fd,#eef4fb)}
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
+  /* Grille des services : 5 cartes — 3 en haut, 2 centrées en dessous (même largeur) */
+  .grid.svc{grid-template-columns:repeat(6,1fr)}
+  .grid.svc>.card{grid-column:span 2}
+  .grid.svc>.card:nth-child(4){grid-column:2/span 2}
+  .grid.svc>.card:nth-child(5){grid-column:4/span 2}
   .card{background:#fff;border:1px solid #e7eef7;border-radius:18px;padding:30px 26px;box-shadow:var(--card-sh);position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
   .card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .35s}
   .card:hover{transform:translateY(-8px);box-shadow:0 22px 44px rgba(15,42,74,.14)}
@@ -96,9 +101,13 @@
   footer.ft .legal{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;color:#6f89aa;font-size:12.5px}
   [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
   [data-reveal].in{opacity:1;transform:none}
-  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
   @media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none}.blob{animation:none}}
-  @media(max-width:640px){.links{display:none}.hero{padding:130px 0 90px}}
+  /* Tablette : 2 cartes par ligne, la 5e centrée */
+  @media(max-width:900px){.grid.svc{grid-template-columns:repeat(4,1fr)}.grid.svc>.card:nth-child(4){grid-column:auto/span 2}.grid.svc>.card:nth-child(5){grid-column:2/span 2}}
+  @media(max-width:640px){.links{display:none}.hero{padding:130px 0 90px}
+    .grid.svc{grid-template-columns:1fr}
+    .grid.svc>.card,.grid.svc>.card:nth-child(4),.grid.svc>.card:nth-child(5){grid-column:auto}}
 </style>
 </head>
 <body>
@@ -149,7 +158,7 @@
     <div class="sec-tag" data-reveal>Nos services</div>
     <h2 class="title" data-reveal>Tout pour votre présence en ligne</h2>
     <p class="lead" data-reveal>De la création de votre site à sa maintenance, jusqu'aux clients qu'il vous amène.</p>
-    <div class="grid">
+    <div class="grid svc">
       <div class="card" data-reveal>
         <div class="ico">🌐</div><h3>Création de sites web</h3>
         <p>Site vitrine ou boutique en ligne, élégant et adapté au mobile, avec votre nom de domaine et votre email pro. Vous validez la maquette avant la mise en ligne.</p>
@@ -173,6 +182,12 @@
         <p>Fichier client, relances de devis, rappels de rendez-vous et demandes d'avis : vos tâches répétitives tournent toutes seules et vos outils se parlent enfin.</p>
         <div class="pp">Dès 690 € · mini-diagnostic gratuit</div>
         <a class="go" href="automatisations.html">Découvrir</a>
+      </div>
+      <div class="card d4" data-reveal>
+        <div class="ico">🤖</div><h3>Agents IA</h3>
+        <p>Un assistant qui lit les demandes de vos clients — questions, devis, avis Google — et rédige la réponse à votre place. Il travaille aussi la nuit. Le matin, vous relisez et vous envoyez.</p>
+        <div class="pp">Dès 690 € · cadrage gratuit</div>
+        <a class="go" href="agents-ia.html">Découvrir</a>
       </div>
     </div>
   </div>
