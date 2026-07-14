@@ -116,14 +116,14 @@
 
   var reponses = {
     site: 'Nous créons des sites pros pour les commerçants, artisans et indépendants 🌐<br><br>' +
-          '• <strong>Essentiel</strong> : à partir de 790&nbsp;€ <em>(soit 632&nbsp;€ avec le code <strong>LANCEMENT20</strong>, −20&nbsp;% sur les 3 formules site)</em><br>' +
+          '• <strong>Essentiel</strong> : <strong>dès 632&nbsp;€</strong> avec le code <strong>LANCEMENT20</strong> <em>(au lieu de 790&nbsp;€, −20&nbsp;% sur les 3 formules site)</em><br>' +
           '• Formules <strong>Commerce &amp; Artisan</strong> et <strong>Premium</strong> pour aller plus loin<br>' +
           '• Hébergement &amp; maintenance <strong>dès 19&nbsp;€/mois</strong><br><br>' +
           'Vous validez toujours la maquette avant la mise en ligne.' +
           '<br><a class="ecb-link" href="' + BASE + 'sites.html">Découvrir la création de sites</a>',
 
     tarifs: 'Voici nos repères de prix 💰<br><br>' +
-          '• <strong>Site web</strong> : dès 790&nbsp;€ (dès 632&nbsp;€ avec le code LANCEMENT20, −20&nbsp;% sur la création)<br>' +
+          '• <strong>Site web</strong> : <strong>dès 632&nbsp;€</strong> avec le code LANCEMENT20 (au lieu de 790&nbsp;€, −20&nbsp;% sur la création)<br>' +
           '• <strong>Hébergement &amp; maintenance</strong> : dès 19&nbsp;€/mois<br>' +
           '• <strong>Guides PDF</strong> : 27&nbsp;€ l\'unité<br>' +
           '• <strong>Agents IA sur mesure</strong> : dès 690&nbsp;€<br>' +
