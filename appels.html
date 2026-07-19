@@ -158,6 +158,24 @@
            transition:opacity .2s; z-index:50; }
   .toast.show { opacity:1; }
   @media (prefers-reduced-motion: reduce) { * { transition:none !important; } }
+
+  /* ---- fenêtre du script ---- */
+  dialog { border:none; border-radius:6px; padding:0; max-width:640px;
+           width:calc(100% - 24px); background:var(--panel); color:var(--ink);
+           box-shadow:var(--shadow); }
+  dialog::backdrop { background:rgba(10,12,16,.6); }
+  .dh { display:flex; justify-content:space-between; align-items:center;
+        padding:16px 20px; border-bottom:1px solid var(--line);
+        position:sticky; top:0; background:var(--panel); z-index:1; }
+  .dh h2 { font-family:var(--display); font-weight:600; font-size:20px; margin:0; }
+  .db { padding:4px 20px 20px; max-height:76vh; overflow-y:auto; }
+  .db h3 { font-family:var(--data); font-size:10.5px; letter-spacing:.09em;
+           text-transform:uppercase; color:var(--accent); margin:20px 0 8px; font-weight:700; }
+  .say { background:var(--ground); border-left:2px solid var(--accent);
+         border-radius:0 4px 4px 0; padding:10px 14px; margin:0 0 8px; }
+  .say p { margin:0 0 4px; font-size:15px; line-height:1.5; }
+  .say p:last-child { margin:0; }
+  .tip { font-size:13px; color:var(--muted); margin:0 0 6px; }
 </style>
 </head>
 <body>
@@ -183,6 +201,7 @@
 
     <div class="toolbar">
       <div class="days" id="days"></div>
+      <button class="btn" id="scriptBtn" type="button">Le script</button>
       <span class="sync" id="sync">—</span>
       <button class="btn" id="reload" type="button">Recharger</button>
     </div>
@@ -198,6 +217,95 @@
   </div>
 </div>
 <div class="toast" id="toast"></div>
+
+<dialog id="dlg">
+  <div class="dh">
+    <h2>Le script</h2>
+    <button class="btn" id="dlgClose" type="button">Fermer</button>
+  </div>
+  <div class="db">
+    <p class="tip">Une réplique = une phrase. On respire entre chaque. Le silence après une question n'est pas un vide : c'est le travail du prospect.</p>
+
+    <h3>1 · L'accroche — 10 secondes</h3>
+    <div class="say">
+      <p>— Oui bonjour, Louis, d'Ébrange.</p>
+      <p>— <em>[l'accroche du métier — elle est sur la fiche du prospect, juste au-dessus]</em></p>
+      <p>— Vous avez une minute, ou je tombe mal ?</p>
+    </div>
+    <p class="tip">« Je tombe mal ? » désamorce. Beaucoup répondent « allez-y » juste parce qu'on a demandé.</p>
+
+    <h3>2 · La qualification</h3>
+    <div class="say">
+      <p>— Alors j'ai regardé avant d'appeler.</p>
+      <p>— Sur Google, on vous trouve, mais on ne trouve pas de site.</p>
+      <p>— C'est bien ça, ou j'ai loupé quelque chose ?</p>
+    </div>
+    <p class="tip">S'il dit « si, j'en ai un » → « Ah. Il vous ramène des clients ? » Neuf fois sur dix c'est non, et on continue pareil.</p>
+
+    <h3>3 · La question qui fait parler — puis on se tait</h3>
+    <div class="say">
+      <p>— Écoutez, une question.</p>
+      <p>— Un client qui vous découvre aujourd'hui, il vous trouve comment ?</p>
+    </div>
+    <p class="tip">Silence. Trois secondes, cinq secondes, peu importe. Puis :</p>
+    <div class="say"><p>— Et ceux qui ne vous connaissent pas encore ?</p></div>
+    <p class="tip">Personne n'a de bonne réponse. C'est lui qui s'entend dire qu'il lui manque quelque chose. Pas toi.</p>
+
+    <h3>4 · La proposition — courte, chiffrée, une seule</h3>
+    <div class="say">
+      <p>— Voilà ce que je propose.</p>
+      <p>— Une page, votre métier, vos photos, votre téléphone.</p>
+      <p>— Les gens vous trouvent, ils vous appellent. C'est 632 €.</p>
+      <p>— Une fois que j'ai vos textes et vos photos, comptez trois à quatre jours ouvrés.</p>
+      <p>— Je vous fais le devis, vous avez tout écrit noir sur blanc.</p>
+    </div>
+    <p class="tip">Ne jamais décrire la technique. Ne jamais empiler les options. Ne jamais dire « 3 jours » sans la condition.</p>
+
+    <h3>5 · L'objection prix</h3>
+    <div class="say">
+      <p>— Je comprends.</p>
+      <p>— 632 €, c'est ce que vous facturez en combien de journées de chantier ?</p>
+      <p>— Le site, lui, il travaille tous les jours pendant trois ans.</p>
+      <p>— Et vous ne sortez pas les 632 € d'un coup : 30 % au départ, le reste à la livraison.</p>
+    </div>
+    <p class="tip">Soit 190 € pour démarrer. C'est le seul chiffre d'acompte qu'on prononce. Si ça bloque encore : « Alors on commence petit. La fiche Google, 240 €. »</p>
+
+    <h3>6 · La sortie — une seule prochaine étape, jamais deux</h3>
+    <p class="tip">Il est intéressé :</p>
+    <div class="say">
+      <p>— Impeccable. Je vous envoie le devis.</p>
+      <p>— Une adresse mail, ou je vous mets tout par SMS ?</p>
+    </div>
+    <p class="tip">Il hésite :</p>
+    <div class="say">
+      <p>— Écoutez, on fait simple.</p>
+      <p>— Je vous envoie deux lignes par SMS, avec le prix.</p>
+      <p>— Vous regardez tranquille. Je vous rappelle jeudi.</p>
+    </div>
+    <p class="tip">Sortie de secours, si un mot bloque :</p>
+    <div class="say">
+      <p>— Excusez-moi, j'ai une ligne pourrie.</p>
+      <p>— Je vous mets tout par SMS, c'est plus simple.</p>
+      <p>— Merci, bonne journée.</p>
+    </div>
+    <p class="tip">Ce n'est pas un échec. Le SMS part dans la minute, il a ton nom et ton prix, et il a été appelé par un humain. Beaucoup de ventes se font comme ça.</p>
+
+    <h3>Les 4 objections</h3>
+    <p class="tip"><strong>« J'ai déjà trop de boulot. »</strong> → « Justement — un site, ça vous permet de choisir vos chantiers au lieu de les subir. »</p>
+    <p class="tip"><strong>« J'ai pas le temps. »</strong> → « C'est moi qui le fais. Vous, c'est vingt minutes de photos et un coup de fil, point. »</p>
+    <p class="tip"><strong>« J'ai déjà une page Facebook. »</strong> → « Aujourd'hui, quelqu'un qui cherche un plombier à Mérignac, il tape sur Google. Il ne va pas sur Facebook. »</p>
+    <p class="tip"><strong>« Envoyez-moi un mail. »</strong> → « Je préfère un SMS, comme ça vous l'avez tout de suite — c'est quel numéro, celui-là ? » <em>La plus importante : aucun de ces 23 prospects n'a d'adresse mail. « Envoyez-moi un mail » est un enterrement.</em></p>
+
+    <h3>Le SMS — dans les 5 minutes, jamais le lendemain</h3>
+    <div class="say" id="smsText">
+      <p>Louis, d'Ébrange, on vient de se parler au téléphone.</p>
+      <p>Site vitrine 632 €, fiche Google 240 €. Devis gratuit, sans engagement.</p>
+      <p>Mes réalisations : ecd-digital.com</p>
+      <p>Je vous rappelle jeudi. Bonne journée.</p>
+    </div>
+    <button class="btn" id="copySms" type="button">Copier le SMS</button>
+  </div>
+</dialog>
 
 <script>
 (function () {
@@ -489,6 +597,18 @@
   $("go").addEventListener("click", entrer);
   $("code").addEventListener("keydown", function (e) { if (e.key === "Enter") entrer(); });
   $("reload").addEventListener("click", function () { charger().catch(function () { sync("échec", "bad"); }); });
+
+  var dlg = $("dlg");
+  $("scriptBtn").addEventListener("click", function () { dlg.showModal(); });
+  $("dlgClose").addEventListener("click", function () { dlg.close(); });
+  $("copySms").addEventListener("click", function () {
+    var txt = Array.prototype.map.call(document.querySelectorAll("#smsText p"),
+      function (p) { return p.textContent; }).join("\n");
+    navigator.clipboard.writeText(txt).then(
+      function () { toast("SMS copié"); },
+      function () { toast("Copie impossible — sélectionne le texte à la main"); }
+    );
+  });
 
   // Si le code est déjà en session, on entre directement.
   if (code) {
