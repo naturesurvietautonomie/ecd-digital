@@ -363,10 +363,10 @@
     <h2 data-reveal>Parlons de votre projet</h2>
     <p data-reveal class="d1">Dites-moi votre activité et ce dont vous avez besoin — je vous réponds avec un devis gratuit et sans engagement.</p>
 
-    <!-- Formulaire Netlify Forms : name="contact" + honeypot "bot-field". Les leads arrivent dans l'onglet Forms de Netlify. -->
-    <!-- ⚠️ À FAIRE PAR LOUIS-KRISTY : activer la notification email du formulaire (Netlify → Forms → Form notifications → contact@ecd-digital.com). -->
-    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="cform" id="cform" data-reveal style="transition-delay:.16s">
-      <input type="hidden" name="form-name" value="contact">
+    <!-- Le formulaire passe par la fonction Netlify /api/contact, qui envoie le lead
+         par email à contact@ecd-digital.com (voir netlify/functions/contact.mjs).
+         On ne dépend plus de la détection Netlify Forms, désactivée par défaut. -->
+    <form name="contact" method="POST" action="/api/contact" class="cform" id="cform" data-reveal style="transition-delay:.16s">
       <p class="cf-hp"><label>À laisser vide <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
       <div class="cf-row">
         <label class="cf-field"><span>Nom</span>
@@ -432,16 +432,20 @@
   var nav=document.getElementById('nav');var s=function(){nav.classList.toggle('scrolled',window.scrollY>40)};s();addEventListener('scroll',s,{passive:true});
   var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
   document.querySelectorAll('[data-reveal]').forEach(function(el){io.observe(el)});
-  /* Formulaire de contact : envoi en AJAX vers Netlify Forms, puis message de confirmation.
-     Si le fetch échoue, on laisse le navigateur poster le formulaire normalement (le lead est quand même capturé). */
+  /* Formulaire de contact : envoi en AJAX vers la fonction /api/contact, puis message de confirmation.
+     Si l'envoi échoue (réseau ou serveur), on laisse le navigateur poster le formulaire normalement :
+     la fonction répond alors par une redirection et le repli téléphone/email reste visible. */
+  function cfShowOk(){var ok=document.getElementById('cform-ok');if(!ok)return;var cf=document.getElementById('cform');if(cf)cf.hidden=true;ok.hidden=false;ok.classList.add('in');}
   var cf=document.getElementById('cform');
   if(cf){cf.addEventListener('submit',function(ev){
     ev.preventDefault();
     var body=new URLSearchParams(new FormData(cf)).toString();
-    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body})
-      .then(function(){cf.hidden=true;var ok=document.getElementById('cform-ok');ok.hidden=false;ok.classList.add('in');})
+    fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-Requested-With':'fetch'},body:body})
+      .then(function(res){if(res.ok){cfShowOk();}else{cf.submit();}})
       .catch(function(){cf.submit();});
   });}
+  /* Retour sans JavaScript : la fonction redirige vers ...?envoye=1#contact */
+  if(location.search.indexOf('envoye=1')>-1){cfShowOk();}
 </script>
 
 <script src="nav.js" defer></script>
