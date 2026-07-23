@@ -101,6 +101,22 @@
   footer.ft a{color:#7fd4ff}
   footer.ft nav a{display:block;color:#a9c0dc;padding:3px 0}footer.ft nav a:hover{color:#fff}
   footer.ft .legal{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;color:#6f89aa;font-size:12.5px}
+  .cform{max-width:540px;margin:34px auto 0;text-align:left}
+  .cform .cf-row{display:flex;gap:14px;flex-wrap:wrap}
+  .cform .cf-row .cf-field{flex:1;min-width:190px}
+  .cf-field{display:block;margin-bottom:16px}
+  .cf-field>span{display:block;font-family:'Poppins';font-weight:600;font-size:14px;color:#dbe7f7;margin-bottom:6px}
+  .cf-field em{font-weight:400;font-style:normal;color:#9fb6d6}
+  .cf-field input,.cf-field textarea{width:100%;padding:13px 15px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;font-family:'Inter',sans-serif;font-size:15px;transition:border-color .2s,background .2s}
+  .cf-field input::placeholder,.cf-field textarea::placeholder{color:#7f97b6}
+  .cf-field input:focus,.cf-field textarea:focus{outline:none;border-color:var(--cyan);background:rgba(255,255,255,.1)}
+  .cform textarea{resize:vertical;min-height:58px}
+  .cform .btn{width:100%;justify-content:center;margin-top:4px}
+  .cf-hp{position:absolute;left:-5000px;height:0;overflow:hidden}
+  .cf-ok{max-width:540px;margin:34px auto 0;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.45);border-radius:14px;padding:22px 24px;color:#eaf6ff;font-size:16px;line-height:1.6}
+  .cf-ok strong{font-family:'Poppins';color:#fff}
+  .cf-fallback{margin-top:22px;color:#c4d4ea;font-size:15px}
+  .cf-fallback a{color:#7fd4ff;font-weight:600;white-space:nowrap}
   [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
   [data-reveal].in{opacity:1;transform:none}
   .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
@@ -346,8 +362,32 @@
   <div class="wrap">
     <h2 data-reveal>Parlons de votre projet</h2>
     <p data-reveal class="d1">Dites-moi votre activité et ce dont vous avez besoin — je vous réponds avec un devis gratuit et sans engagement.</p>
-    <a class="btn btn-primary" data-reveal style="transition-delay:.16s" href="mailto:contact@ecd-digital.com?subject=Demande%20de%20devis">✉️ Demander un devis gratuit</a>
-    <div class="tel" data-reveal style="transition-delay:.24s">📞 06 76 68 34 93</div>
+
+    <!-- Formulaire Netlify Forms : name="contact" + honeypot "bot-field". Les leads arrivent dans l'onglet Forms de Netlify. -->
+    <!-- ⚠️ À FAIRE PAR LOUIS-KRISTY : activer la notification email du formulaire (Netlify → Forms → Form notifications → contact@ecd-digital.com). -->
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="cform" id="cform" data-reveal style="transition-delay:.16s">
+      <input type="hidden" name="form-name" value="contact">
+      <p class="cf-hp"><label>À laisser vide <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <div class="cf-row">
+        <label class="cf-field"><span>Nom</span>
+          <input type="text" name="nom" required autocomplete="name" placeholder="Votre nom"></label>
+        <label class="cf-field"><span>Téléphone</span>
+          <input type="tel" name="telephone" required autocomplete="tel" placeholder="06 12 34 56 78"></label>
+      </div>
+      <label class="cf-field"><span>Email <em>(facultatif)</em></span>
+        <input type="email" name="email" autocomplete="email" placeholder="vous@exemple.fr"></label>
+      <label class="cf-field"><span>Votre besoin en une ligne</span>
+        <textarea name="besoin" rows="2" required placeholder="Ex. : un site pour mon salon de coiffure à Bègles"></textarea></label>
+      <button type="submit" class="btn btn-primary">Envoyer ma demande</button>
+    </form>
+
+    <div class="cf-ok" id="cform-ok" hidden data-reveal>
+      <strong>Merci, j'ai bien reçu votre demande.</strong><br>Je vous réponds sous 24 h, au téléphone ou par email.
+    </div>
+
+    <p class="cf-fallback" data-reveal style="transition-delay:.24s">Vous préférez un contact direct&nbsp;?
+      <a href="tel:+33676683493">📞 06 76 68 34 93</a> ·
+      <a href="mailto:contact@ecd-digital.com?subject=Demande%20de%20devis">✉️ contact@ecd-digital.com</a></p>
   </div>
 </section>
 
@@ -374,7 +414,11 @@
       </nav>
       <div style="max-width:280px">
         <strong style="color:#fff;font-family:'Poppins'">Contact</strong>
-        <p style="margin-top:8px">📞 06 76 68 34 93<br><a href="mailto:contact@ecd-digital.com">contact@ecd-digital.com</a></p>
+        <p style="margin-top:8px">📞 <a href="tel:+33676683493">06 76 68 34 93</a><br><a href="mailto:contact@ecd-digital.com">contact@ecd-digital.com</a></p>
+        <p style="margin-top:10px">
+          <a href="https://instagram.com/ebrange_creation_digital" target="_blank" rel="noopener">Instagram</a>
+          <!-- TODO : ajouter le lien de la page Facebook « Ébrange » une fois l'URL connue (ne pas l'inventer). -->
+        </p>
       </div>
     </div>
     <div class="legal">
@@ -388,6 +432,16 @@
   var nav=document.getElementById('nav');var s=function(){nav.classList.toggle('scrolled',window.scrollY>40)};s();addEventListener('scroll',s,{passive:true});
   var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
   document.querySelectorAll('[data-reveal]').forEach(function(el){io.observe(el)});
+  /* Formulaire de contact : envoi en AJAX vers Netlify Forms, puis message de confirmation.
+     Si le fetch échoue, on laisse le navigateur poster le formulaire normalement (le lead est quand même capturé). */
+  var cf=document.getElementById('cform');
+  if(cf){cf.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var body=new URLSearchParams(new FormData(cf)).toString();
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body})
+      .then(function(){cf.hidden=true;var ok=document.getElementById('cform-ok');ok.hidden=false;ok.classList.add('in');})
+      .catch(function(){cf.submit();});
+  });}
 </script>
 
 <script src="nav.js" defer></script>
