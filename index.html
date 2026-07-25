@@ -94,6 +94,16 @@
   .final h2{color:#fff;font-size:clamp(26px,4vw,40px);margin-bottom:14px}
   .final p{color:#c4d4ea;font-size:18px;max-width:560px;margin:0 auto 20px}
   .final .tel{font-family:'Poppins';font-weight:700;font-size:20px;color:#fff;margin-top:18px}
+  .audit{position:relative;background:linear-gradient(180deg,#f5f8fd,#eef4fb);overflow:hidden}
+  .audit .wrap{position:relative;z-index:2}
+  .audit-box{background:#fff;border:1px solid #e7eef7;border-radius:20px;box-shadow:0 18px 40px rgba(15,42,74,.1);padding:36px 34px;position:relative;overflow:hidden;display:flex;flex-wrap:wrap;align-items:center;gap:30px;justify-content:space-between}
+  .audit-box::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad)}
+  .audit-txt{flex:1 1 320px;min-width:280px}
+  .audit .a-tag{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#22c55e,#16a34a);padding:7px 16px;border-radius:100px;font-size:12.5px;font-weight:700;font-family:'Poppins';color:#fff;margin-bottom:16px;box-shadow:0 8px 20px rgba(34,197,94,.32)}
+  .audit h2{font-size:clamp(24px,3.6vw,34px);margin-bottom:12px}
+  .audit p{color:var(--muted);font-size:17px;max-width:560px;margin:0}
+  .audit-cta{flex:0 0 auto}
+  @media(max-width:640px){.audit-box{padding:28px 22px}.audit-cta{flex-basis:100%}.audit-cta .btn{width:100%;justify-content:center}}
   footer.ft{background:#081a30;color:#a9c0dc;padding:44px 0 30px;font-size:13.5px;line-height:1.7}
   footer.ft .cols{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;margin-bottom:26px}
   footer.ft .fbrand{font-family:'Poppins';font-weight:800;font-size:20px;color:#fff}
@@ -218,6 +228,7 @@
       <a href="guides.html">Guides</a>
       <a href="blog.html">Blog</a>
       <a href="offres.html">Offres</a>
+      <a href="https://audit.ecd-digital.com" target="_blank" rel="noopener">Audit gratuit</a>
       <a class="cta-mini" href="#contact">Contact</a>
     </div>
   </div>
@@ -245,6 +256,21 @@
     <div data-reveal class="d3"><b>Gratuit</b><span>devis sans engagement</span></div>
   </div>
 </div>
+
+<section class="audit" id="audit">
+  <div class="wrap">
+    <div class="audit-box" data-reveal>
+      <div class="audit-txt">
+        <span class="a-tag">Gratuit · sans inscription · 20 secondes</span>
+        <h2>Votre commerce est-il visible en ligne&nbsp;?</h2>
+        <p>Entrez l'adresse de votre site. Vous voyez tout de suite ce qu'un client trouve sur son téléphone&nbsp;: l'affichage mobile, le cadenas de sécurité, votre fiche Google, vos avis et le moyen de vous joindre. Aucune inscription, le résultat s'affiche en 20 secondes.</p>
+      </div>
+      <div class="audit-cta">
+        <a class="btn btn-primary" href="https://audit.ecd-digital.com" target="_blank" rel="noopener">🔍 Faire mon audit gratuit</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="services">
   <div class="wrap">
