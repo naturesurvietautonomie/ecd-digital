@@ -117,6 +117,13 @@
           padding:10px 16px; border-radius:4px; font-variant-numeric:tabular-nums; }
   a.tel:hover { border-color:var(--accent); color:var(--accent); }
 
+  .smsrow { display:flex; flex-wrap:wrap; gap:8px; margin:2px 0 4px; }
+  .sms-btn { display:inline-flex; align-items:center; gap:7px; text-decoration:none;
+             background:var(--accent); border-color:var(--accent); color:var(--panel); }
+  .sms-btn:hover { border-color:var(--accent); color:var(--panel); opacity:.92; }
+  .smshint { font-family:var(--data); font-size:11px; color:var(--faint);
+             margin-top:6px; word-break:break-all; line-height:1.5; }
+
   .angle { background:var(--ground); border-radius:4px; padding:12px 14px; margin-bottom:14px; }
   .lbl { font-family:var(--data); font-size:10px; letter-spacing:.08em; text-transform:uppercase;
          color:var(--faint); font-weight:700; margin-bottom:7px; }
@@ -352,6 +359,47 @@
   var STL = {}; ST.forEach(function (s) { STL[s.v] = s.l; });
   var ORDRE = ["Lun 20/07","Mar 21/07","Mer 22/07","Jeu 23/07","Ven 24/07","Lun 27/07 — rappels"];
 
+  // ---- audits dédiés : correspondance nom du prospect -> slug de l'image ----
+  // Le nom Airtable est normalisé (minuscules, sans accents ni ponctuation) puis
+  // comparé au fragment « k ». Un prospect sans correspondance reçoit le lien générique.
+  var AUDITS = [
+    { k:"sauveur",    slug:"le-sauveur" },   // Le Sauveur
+    { k:"jps",        slug:"jps" },          // Jps Coiffeur
+    { k:"teppanyaki", slug:"teppanyaki" },   // Teppanyaki Yu
+    { k:"fournil",    slug:"fournil" },      // Le Fournil de Belcier
+    { k:"cless",      slug:"garage-cless" }, // Garage Cless
+    { k:"mifasi",     slug:"la-mi-fa-sol" }, // La Mi Fa Si La Do Ré
+    { k:"piscine",    slug:"la-piscine" },   // La Piscine
+    { k:"petitsalon", slug:"petit-salon" },  // Le Petit Salon de Beauté
+    { k:"unicut",     slug:"unicut" },       // Unicut521
+    { k:"univhair",   slug:"univhair" }      // L'Univ'Hair de Yoelis
+  ];
+  function normNom(s) {
+    return (s || "").toLowerCase()
+      .normalize("NFD").replace(/[̀-ͯ]/g, "")
+      .replace(/[^a-z0-9]/g, "");
+  }
+  function lienAudit(nom) {
+    var n = normNom(nom);
+    for (var i = 0; i < AUDITS.length; i++) {
+      if (n.indexOf(AUDITS[i].k) >= 0) {
+        return { url: "https://audit.ecd-digital.com/audits/" + AUDITS[i].slug + ".png", dedie: true };
+      }
+    }
+    return { url: "https://audit.ecd-digital.com", dedie: false };
+  }
+  function messageSms(a, audit) {
+    if (audit.dedie) {
+      return "Bonjour, Louis d'Ébrange (Bègles). Comme promis, je vous ai préparé une petite page pour "
+        + a.nom + " : ce qu'un client voit de votre commerce en ligne, en une image. "
+        + "C'est cadeau, sans engagement — " + audit.url + ". "
+        + "Si un point vous parle, on s'en dit deux mots quand vous voulez.";
+    }
+    return "Bonjour, Louis d'Ébrange (Bègles). En une image, voyez ce qu'un client voit de votre "
+      + "commerce en ligne — c'est gratuit et sans engagement : " + audit.url + ". "
+      + "Si un point vous parle, on s'en dit deux mots quand vous voulez.";
+  }
+
   var code = "";
   try { code = sessionStorage.getItem("ecd-code") || ""; } catch (e) {}
   var appels = [];
@@ -478,6 +526,42 @@
       lien.textContent = "📞 " + fmt(a.tel);
       b.appendChild(lien);
     }
+
+    // ---- SMS pré-rempli + lien de l'audit ----
+    var audit = lienAudit(a.nom);
+    var msg = messageSms(a, audit);
+    var num = a.tel ? (a.tel[0] === "+" ? a.tel : "+33" + a.tel.slice(1)) : "";
+
+    var lsms = document.createElement("div");
+    lsms.className = "lbl2"; lsms.textContent = "L'audit + le SMS";
+    b.appendChild(lsms);
+
+    var srow = document.createElement("div");
+    srow.className = "smsrow";
+
+    var sa = document.createElement("a");
+    sa.className = "btn sms-btn";
+    // ?&body= : forme qui marche à la fois sur iOS et Android
+    sa.href = "sms:" + num + "?&body=" + encodeURIComponent(msg);
+    sa.textContent = "📩 SMS + audit";
+    srow.appendChild(sa);
+
+    var scopy = document.createElement("button");
+    scopy.className = "btn"; scopy.type = "button"; scopy.textContent = "Copier le message";
+    scopy.addEventListener("click", function () {
+      navigator.clipboard.writeText(msg).then(
+        function () { toast("Message copié"); },
+        function () { toast("Copie impossible — sélectionne le texte à la main"); }
+      );
+    });
+    srow.appendChild(scopy);
+    b.appendChild(srow);
+
+    var shint = document.createElement("div");
+    shint.className = "smshint";
+    shint.textContent = (audit.dedie ? "Audit dédié : " : "Lien générique : ") + audit.url
+      + (num ? "" : " · numéro absent : choisis le contact dans l'appli SMS");
+    b.appendChild(shint);
 
     var acc = ACC[a.secteur] || DEFAUT;
     var ang = document.createElement("div");
