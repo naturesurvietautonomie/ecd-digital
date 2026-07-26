@@ -558,11 +558,43 @@
       );
     });
     srow.appendChild(scopy);
+
+    // ---- bouton DM (Instagram / Facebook) quand le canal est un DM ----
+    // On se base sur le canal Airtable (insensible à la casse) et sur le handle/lien
+    // « Réseau / lien ». Le DM devient l'action principale quand il n'y a pas de mobile.
+    var canalLc = (a.canal || "").toLowerCase();
+    var reseau = (a.reseau || "").trim();
+    var estInsta = canalLc.indexOf("instagram") >= 0 || reseau.charAt(0) === "@";
+    var estFb = canalLc.indexOf("facebook") >= 0;
+
+    if (estInsta && reseau) {
+      var handle = reseau.replace(/@/g, "").replace(/\s+/g, "");
+      if (handle) {
+        var dmi = document.createElement("a");
+        dmi.className = "btn sms-btn";
+        dmi.href = "https://instagram.com/" + handle;
+        dmi.target = "_blank"; dmi.rel = "noopener";
+        dmi.textContent = "📸 DM Instagram";
+        srow.appendChild(dmi);
+      }
+    } else if (estFb && reseau) {
+      var fburl = (reseau.indexOf("facebook.com") >= 0 || reseau.indexOf("/") >= 0)
+        ? "https://" + reseau.replace(/^https?:\/\//, "")
+        : "https://www.facebook.com/search/top?q=" + encodeURIComponent(reseau);
+      var dmf = document.createElement("a");
+      dmf.className = "btn sms-btn";
+      dmf.href = fburl;
+      dmf.target = "_blank"; dmf.rel = "noopener";
+      dmf.textContent = "📘 DM Facebook";
+      srow.appendChild(dmf);
+    }
+
     b.appendChild(srow);
 
     var shint = document.createElement("div");
     shint.className = "smshint";
     shint.textContent = (audit.dedie ? "Audit dédié : " : "Lien générique : ") + audit.url
+      + (reseau ? " · DM : " + reseau : "")
       + (num ? "" : " · numéro absent : choisis le contact dans l'appli SMS");
     b.appendChild(shint);
 

@@ -90,6 +90,8 @@ export default async (req) => {
         sms: !!f["SMS envoyé"],
         rappel: f["Prochaine relance"] || "",
         notes: f["Notes"] || "",
+        canal: f["Canal"] || "",
+        reseau: f["Réseau / lien"] || "",
       };
     });
 
