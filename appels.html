@@ -357,7 +357,10 @@
     {v:"non",       l:"Pas intéressé"}
   ];
   var STL = {}; ST.forEach(function (s) { STL[s.v] = s.l; });
-  var ORDRE = ["Lun 20/07","Mar 21/07","Mer 22/07","Jeu 23/07","Ven 24/07","Lun 27/07 — rappels"];
+  // Les jours d'appel sont lus DIRECTEMENT depuis Airtable (plus de liste codée en dur
+  // par mois : quand on replanifie, la page suit toute seule).
+  function jourKey(j){ var m=(j||"").match(/(\d{2})\/(\d{2})/); return m ? (+m[2])*100 + (+m[1]) : 9999; }
+  function joursPresents(list){ var s={}; list.forEach(function(a){ if(a.jour) s[a.jour]=1; }); return Object.keys(s).sort(function(x,y){ return jourKey(x)-jourKey(y); }); }
 
   // ---- audits dédiés : correspondance nom du prospect -> slug de l'image ----
   // Le nom Airtable est normalisé (minuscules, sans accents ni ponctuation) puis
@@ -436,11 +439,11 @@
     sync("chargement…");
     var data = await api("GET");
     appels = data.appels.sort(function (a, b) {
-      var d = ORDRE.indexOf(a.jour) - ORDRE.indexOf(b.jour);
+      var d = jourKey(a.jour) - jourKey(b.jour);
       return d !== 0 ? d : (a.heure || "").localeCompare(b.heure || "", "fr", { numeric: true });
     });
     if (!openJour) {
-      var jours = ORDRE.filter(function (j) { return appels.some(function (a) { return a.jour === j; }); });
+      var jours = joursPresents(appels);
       openJour = jours[0] || null;
     }
     render();
@@ -461,7 +464,7 @@
   }
 
   function render() {
-    var jours = ORDRE.filter(function (j) { return appels.some(function (a) { return a.jour === j; }); });
+    var jours = joursPresents(appels);
 
     $("days").innerHTML = "";
     jours.forEach(function (j) {
@@ -470,7 +473,7 @@
       var b = document.createElement("button");
       b.className = "day-btn"; b.type = "button";
       b.setAttribute("aria-pressed", String(j === openJour));
-      b.innerHTML = j.replace("/07", "") + ' <span class="n">' + faits + "/" + duJour.length + "</span>";
+      b.innerHTML = j.replace(/\/\d\d/, "") + ' <span class="n">' + faits + "/" + duJour.length + "</span>";
       b.addEventListener("click", function () { openJour = j; render(); });
       $("days").appendChild(b);
     });
