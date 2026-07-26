@@ -37,6 +37,12 @@
   .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(47,123,214,.45)}
   .btn-primary::before{content:"";position:absolute;top:0;left:-120%;width:70%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:left .6s}
   .btn-primary:hover::before{left:140%}
+  .btn-pay{display:inline-flex;align-items:center;justify-content:center;gap:7px;font-family:'Poppins';font-weight:600;font-size:13.5px;line-height:1.2;padding:9px 16px;border-radius:10px;border:1.5px solid #d5e1f0;background:#fff;color:var(--blue);cursor:pointer;transition:border-color .2s,background .2s,transform .2s;text-decoration:none}
+  .btn-pay:hover{border-color:var(--blue);background:#f4f9fe;transform:translateY(-1px)}
+  .btn-pay .lock{font-size:12px;opacity:.7}
+  .pay-row{margin-top:16px}
+  .pay-row.push{margin-top:auto;padding-top:16px}
+  .pay-note{margin-top:26px;font-size:14px;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:10px}
   .head{position:relative;background:var(--navy);color:#fff;padding:150px 0 80px;overflow:hidden}
   .head::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 380px at 20% 10%,rgba(79,70,229,.5),transparent 60%),radial-gradient(600px 400px at 85% 20%,rgba(6,182,212,.45),transparent 60%)}
   .head .wrap{position:relative;z-index:2;max-width:720px}
@@ -183,6 +189,7 @@
           <li>Mise en ligne comprise</li>
         </ul>
         <div class="pour">Idéal : food-truck, indépendant, activité sur les marchés</div>
+        <div class="pay-row"><a class="btn-pay" href="https://buy.stripe.com/28EbITbn5gAF8fp03scfN2x" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Payer en ligne</a></div>
       </div>
       <div class="offer featured d1" data-reveal>
         <span class="ribbon">Le + choisi</span>
@@ -196,6 +203,7 @@
           <li>Liens vers vos réseaux sociaux</li>
         </ul>
         <div class="pour">Idéal : salon de coiffure, restaurant, artisan, boutique</div>
+        <div class="pay-row"><a class="btn-pay" href="https://buy.stripe.com/cNi7sD76PachfHRdUicfN2z" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Payer en ligne</a></div>
       </div>
       <div class="offer d2" data-reveal>
         <h3>✨ Premium</h3>
@@ -208,9 +216,11 @@
           <li>Référencement local renforcé</li>
         </ul>
         <div class="pour">Idéal : institut de beauté, restaurant avec réservation, PME</div>
+        <div class="pay-row"><a class="btn-pay" href="https://buy.stripe.com/5kQ14faj1ach53d4jIcfN2A" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Payer en ligne</a></div>
       </div>
     </div>
-    <p style="margin-top:30px" data-reveal><a class="btn btn-primary" href="offres.html">Voir le détail &amp; les options (boutique dès 2 400 €, logo, textes…)</a></p>
+    <p class="pay-note" data-reveal>Besoin de vendre vos produits en ligne&nbsp;? La boutique e-commerce démarre à 2 400 €. <a class="btn-pay" href="https://buy.stripe.com/7sY6ozbn50BH3Z9aI6cfN2B" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Boutique en ligne — 2 400 €</a></p>
+    <p style="margin-top:22px" data-reveal><a class="btn btn-primary" href="offres.html">Voir le détail &amp; les options (boutique dès 2 400 €, logo, textes…)</a></p>
   </div>
 </section>
 

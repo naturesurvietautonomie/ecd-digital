@@ -37,6 +37,13 @@
   .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(47,123,214,.45)}
   .btn-primary::before{content:"";position:absolute;top:0;left:-120%;width:70%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:left .6s}
   .btn-primary:hover::before{left:140%}
+  .btn-pay{display:inline-flex;align-items:center;justify-content:center;gap:7px;font-family:'Poppins';font-weight:600;font-size:13.5px;line-height:1.2;padding:9px 16px;border-radius:10px;border:1.5px solid #d5e1f0;background:#fff;color:var(--blue);cursor:pointer;transition:border-color .2s,background .2s,transform .2s;text-decoration:none}
+  .btn-pay:hover{border-color:var(--blue);background:#f4f9fe;transform:translateY(-1px)}
+  .btn-pay .lock{font-size:12px;opacity:.7}
+  .pay-row{margin-top:16px}
+  .pay-row.push{margin-top:auto;padding-top:16px}
+  .pay-note{margin-top:22px;font-size:13.5px;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+  td .btn-pay{margin-top:8px}
   .head{position:relative;background:var(--navy);color:#fff;padding:150px 0 72px;overflow:hidden;text-align:center}
   .head::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 380px at 20% 10%,rgba(79,70,229,.5),transparent 60%),radial-gradient(600px 400px at 85% 20%,rgba(6,182,212,.45),transparent 60%)}
   .head .wrap{position:relative;z-index:2}
@@ -373,6 +380,7 @@
           <li>Mise en ligne comprise</li>
         </ul>
         <div class="pour">Idéal : food-truck, indépendant, activité sur les marchés</div>
+        <div class="pay-row"><a class="btn-pay" href="https://buy.stripe.com/28EbITbn5gAF8fp03scfN2x" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Payer en ligne</a></div>
       </div>
       <div class="offer featured d1" data-reveal>
         <span class="ribbon">Le + choisi</span>
@@ -386,6 +394,7 @@
           <li>Liens vers vos réseaux sociaux</li>
         </ul>
         <div class="pour">Idéal : salon de coiffure, restaurant, artisan, boutique</div>
+        <div class="pay-row"><a class="btn-pay" href="https://buy.stripe.com/cNi7sD76PachfHRdUicfN2z" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Payer en ligne</a></div>
       </div>
       <div class="offer d2" data-reveal>
         <h3>✨ Premium</h3>
@@ -398,6 +407,7 @@
           <li>Référencement local renforcé</li>
         </ul>
         <div class="pour">Idéal : institut de beauté, restaurant avec réservation, PME</div>
+        <div class="pay-row"><a class="btn-pay" href="https://buy.stripe.com/5kQ14faj1ach53d4jIcfN2A" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Payer en ligne</a></div>
       </div>
     </div>
 
@@ -405,7 +415,7 @@
       <table>
         <thead><tr><th>Options création</th><th style="text-align:right">Tarif</th></tr></thead>
         <tbody>
-          <tr><td>Boutique en ligne (vente de produits, paiement sécurisé)</td><td class="p">à partir de 2 400 €</td></tr>
+          <tr><td>Boutique en ligne (vente de produits, paiement sécurisé)<br><a class="btn-pay" href="https://buy.stripe.com/7sY6ozbn50BH3Z9aI6cfN2B" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Payer la base en ligne — 2 400 €</a></td><td class="p">à partir de 2 400 €</td></tr>
           <tr><td>Page supplémentaire</td><td class="p">120 €</td></tr>
           <tr><td>Rédaction des textes de votre site</td><td class="p">80 € / page</td></tr>
           <tr><td>Création de logo simple + couleurs de votre marque</td><td class="p">350 €</td></tr>
@@ -431,6 +441,7 @@
           <li>Adresse email pro (contact@votrenom.fr)</li>
           <li>Sauvegarde mensuelle</li>
         </ul>
+        <div class="pay-row push"><a class="btn-pay" href="https://buy.stripe.com/5kQdR1fDl4RXgLVeYmcfN2F" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler l'abonnement</a></div>
       </div>
       <div class="offer featured d1" data-reveal>
         <span class="ribbon">Recommandé</span>
@@ -443,6 +454,7 @@
           <li>Assistance par email sous 48 h</li>
           <li>Sauvegarde hebdomadaire</li>
         </ul>
+        <div class="pay-row push"><a class="btn-pay" href="https://buy.stripe.com/8x24gr62LckpdzJdUicfN2G" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler l'abonnement</a></div>
       </div>
       <div class="offer d2" data-reveal>
         <h3>⭐ Tranquillité totale</h3>
@@ -454,6 +466,7 @@
           <li>Assistance prioritaire sous 24 h</li>
           <li>Mise à jour de votre fiche Google incluse</li>
         </ul>
+        <div class="pay-row push"><a class="btn-pay" href="https://buy.stripe.com/28E8wHezhdoteDN17wcfN2H" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler l'abonnement</a></div>
       </div>
     </div>
   </div>
@@ -468,10 +481,10 @@
       <table>
         <thead><tr><th>Prestation</th><th>Ce que ça vous apporte</th><th style="text-align:right">Tarif</th></tr></thead>
         <tbody>
-          <tr><td><strong>Fiche Google Business optimisée</strong></td><td class="desc">Apparaître sur Google Maps et dans « près de moi » : photos, horaires, réponses aux avis, mots-clés locaux</td><td class="p">240 € une fois</td></tr>
-          <tr><td><strong>Pack visibilité locale</strong></td><td class="desc">Fiche Google + inscription dans les annuaires qui comptent + optimisation « métier + ville »</td><td class="p">490 € une fois</td></tr>
+          <tr><td><strong>Fiche Google Business optimisée</strong><br><a class="btn-pay" href="https://buy.stripe.com/7sY8wH1MvbgleDNaI6cfN2v" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Payer en ligne</a></td><td class="desc">Apparaître sur Google Maps et dans « près de moi » : photos, horaires, réponses aux avis, mots-clés locaux</td><td class="p">240 € une fois</td></tr>
+          <tr><td><strong>Pack visibilité locale</strong><br><a class="btn-pay" href="https://buy.stripe.com/aFa28jdvd849anx17wcfN2w" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Payer en ligne</a></td><td class="desc">Fiche Google + inscription dans les annuaires qui comptent + optimisation « métier + ville »</td><td class="p">490 € une fois</td></tr>
           <tr><td><strong>Lancement réseaux sociaux</strong></td><td class="desc">Création / mise au propre de vos pages Facebook &amp; Instagram, photo de profil, présentation, premiers visuels</td><td class="p">290 € une fois</td></tr>
-          <tr><td><strong>Animation réseaux sociaux</strong></td><td class="desc">8 publications par mois préparées pour vous (visuels + textes), calendrier de publication</td><td class="p">350 € / mois</td></tr>
+          <tr><td><strong>Animation réseaux sociaux</strong><br><a class="btn-pay" href="https://buy.stripe.com/9B65kv4YH7050MX8zYcfN2E" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler l'abonnement</a></td><td class="desc">8 publications par mois préparées pour vous (visuels + textes), calendrier de publication</td><td class="p">350 € / mois</td></tr>
           <tr><td><strong>Publicité locale Google / Facebook</strong></td><td class="desc">Campagne ciblée sur votre ville et vos clients types ; vous fixez le budget (dès 5 €/jour)</td><td class="p">150 € / mois<br>+ budget pub</td></tr>
           <tr><td><strong>Newsletter clients</strong></td><td class="desc">Mise en place + 1 email par mois à vos clients (promotions, nouveautés, fidélisation)</td><td class="p">190 €<br>+ 90 € / mois</td></tr>
         </tbody>
@@ -508,6 +521,7 @@
           <li>Garde-fous : les actions sensibles demandent votre accord</li>
         </ul>
         <div class="pour">Idéal : automatiser une tâche précise et répétitive</div>
+        <div class="pay-row"><a class="btn-pay" href="https://buy.stripe.com/fZu28jbn598dcvF3fEcfN2y" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler la base — 690 €</a></div>
       </div>
       <div class="offer featured d1" data-reveal>
         <span class="ribbon">Le + choisi</span>
@@ -520,6 +534,7 @@
           <li>Respect de la confidentialité (aucune donnée en dur)</li>
         </ul>
         <div class="pour">Idéal : automatiser tout un pôle (marketing, SAV…)</div>
+        <div class="pay-row"><a class="btn-pay" href="https://buy.stripe.com/5kQ14f2Qz1FLcvF7vUcfN2D" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler la base — 1 490 €</a></div>
       </div>
       <div class="offer d2" data-reveal>
         <h3>🚀 Système complet</h3>
@@ -541,7 +556,7 @@
           <tr><td>Assistant unique (1 agent + mode d'emploi + prise en main)</td><td class="p">690 €</td></tr>
           <tr><td>Petite équipe IA (2 à 4 agents)</td><td class="p">1 490 €</td></tr>
           <tr><td>Système complet sur mesure</td><td class="p">sur devis, dès 2 900 €</td></tr>
-          <tr><td>Maintenance &amp; évolutions</td><td class="p">dès 49 € / mois</td></tr>
+          <tr><td>Maintenance &amp; évolutions<br><a class="btn-pay" href="https://buy.stripe.com/8x24gr62LckpdzJdUicfN2G" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler l'abonnement</a></td><td class="p">dès 49 € / mois</td></tr>
         </tbody>
       </table>
     </div>
@@ -569,6 +584,7 @@
           <li>Prise en main + mode d'emploi</li>
         </ul>
         <div class="pour">Idéal : suivre ses demandes sans y passer du temps</div>
+        <div class="pay-row"><a class="btn-pay" href="https://buy.stripe.com/fZu28jbn598dcvF3fEcfN2y" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler la base — 690 €</a></div>
       </div>
       <div class="offer featured d1" data-reveal>
         <span class="ribbon">Le + choisi</span>
@@ -581,6 +597,7 @@
           <li>Rappels de rendez-vous + 1 mois d'ajustements offert</li>
         </ul>
         <div class="pour">Idéal : relancer, fidéliser et récolter des avis sans y penser</div>
+        <div class="pay-row"><a class="btn-pay" href="https://buy.stripe.com/5kQ14f2Qz1FLcvF7vUcfN2D" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler la base — 1 490 €</a></div>
       </div>
       <div class="offer d2" data-reveal>
         <h3>🛠️ Pack Tout connecté</h3>
@@ -602,7 +619,7 @@
           <tr><td>Pack Essentiel (fichier + capture + réponse auto)</td><td class="p">690 €</td></tr>
           <tr><td>Pack Pro (relances, avis, rappels, tableau de bord)</td><td class="p">1 490 €</td></tr>
           <tr><td>Pack Tout connecté (site, fichier, e-mail, facturation reliés)</td><td class="p">sur devis, dès 2 900 €</td></tr>
-          <tr><td>Abonnement maintenance &amp; pilotage</td><td class="p">dès 49 € / mois</td></tr>
+          <tr><td>Abonnement maintenance &amp; pilotage<br><a class="btn-pay" href="https://buy.stripe.com/8x24gr62LckpdzJdUicfN2G" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler l'abonnement</a></td><td class="p">dès 49 € / mois</td></tr>
         </tbody>
       </table>
     </div>

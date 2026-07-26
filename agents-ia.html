@@ -37,6 +37,12 @@
   .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(47,123,214,.45)}
   .btn-primary::before{content:"";position:absolute;top:0;left:-120%;width:70%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:left .6s}
   .btn-primary:hover::before{left:140%}
+  .btn-pay{display:inline-flex;align-items:center;justify-content:center;gap:7px;font-family:'Poppins';font-weight:600;font-size:13.5px;line-height:1.2;padding:9px 16px;border-radius:10px;border:1.5px solid #d5e1f0;background:#fff;color:var(--blue);cursor:pointer;transition:border-color .2s,background .2s,transform .2s;text-decoration:none}
+  .btn-pay:hover{border-color:var(--blue);background:#f4f9fe;transform:translateY(-1px)}
+  .btn-pay .lock{font-size:12px;opacity:.7}
+  .pay-row{margin-top:16px}
+  .pay-row.push{margin-top:auto;padding-top:16px}
+  td .btn-pay{margin-top:8px}
   .head{position:relative;background:var(--navy);color:#fff;padding:150px 0 80px;overflow:hidden}
   .head::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 380px at 20% 10%,rgba(79,70,229,.5),transparent 60%),radial-gradient(600px 400px at 85% 20%,rgba(6,182,212,.45),transparent 60%)}
   .head .wrap{position:relative;z-index:2;max-width:720px}
@@ -261,12 +267,14 @@
         <h3>🎯 Assistant unique</h3>
         <div class="prix">dès 690 €<small>clé en main · paiement unique*</small></div>
         <p>Un agent très soigné pour un usage précis : SAV, prise de rendez-vous, rédaction, veille… Livré avec documentation et prise en main.</p>
+        <div class="pay-row push"><a class="btn-pay" href="https://buy.stripe.com/fZu28jbn598dcvF3fEcfN2y" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler la base — 690 €</a></div>
       </div>
       <div class="format featured d1" data-reveal>
         <span class="ribbon">Le + choisi</span>
         <h3>👥 Petite équipe IA</h3>
         <div class="prix">dès 1 490 €<small>2 à 4 agents + orchestrateur</small></div>
         <p>Pour automatiser tout un pôle (marketing, SAV…) : plusieurs agents spécialisés coordonnés, doc complète et prise en main.</p>
+        <div class="pay-row push"><a class="btn-pay" href="https://buy.stripe.com/5kQ14f2Qz1FLcvF7vUcfN2D" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler la base — 1 490 €</a></div>
       </div>
       <div class="format d2" data-reveal>
         <h3>🚀 Système complet</h3>
@@ -290,7 +298,7 @@
           <tr><td><strong>Assistant unique</strong></td><td class="desc">Un besoin précis, un seul usage — 1 agent + doc + prise en main</td><td class="p">690 €</td></tr>
           <tr><td><strong>Petite équipe IA (2-4 agents)</strong></td><td class="desc">Automatiser un pôle — agents spécialisés + orchestrateur + doc + prise en main</td><td class="p">1 490 €</td></tr>
           <tr><td><strong>Système complet sur mesure</strong></td><td class="desc">Un vrai « service » automatisé — 5+ agents, application dédiée, doc complète</td><td class="p">sur devis, dès 2 900 €</td></tr>
-          <tr><td><strong>Maintenance &amp; évolutions</strong></td><td class="desc">Garder le système à jour — ajustements, ajout d'agents, support</td><td class="p">dès 49 € / mois</td></tr>
+          <tr><td><strong>Maintenance &amp; évolutions</strong><br><a class="btn-pay" href="https://buy.stripe.com/8x24gr62LckpdzJdUicfN2G" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler l'abonnement</a></td><td class="desc">Garder le système à jour — ajustements, ajout d'agents, support</td><td class="p">dès 49 € / mois</td></tr>
         </tbody>
       </table>
     </div>

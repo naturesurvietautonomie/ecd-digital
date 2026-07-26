@@ -37,6 +37,12 @@
   .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(47,123,214,.45)}
   .btn-primary::before{content:"";position:absolute;top:0;left:-120%;width:70%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:left .6s}
   .btn-primary:hover::before{left:140%}
+  .btn-pay{display:inline-flex;align-items:center;justify-content:center;gap:7px;font-family:'Poppins';font-weight:600;font-size:13.5px;line-height:1.2;padding:9px 16px;border-radius:10px;border:1.5px solid #d5e1f0;background:#fff;color:var(--blue);cursor:pointer;transition:border-color .2s,background .2s,transform .2s;text-decoration:none}
+  .btn-pay:hover{border-color:var(--blue);background:#f4f9fe;transform:translateY(-1px)}
+  .btn-pay .lock{font-size:12px;opacity:.7}
+  .pay-row{margin-top:16px}
+  .pay-row.push{margin-top:auto;padding-top:16px}
+  td .btn-pay,.step .btn-pay{margin-top:10px}
   .head{position:relative;background:var(--navy);color:#fff;padding:150px 0 80px;overflow:hidden}
   .head::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 380px at 20% 10%,rgba(79,70,229,.5),transparent 60%),radial-gradient(600px 400px at 85% 20%,rgba(6,182,212,.45),transparent 60%)}
   .head .wrap{position:relative;z-index:2;max-width:720px}
@@ -285,6 +291,7 @@
           <li>1 e-mail de réponse automatique (« Merci, nous revenons vers vous sous 24 h »)</li>
           <li>Prise en main + mode d'emploi</li>
         </ul>
+        <div class="pay-row push"><a class="btn-pay" href="https://buy.stripe.com/fZu28jbn598dcvF3fEcfN2y" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler la base — 690 €</a></div>
       </div>
       <div class="format featured d1" data-reveal>
         <span class="ribbon">Le + choisi</span>
@@ -298,6 +305,7 @@
           <li>Demande d'avis automatique (Google / réseaux) au bon moment</li>
           <li>Rappels de rendez-vous (client + vous) + 1 mois d'ajustements offert</li>
         </ul>
+        <div class="pay-row push"><a class="btn-pay" href="https://buy.stripe.com/5kQ14f2Qz1FLcvF7vUcfN2D" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler la base — 1 490 €</a></div>
       </div>
       <div class="format d2" data-reveal>
         <h3>🛠️ Pack Tout connecté</h3>
@@ -340,8 +348,8 @@
       <table>
         <thead><tr><th>Abonnement maintenance &amp; pilotage</th><th>Pour qui</th><th style="text-align:right">Tarif</th></tr></thead>
         <tbody>
-          <tr><td><strong>Pilotage</strong> ⭐</td><td class="desc">La plupart des clients — surveillance, correction des pannes, assistance e-mail, ajustements (30 min/mois) et support sous 48 h</td><td class="p">49 € / mois</td></tr>
-          <tr><td><strong>Pilotage +</strong></td><td class="desc">Systèmes riches — tout « Pilotage » + 1 h de modifs/mois + optimisation + rapport mensuel</td><td class="p">89 € / mois</td></tr>
+          <tr><td><strong>Pilotage</strong> ⭐<br><a class="btn-pay" href="https://buy.stripe.com/8x24gr62LckpdzJdUicfN2G" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler l'abonnement</a></td><td class="desc">La plupart des clients — surveillance, correction des pannes, assistance e-mail, ajustements (30 min/mois) et support sous 48 h</td><td class="p">49 € / mois</td></tr>
+          <tr><td><strong>Pilotage +</strong><br><a class="btn-pay" href="https://buy.stripe.com/28E8wHezhdoteDN17wcfN2H" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler l'abonnement</a></td><td class="desc">Systèmes riches — tout « Pilotage » + 1 h de modifs/mois + optimisation + rapport mensuel</td><td class="p">89 € / mois</td></tr>
         </tbody>
       </table>
     </div>
@@ -388,6 +396,7 @@
       <div class="step d1" data-reveal>
         <div class="num">2</div><h3>Audit d'automatisation — 90 €, déduit</h3>
         <p>Un vrai livrable : la cartographie de vos tâches automatisables, le temps gagné estimé et un plan chiffré priorisé. Si vous commandez un pack, les 90 € sont déduits à 100 % du devis.</p>
+        <a class="btn-pay" href="https://buy.stripe.com/7sYdR176PfwBanx2bAcfN2C" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Payer l'audit en ligne — 90 €</a>
       </div>
       <div class="step d2" data-reveal>
         <div class="num">3</div><h3>Mise en place &amp; prise en main</h3>
