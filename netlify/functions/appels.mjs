@@ -10,6 +10,8 @@
 //   AIRTABLE_TABLE  tblzQE71NvfzRuVfZ
 //   APPELS_CODE     le code que tu tapes sur la page (choisis-le, ne le partage pas)
 
+import crypto from "node:crypto";
+
 const API = "https://api.airtable.com/v0";
 
 // Ce que la page envoie  →  ce qui est écrit dans Airtable
@@ -46,10 +48,14 @@ export default async (req) => {
     return json({ error: "Configuration incomplète côté Netlify." }, 500);
   }
 
-  // Le code d'accès est comparé à longueur constante-ish : on refuse tout ce qui
-  // ne correspond pas exactement, sans dire ce qui cloche.
+  // Code d'accès : comparaison à temps constant + ralentissement de 700 ms sur
+  // échec. Le délai ne gêne pas l'usage normal mais casse net une force brute.
   const code = req.headers.get("x-ecd-code") || "";
-  if (code !== APPELS_CODE) {
+  const a = Buffer.from(String(code));
+  const b = Buffer.from(String(APPELS_CODE));
+  const codeOk = a.length === b.length && crypto.timingSafeEqual(a, b);
+  if (!codeOk) {
+    await new Promise((r) => setTimeout(r, 700));
     return json({ error: "Code refusé." }, 401);
   }
 

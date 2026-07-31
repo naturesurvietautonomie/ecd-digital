@@ -14,6 +14,13 @@
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), browsing-topics=()"
+    Cross-Origin-Opener-Policy = "same-origin"
+    # CSP en Report-Only : elle SURVEILLE les violations sans jamais bloquer l'affichage.
+    # Vérifier la console (aucun « Content Security Policy » bloquant) puis, si propre,
+    # renommer cet en-tête en "Content-Security-Policy" pour l'appliquer réellement.
+    Content-Security-Policy-Report-Only = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; base-uri 'self'"
 
 # La page des appels contient la prospection : elle ne doit jamais être indexée,
 # ni mise en cache par un intermédiaire.
