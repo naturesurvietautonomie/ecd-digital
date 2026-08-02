@@ -349,6 +349,44 @@
     "Marlhiac Paysagiste": "Même cas que Julien Peyré : son business.site a été fermé par Google. Il a eu un site, il n'en a plus."
   };
 
+  // ---- SMS de suivi par métier : à copier/envoyer APRÈS l'appel ----
+  // .no = on n'a pas décroché · .oui = on lui a parlé. Jamais de vocal : SMS sous 5 min.
+  var SMSUIVI = {
+    "Coiffure": {
+      no:"Bonjour, Louis-Kristy d'Ébrange (je suis de Bègles). Je viens de vous appeler : je crée des sites avec prise de rendez-vous en ligne pour les salons du coin. Rien d'urgent, je peux vous montrer un exemple si ça vous parle. 06 76 68 34 93 — STOP pour ne plus recevoir de message.",
+      oui:"Merci pour l'échange ! Comme dit, je vous prépare un exemple de page salon avec réservation en ligne, je vous l'envoie très vite. Belle journée. Louis-Kristy, Ébrange." },
+    "Boulangerie": {
+      no:"Bonjour, Louis-Kristy d'Ébrange, un voisin (Bègles). Je vous ai appelé au sujet d'une petite vitrine en ligne (horaires, spécialités) pour votre boulangerie. Je peux vous montrer un exemple, sans engagement. 06 76 68 34 93 — STOP pour arrêter.",
+      oui:"Merci du temps accordé ! Je vous prépare un exemple de vitrine avec vos horaires et vos produits, je reviens vers vous vite. Louis-Kristy, Ébrange." },
+    "Restauration & Food": {
+      no:"Bonjour, Louis-Kristy d'Ébrange (Bègles). Je vous ai appelé : je fais des sites où vos clients voient la carte et commandent en direct, sans commission de plateforme. Je vous montre un exemple si vous voulez. 06 76 68 34 93 — STOP pour arrêter.",
+      oui:"Merci pour l'échange ! Je vous prépare un exemple avec votre carte en ligne et les infos pratiques, je vous envoie ça rapidement. Louis-Kristy, Ébrange." },
+    "Caviste": {
+      no:"Bonjour, Louis-Kristy d'Ébrange, du coin (Bègles). Je vous ai appelé au sujet d'une vitrine en ligne pour votre sélection et vos conseils. Un exemple simple à vous montrer, sans engagement. 06 76 68 34 93 — STOP pour arrêter.",
+      oui:"Merci pour l'échange ! Je vous prépare un exemple de page « nos vins du moment », je vous l'envoie vite. Louis-Kristy, Ébrange." },
+    "Fleuriste": {
+      no:"Bonjour, Louis-Kristy d'Ébrange (Bègles). Je vous ai appelé : je monte des pages qui mettent en valeur vos compositions du moment. Je peux vous montrer un exemple si ça vous tente. 06 76 68 34 93 — STOP pour arrêter.",
+      oui:"Merci du temps accordé ! Je vous prépare un exemple qui met vos créations en avant, je reviens vers vous vite. Louis-Kristy, Ébrange." },
+    "BTP": {
+      no:"Bonjour, Louis-Kristy d'Ébrange, un voisin (Bègles). Je vous ai appelé : je fais des sites qui vous rendent faciles à trouver sur Google, avec un formulaire de demande de devis. Un exemple si ça vous parle. 06 76 68 34 93 — STOP pour arrêter.",
+      oui:"Merci pour l'échange ! Je vous prépare un exemple avec vos prestations et une demande de devis en ligne, je vous envoie ça vite. Louis-Kristy, Ébrange." },
+    "Artisan": {
+      no:"Bonjour, Louis-Kristy d'Ébrange (Bègles). Je vous ai appelé : je crée des sites qui mettent en avant vos avis et vos avant/après, avec une demande de devis en ligne. Un exemple si vous voulez. 06 76 68 34 93 — STOP pour arrêter.",
+      oui:"Merci du temps accordé ! Je vous prépare un exemple avec galerie avant/après et demande de devis, je reviens vite vers vous. Louis-Kristy, Ébrange." },
+    "Beauté & Bien-être": {
+      no:"Bonjour, Louis-Kristy d'Ébrange, du coin (Bègles). Je vous ai appelé au sujet d'une page où vos clientes voient vos soins, vos tarifs et réservent en ligne. Un exemple simple à montrer. 06 76 68 34 93 — STOP pour arrêter.",
+      oui:"Merci pour l'échange ! Je vous prépare un exemple avec vos soins, vos tarifs et la réservation, je vous l'envoie vite. Louis-Kristy, Ébrange." },
+    "Beauté & Onglerie": {
+      no:"Bonjour, Louis-Kristy d'Ébrange, du coin (Bègles). Je vous ai appelé au sujet d'une page où vos clientes voient vos prestations, vos tarifs et réservent en ligne. Un exemple simple à montrer. 06 76 68 34 93 — STOP pour arrêter.",
+      oui:"Merci pour l'échange ! Je vous prépare un exemple avec vos prestations, vos tarifs et la réservation, je vous l'envoie vite. Louis-Kristy, Ébrange." },
+    "Commerce de proximité": {
+      no:"Bonjour, Louis-Kristy d'Ébrange (Bègles). Je vous ai appelé : je fais une page simple avec vos produits, vos horaires et de quoi vous joindre. Je peux vous montrer un exemple. 06 76 68 34 93 — STOP pour arrêter.",
+      oui:"Merci du temps accordé ! Je vous prépare un exemple avec vos produits et vos horaires, je reviens vers vous vite. Louis-Kristy, Ébrange." }
+  };
+  var SMSDEF = {
+    no:"Bonjour, Louis-Kristy d'Ébrange (Bègles). Je vous ai appelé au sujet de votre présence en ligne — je crée des sites pour les pros du coin. Je peux vous montrer un exemple, sans engagement. 06 76 68 34 93 — STOP pour arrêter.",
+    oui:"Merci pour l'échange ! Je vous prépare l'exemple dont on a parlé, je reviens vers vous très vite. Louis-Kristy, Ébrange." };
+
   var ST = [
     {v:"parle",     l:"Je lui ai parlé"},
     {v:"rdv",       l:"Devis à envoyer"},
@@ -597,6 +635,41 @@
       + (reseau ? " · DM : " + reseau : "")
       + (num ? "" : " · numéro absent : choisis le contact dans l'appli SMS");
     b.appendChild(shint);
+
+    // ---- SMS de suivi par métier : à copier/envoyer APRÈS l'appel ----
+    var suivi = SMSUIVI[a.secteur] || SMSDEF;
+    var lsuivi = document.createElement("div");
+    lsuivi.className = "lbl2"; lsuivi.textContent = "SMS de suivi — après l'appel (sous 5 min, jamais de vocal)";
+    b.appendChild(lsuivi);
+
+    [["☎️ Pas décroché", suivi.no], ["🗣️ Je lui ai parlé", suivi.oui]].forEach(function (pair) {
+      var box = document.createElement("div");
+      box.className = "angle";
+      var titre = document.createElement("div");
+      titre.className = "lbl"; titre.textContent = pair[0];
+      box.appendChild(titre);
+      var txt = document.createElement("p");
+      txt.style.fontSize = "14px"; txt.textContent = pair[1];
+      box.appendChild(txt);
+      var brow = document.createElement("div");
+      brow.className = "smsrow";
+      var env = document.createElement("a");
+      env.className = "btn sms-btn";
+      env.href = "sms:" + num + "?&body=" + encodeURIComponent(pair[1]);
+      env.textContent = "📩 Envoyer";
+      brow.appendChild(env);
+      var cop = document.createElement("button");
+      cop.className = "btn"; cop.type = "button"; cop.textContent = "Copier";
+      cop.addEventListener("click", function () {
+        navigator.clipboard.writeText(pair[1]).then(
+          function () { toast("SMS copié"); },
+          function () { toast("Copie impossible — sélectionne le texte à la main"); }
+        );
+      });
+      brow.appendChild(cop);
+      box.appendChild(brow);
+      b.appendChild(box);
+    });
 
     var acc = ACC[a.secteur] || DEFAUT;
     var ang = document.createElement("div");
