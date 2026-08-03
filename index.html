@@ -5,11 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Création de site internet à Bordeaux | Ébrange</title>
-<meta name="description" content="Ébrange crée le site de votre commerce à Bordeaux, l'héberge et vous amène des clients du coin. Site dès 632 €. Devis gratuit, réponse sous 48 h.">
+<meta name="description" content="Ébrange crée le site de votre commerce à Bordeaux, l'héberge et vous amène des clients du coin. Site dès 632 €. Devis gratuit, réponse sous 24 h.">
 <meta property="og:title" content="Création de site internet à Bordeaux | Ébrange">
 <meta property="og:description" content="Le site web de votre commerce : création, hébergement et clients locaux. Pour les commerçants, artisans et indépendants. Site dès 632 €.">
 <meta property="og:url" content="https://ecd-digital.com/">
 <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ébrange Création Digital">
+  <meta property="og:locale" content="fr_FR">
 <meta property="og:image" content="https://ecd-digital.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -50,16 +52,25 @@
   .micro{font-size:13px;color:var(--muted);margin-top:12px;display:flex;flex-wrap:wrap;gap:6px 14px}
   .micro span{display:inline-flex;align-items:center;gap:6px}
   .micro span::before{content:"✓";color:var(--teal);font-weight:800}
+  /* ---------------------------------------------------------------------
+     FOND DU HERO — deux variantes d'éclaircissement, une seule ligne à changer.
+     Variante A (active par défaut) : éclaircissement léger.
+     Variante B (un cran plus clair) : ajouter class="hero-clair-plus" sur <html>.
+     --hero-fog est relu par la scène 3D pour que le brouillard colle au fond.
+     Ne PAS remettre de voile opaque par-dessus : ça masque les cubes.
+     ------------------------------------------------------------------- */
+  :root{--hero-base:#0e1c34;--hero-a1:.30;--hero-a2:.36;--hero-a3:.28;--hero-fog:#0e1c34}
+  html.hero-clair-plus{--hero-base:#17294a;--hero-a1:.32;--hero-a2:.38;--hero-a3:.30;--hero-fog:#17294a}
   .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 0 70px;overflow:hidden;background:
-    radial-gradient(900px 640px at 82% 20%,rgba(56,189,248,.30),transparent 60%),
-    radial-gradient(820px 620px at 10% 26%,rgba(79,70,229,.36),transparent 60%),
-    radial-gradient(900px 620px at 62% 100%,rgba(47,123,214,.28),transparent 62%),
-    #050b18}
+    radial-gradient(900px 640px at 82% 20%,rgba(56,189,248,var(--hero-a1)),transparent 60%),
+    radial-gradient(820px 620px at 10% 26%,rgba(79,70,229,var(--hero-a2)),transparent 60%),
+    radial-gradient(900px 620px at 62% 100%,rgba(47,123,214,var(--hero-a3)),transparent 62%),
+    var(--hero-base)}
   .hero,.hero h1,.hero .sub{color:#fff}
   #scene{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;touch-action:pan-y;pointer-events:auto;background:transparent!important;border:0;outline:0;box-shadow:none}
   :root.panel-open #scene{pointer-events:none}
   .hero-veil{display:none}
-  .hero>.wrap{position:relative;z-index:2;display:grid;grid-template-columns:minmax(220px,.82fr) 1.7fr minmax(220px,.82fr);align-items:center;gap:24px;width:100%;max-width:1340px;pointer-events:none}
+  .hero>.wrap{position:relative;z-index:2;display:grid;grid-template-columns:minmax(200px,.74fr) 2.15fr minmax(200px,.74fr);align-items:center;gap:20px;width:100%;max-width:1400px;pointer-events:none}
   .hero-side{display:flex;flex-direction:column;gap:14px;max-width:330px}
   .hero-left{text-align:left;align-items:flex-start}
   .hero-right{text-align:right;align-items:flex-end;justify-self:end}
@@ -67,7 +78,8 @@
   .hero-side .badge{margin:0}
   .hero-side h1{margin:0}
   .hero-side .sub{margin:0}
-  .hero-cubezone{position:relative;width:100%;height:clamp(440px,66vh,720px);pointer-events:auto}
+  /* Zone du cube : plus grande = étiquettes des offres plus grandes à l'écran. */
+  .hero-cubezone{position:relative;width:100%;height:clamp(500px,76vh,800px);pointer-events:auto}
   .hero-cubezone #scene{position:absolute;inset:0;background:transparent}
   .hero-right .hero-cta{justify-content:flex-end;flex-wrap:wrap}
   .hero-right .micro{justify-content:flex-end}
@@ -82,20 +94,29 @@
   .hero-hint .pulse{width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 0 rgba(56,189,248,.6);animation:pulse 1.9s infinite}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(56,189,248,.55)}70%{box-shadow:0 0 0 12px rgba(56,189,248,0)}100%{box-shadow:0 0 0 0 rgba(56,189,248,0)}}
   .hero-stage{position:relative;min-height:0}
-  .cube-grid{display:none;grid-template-columns:repeat(3,1fr);gap:14px;width:100%;max-width:430px;margin:0 auto}
+  /* Repli sans WebGL : mêmes exigences de lisibilité que les cubes 3D
+     (texte plus grand + voile sombre local au bas de chaque case pour le contraste). */
+  .cube-grid{display:none;grid-template-columns:repeat(3,1fr);gap:16px;width:100%;max-width:580px;margin:0 auto}
   .cube-grid.on{display:grid}
-  .cube-cell{position:relative;aspect-ratio:1/1;border-radius:20px;display:flex;flex-direction:column;justify-content:flex-end;padding:13px 14px;color:#fff;text-decoration:none;overflow:hidden;pointer-events:auto;box-shadow:0 14px 30px rgba(3,10,24,.42),inset 0 1px 0 rgba(255,255,255,.25);transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s}
+  .cube-cell{position:relative;aspect-ratio:1/1;border-radius:20px;display:flex;flex-direction:column;justify-content:flex-end;padding:14px 15px;color:#fff;text-decoration:none;overflow:hidden;pointer-events:auto;box-shadow:0 14px 30px rgba(3,10,24,.42),inset 0 1px 0 rgba(255,255,255,.25);transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s}
   .cube-cell::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 25% 15%,rgba(255,255,255,.42),transparent 55%);mix-blend-mode:screen;opacity:.7}
+  .cube-cell::after{content:"";position:absolute;left:0;right:0;bottom:0;height:66%;z-index:1;background:linear-gradient(to top,rgba(4,11,24,.66),rgba(4,11,24,.28) 55%,rgba(4,11,24,0))}
   .cube-cell:hover,.cube-cell:focus-visible{transform:translateY(-6px) scale(1.05);box-shadow:0 22px 44px rgba(3,10,24,.5),0 0 30px rgba(56,189,248,.35);outline:none}
-  .cube-cell .cc-name{position:relative;font-family:'Poppins';font-weight:700;font-size:13px;line-height:1.18;text-shadow:0 1px 8px rgba(0,0,0,.35)}
-  .cube-cell .cc-price{position:relative;font-size:10.5px;font-weight:500;opacity:.92;margin-top:3px;text-shadow:0 1px 6px rgba(0,0,0,.35)}
-  .fallback-note{display:none;text-align:center;font-size:12.5px;color:#9fb6d6;margin-top:16px}
+  .cube-cell .cc-name{position:relative;z-index:2;font-family:'Poppins';font-weight:700;font-size:clamp(13.5px,3.4vw,17.5px);line-height:1.2;text-shadow:0 2px 10px rgba(0,0,0,.55);hyphens:auto;overflow-wrap:anywhere}
+  .cube-cell .cc-price{position:relative;z-index:2;font-size:clamp(12px,2.9vw,14px);font-weight:600;opacity:.95;margin-top:4px;text-shadow:0 2px 8px rgba(0,0,0,.55)}
+  .fallback-note{display:none;text-align:center;font-size:13.5px;color:#b3c7e2;margin-top:16px}
+  /* Sans WebGL (classe posée par le script) : la grille 3x3 prend la place du cube,
+     au centre — sinon elle atterrit dans une colonne latérale et le texte déborde. */
+  html.no3d .hero-cubezone{display:none}
+  html.no3d .hero-left{grid-column:1;grid-row:1}
+  html.no3d .hero-stage{grid-column:2;grid-row:1;align-self:center}
+  html.no3d .hero-right{grid-column:3;grid-row:1}
   .fallback-note.on{display:block}
   .scroll-cue{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.6);font-size:24px;animation:bob 1.8s infinite;pointer-events:auto}
   @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
-  .cube-tip{position:fixed;z-index:250;pointer-events:none;transform:translate(-50%,-140%) scale(.9);background:linear-gradient(135deg,rgba(18,35,63,.96),rgba(10,20,40,.96));border:1px solid rgba(120,180,255,.32);color:#eaf1fb;font-family:'Poppins';font-weight:600;font-size:13px;padding:8px 13px;border-radius:11px;white-space:nowrap;box-shadow:0 14px 34px rgba(0,0,0,.5),0 0 22px rgba(56,189,248,.18);opacity:0;transition:opacity .18s,transform .18s}
+  .cube-tip{position:fixed;z-index:250;pointer-events:none;transform:translate(-50%,-140%) scale(.9);background:linear-gradient(135deg,rgba(18,35,63,.96),rgba(10,20,40,.96));border:1px solid rgba(120,180,255,.32);color:#fff;font-family:'Poppins';font-weight:700;font-size:15.5px;padding:10px 16px;border-radius:12px;white-space:nowrap;box-shadow:0 14px 34px rgba(0,0,0,.5),0 0 22px rgba(56,189,248,.18);opacity:0;transition:opacity .18s,transform .18s}
   .cube-tip.on{opacity:1;transform:translate(-50%,-160%) scale(1)}
-  .cube-tip small{display:block;font-family:'Inter';font-weight:400;font-size:11px;color:#9fc4ec;margin-top:2px}
+  .cube-tip small{display:block;font-family:'Inter';font-weight:500;font-size:12.5px;color:#a8cff5;margin-top:3px}
   .offer-backdrop{position:fixed;inset:0;z-index:300;background:rgba(4,10,22,.5);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
   .offer-backdrop.show{opacity:1;visibility:visible}
   .offer-panel{position:fixed;z-index:301;top:50%;left:50%;width:min(470px,92vw);transform:translate(-50%,-50%) scale(.28);opacity:0;visibility:hidden;transform-origin:center center;transition:transform .55s cubic-bezier(.18,1.3,.32,1),opacity .4s,visibility .55s;background:linear-gradient(158deg,rgba(19,37,66,.97),rgba(9,18,37,.98));border:1px solid rgba(120,180,255,.24);border-radius:24px;box-shadow:0 44px 130px rgba(0,0,0,.62),0 0 70px rgba(56,189,248,.14);padding:36px 34px;color:#eaf1fb}
@@ -186,15 +207,19 @@
   [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
   [data-reveal].in{opacity:1;transform:none}
   .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
-  @media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none}.scroll-cue,.hero-hint .pulse{animation:none}.cube-cell{transition:none}#scene{display:none!important}.cube-grid{display:grid!important}.fallback-note{display:block!important}}
+  @media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none}.scroll-cue,.hero-hint .pulse{animation:none}.cube-cell{transition:none}#scene{display:none!important}.hero-cubezone{display:none}.cube-grid{display:grid!important}.fallback-note{display:block!important}}
   /* Tablette : 2 cartes par ligne, la 5e centrée */
   @media(max-width:900px){.grid.svc{grid-template-columns:repeat(4,1fr)}.grid.svc>.card:nth-child(4){grid-column:auto/span 2}.grid.svc>.card:nth-child(5){grid-column:2/span 2}
     .hero>.wrap{grid-template-columns:minmax(0,1fr);gap:22px}
     .hero-left,.hero-right{text-align:center;align-items:center}
     .hero-right .hero-cta,.hero-right .micro{justify-content:center}
-    .hero-cubezone{height:clamp(300px,42vh,460px);order:2}
+    /* Mobile : la zone est cadrée par sa largeur — inutile de la faire plus haute
+       que large, ça n'agrandit pas les cubes et ça repousse les boutons. */
+    .hero-cubezone{height:clamp(280px,min(100vw,52vh),520px);order:2}
     .hero-left{order:1}.hero-right{order:3}
     .hero-stage{order:4;min-height:0}
+    html.no3d .hero-left,html.no3d .hero-stage,html.no3d .hero-right{grid-column:1;grid-row:auto}
+    html.no3d .hero-stage{order:2}
     .hero-hint{max-width:100%;white-space:normal;line-height:1.4}}
   @media(max-width:640px){.links{display:none}
     .grid.svc{grid-template-columns:1fr}
@@ -317,7 +342,7 @@
         <a class="btn btn-ghost" href="#audit">Faire mon audit gratuit</a>
       </div>
       <div class="micro d3" data-reveal>
-        <span>Réponse sous 48 h</span><span>Sans engagement</span><span>Vous restez propriétaire</span>
+        <span>Réponse sous 24 h</span><span>Sans engagement</span><span>Vous restez propriétaire</span>
       </div>
       <div data-reveal class="d4"><span class="hero-hint"><span class="pulse"></span>↓ Cliquez un cube pour ouvrir une offre</span></div>
     </div>
@@ -326,11 +351,11 @@
       <!-- Repli sans WebGL / reduced-motion : la grille 3x3 du logo, chaque case ouvre une offre. -->
       <div class="cube-grid" id="cubeGrid" role="list" aria-label="Nos offres (grille du logo)">
         <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#3a89e0,#2f7bd6)" href="sites.html"><span class="cc-name">Sites web</span><span class="cc-price">dès 632 €</span></a>
-        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#2fd8ba,#1FC7A9)" href="marketing.html"><span class="cc-name">Marketing / Fiche Google</span><span class="cc-price">dès 240 €</span></a>
+        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#2fd8ba,#1FC7A9)" href="marketing.html"><span class="cc-name">Marketing / Fiche Google</span><span class="cc-price">240 €</span></a>
         <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#3a89e0,#2f7bd6)" href="agents-ia.html"><span class="cc-name">Agents IA</span><span class="cc-price">dès 690 €</span></a>
-        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#2fd8ba,#1FC7A9)" href="automatisations.html"><span class="cc-name">Automatisations</span><span class="cc-price">dès 690 €</span></a>
+        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#2fd8ba,#1FC7A9)" href="automatisations.html"><span class="cc-name">Automa&shy;tisations</span><span class="cc-price">dès 690 €</span></a>
         <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#5cc9ff,#38bdf8)" href="https://audit.ecd-digital.com" target="_blank" rel="noopener"><span class="cc-name">Audit gratuit</span><span class="cc-price">20 secondes</span></a>
-        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#d8b45f,#C9A24B)" href="realisations.html"><span class="cc-name">Réalisations</span><span class="cc-price">nos sites réels</span></a>
+        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#d8b45f,#C9A24B)" href="realisations.html"><span class="cc-name">Réalisa&shy;tions</span><span class="cc-price">nos sites réels</span></a>
         <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#3a89e0,#2f7bd6)" href="guides.html"><span class="cc-name">Guides PDF</span><span class="cc-price">27 €</span></a>
         <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#d8b45f,#C9A24B)" href="blog.html"><span class="cc-name">Blog</span><span class="cc-price">16 articles</span></a>
         <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#3a89e0,#2f7bd6)" href="offres.html"><span class="cc-name">Offres &amp; tarifs</span><span class="cc-price">devis gratuit</span></a>
@@ -358,8 +383,9 @@
   <div class="wrap">
     <div data-reveal><b>−20 %</b><span>offre de lancement</span></div>
     <div data-reveal class="d1"><b>dès 632 €</b><span>votre site en ligne</span></div>
-    <div data-reveal class="d2"><b>dès 19 €/mois</b><span>hébergement &amp; maintenance</span></div>
-    <div data-reveal class="d3"><b>Gratuit</b><span>devis sans engagement</span></div>
+    <div data-reveal class="d2"><b>dès 690 €</b><span>agent IA ou automatisation</span></div>
+    <div data-reveal class="d3"><b>dès 19 €/mois</b><span>hébergement &amp; maintenance</span></div>
+    <div data-reveal class="d4"><b>Gratuit</b><span>devis sans engagement</span></div>
   </div>
 </div>
 
@@ -391,28 +417,28 @@
         <a class="go" href="sites.html">Découvrir les formules</a>
       </div>
       <div class="card d1" data-reveal>
+        <div class="ico">🤖</div><h3>Agents IA</h3>
+        <p>Un assistant qui lit les demandes de vos clients — questions, devis, avis Google — et rédige la réponse à votre place. Il travaille aussi la nuit. Le matin, vous relisez et vous envoyez.</p>
+        <div class="pp">Dès 690 € · cadrage gratuit</div>
+        <a class="go" href="agents-ia.html">Découvrir</a>
+      </div>
+      <div class="card d2" data-reveal>
+        <div class="ico">⚙️</div><h3>Automatisations</h3>
+        <p>Fichier client, relances de devis, rappels de rendez-vous et demandes d'avis : vos tâches répétitives tournent toutes seules et vos outils se parlent enfin.</p>
+        <div class="pp">Dès 690 € · mini-diagnostic gratuit</div>
+        <a class="go" href="automatisations.html">Découvrir</a>
+      </div>
+      <div class="card d3" data-reveal>
         <div class="ico">🔒</div><h3>Hébergement &amp; maintenance</h3>
         <p>On héberge, sécurise, sauvegarde et met à jour votre site. Nom de domaine et email pro inclus — vous n'avez rien à gérer.</p>
         <div class="pp">Dès 19 €/mois</div>
         <a class="go" href="offres.html">Voir les formules</a>
       </div>
-      <div class="card d2" data-reveal>
+      <div class="card d4" data-reveal>
         <div class="ico">📈</div><h3>Marketing digital local</h3>
         <p>Fiche Google, réseaux sociaux, publicité locale et newsletter : on vous rend visible et on amène les clients de votre ville jusqu'à vous.</p>
         <div class="pp">Fiche Google 240 € · à la carte, sans engagement</div>
         <a class="go" href="marketing.html">Découvrir</a>
-      </div>
-      <div class="card d3" data-reveal>
-        <div class="ico">⚙️</div><h3>Automatisations sur mesure</h3>
-        <p>Fichier client, relances de devis, rappels de rendez-vous et demandes d'avis : vos tâches répétitives tournent toutes seules et vos outils se parlent enfin.</p>
-        <div class="pp">Dès 690 € · mini-diagnostic gratuit</div>
-        <a class="go" href="automatisations.html">Découvrir</a>
-      </div>
-      <div class="card d4" data-reveal>
-        <div class="ico">🤖</div><h3>Agents IA</h3>
-        <p>Un assistant qui lit les demandes de vos clients — questions, devis, avis Google — et rédige la réponse à votre place. Il travaille aussi la nuit. Le matin, vous relisez et vous envoyez.</p>
-        <div class="pp">Dès 690 € · cadrage gratuit</div>
-        <a class="go" href="agents-ia.html">Découvrir</a>
       </div>
     </div>
   </div>
@@ -461,7 +487,32 @@
   </div>
 </section>
 
-<section id="offres">
+<!-- Agents IA & automatisations : placés AVANT les formules de site.
+     Marge forte, aucun coût récurrent — ils méritent la même visibilité que les sites. -->
+<section id="ia-auto">
+  <div class="wrap">
+    <div class="sec-tag" data-reveal>Dès 690 €</div>
+    <h2 class="title" data-reveal>Agents IA et automatisations : reprenez du temps</h2>
+    <p class="lead" data-reveal>Vous répondez aux mêmes messages, vous relancez les devis à la main, vous oubliez de demander les avis. On installe les outils qui font ça pour vous — et vous gardez toujours le dernier mot.</p>
+    <div class="grid">
+      <div class="card" data-reveal>
+        <div class="ico">🤖</div><h3>Agents IA</h3>
+        <p>Un assistant lit les messages de vos clients — une question, un devis, un avis Google — et prépare la réponse à votre place, même la nuit. Le matin, vous relisez et vous envoyez.</p>
+        <div class="pp">Dès 690 € · cadrage gratuit</div>
+        <a class="go" href="agents-ia.html">Voir les 3 formules</a>
+      </div>
+      <div class="card d1" data-reveal>
+        <div class="ico">⚙️</div><h3>Automatisations</h3>
+        <p>Une demande de devis arrive pendant que vous êtes sur un chantier&nbsp;? Elle tombe dans votre fichier client et reçoit une réponse tout de suite. Les relances, les rappels de rendez-vous et les demandes d'avis partent sans que vous y pensiez.</p>
+        <div class="pp">Dès 690 € · mini-diagnostic gratuit</div>
+        <a class="go" href="automatisations.html">Voir les 3 packs</a>
+      </div>
+    </div>
+    <p style="margin-top:32px" data-reveal><a class="btn btn-primary" href="#contact">Demander un diagnostic gratuit</a></p>
+  </div>
+</section>
+
+<section class="alt" id="offres">
   <div class="wrap">
     <div class="sec-tag" data-reveal>Nos offres</div>
     <h2 class="title" data-reveal>Un site professionnel dès 632 €</h2>
@@ -469,47 +520,27 @@
     <div class="grid">
       <div class="card" data-reveal>
         <h3>🌱 Essentiel</h3>
-        <div class="pp" style="font-size:28px;color:var(--blue);margin-top:6px">632 €<span style="font-size:13px;color:var(--muted);font-weight:400"> · au lieu de 790 €</span></div>
+        <div class="pp" style="font-size:28px;color:var(--blue);margin-top:6px">632 €</div>
         <p style="margin-top:10px">Site une page élégant, adapté mobile, bouton d'appel + Google Maps, formulaire de contact.</p>
         <a class="go" href="offres.html">Voir le détail</a>
       </div>
       <div class="card d1" data-reveal style="border:2px solid #3182ce">
         <h3>🏪 Commerce &amp; Artisan</h3>
-        <div class="pp" style="font-size:28px;color:var(--blue);margin-top:6px">1 192 €<span style="font-size:13px;color:var(--muted);font-weight:400"> · au lieu de 1 490 €</span></div>
+        <div class="pp" style="font-size:28px;color:var(--blue);margin-top:6px">1 192 €</div>
         <p style="margin-top:10px">Site 5-6 pages, référencement Google local, galerie de réalisations, liens réseaux sociaux.</p>
         <a class="go" href="offres.html">Voir le détail</a>
       </div>
       <div class="card d2" data-reveal>
         <h3>✨ Premium</h3>
-        <div class="pp" style="font-size:28px;color:var(--blue);margin-top:6px">1 592 €<span style="font-size:13px;color:var(--muted);font-weight:400"> · au lieu de 1 990 €</span></div>
+        <div class="pp" style="font-size:28px;color:var(--blue);margin-top:6px">1 592 €</div>
         <p style="margin-top:10px">Site 10+ pages sur mesure, prise de rendez-vous / réservation en ligne, blog, SEO local renforcé.</p>
         <a class="go" href="offres.html">Voir le détail</a>
       </div>
     </div>
-    <p style="margin-top:32px" data-reveal><a class="btn btn-primary" href="offres.html">Voir toutes les offres &amp; tarifs</a></p>
-  </div>
-</section>
-
-<section class="alt" id="ia-auto">
-  <div class="wrap">
-    <div class="sec-tag" data-reveal>À forte valeur</div>
-    <h2 class="title" data-reveal>Agents IA et automatisations : reprenez du temps</h2>
-    <p class="lead" data-reveal>Vous répondez aux mêmes messages, vous relancez les devis à la main, vous oubliez de demander les avis. On installe les outils qui font ça pour vous — et vous gardez toujours le dernier mot.</p>
-    <div class="grid">
-      <div class="card" data-reveal>
-        <div class="ico">⚙️</div><h3>Automatisations</h3>
-        <p>Une demande de devis arrive pendant que vous êtes sur un chantier&nbsp;? Elle tombe dans votre fichier client et reçoit une réponse tout de suite. Les relances, les rappels de rendez-vous et les demandes d'avis partent sans que vous y pensiez.</p>
-        <div class="pp">Dès 690 € · mini-diagnostic gratuit</div>
-        <a class="go" href="automatisations.html">Voir les 3 packs</a>
-      </div>
-      <div class="card d1" data-reveal>
-        <div class="ico">🤖</div><h3>Agents IA</h3>
-        <p>Un assistant lit les messages de vos clients — une question, un devis, un avis Google — et prépare la réponse à votre place, même la nuit. Le matin, vous relisez et vous envoyez.</p>
-        <div class="pp">Dès 690 € · cadrage gratuit</div>
-        <a class="go" href="agents-ia.html">Voir les 3 formules</a>
-      </div>
-    </div>
-    <p style="margin-top:32px" data-reveal><a class="btn btn-primary" href="#contact">Demander un diagnostic gratuit</a></p>
+    <p style="margin-top:32px;display:flex;flex-wrap:wrap;gap:14px" data-reveal>
+      <a class="btn btn-primary" href="offres.html">Voir toutes les offres &amp; tarifs</a>
+      <a class="btn btn-primary" href="#ia-auto" style="background:linear-gradient(135deg,#0f766e,#1FC7A9);box-shadow:0 10px 24px rgba(31,199,169,.32)">Agents IA &amp; automatisations dès 690 €</a>
+    </p>
   </div>
 </section>
 
@@ -573,12 +604,11 @@
         <p style="margin-top:8px">📞 <a href="tel:+33676683493">06 76 68 34 93</a><br><a href="mailto:contact@ecd-digital.com">contact@ecd-digital.com</a></p>
         <p style="margin-top:10px">
           <a href="https://instagram.com/ebrange_creation_digital" target="_blank" rel="noopener">Instagram</a>
-          <!-- TODO : ajouter le lien de la page Facebook « Ébrange » une fois l'URL connue (ne pas l'inventer). -->
         </p>
       </div>
     </div>
     <div class="legal">
-      <strong>Ébrange Création Digital</strong> — SAS à associé unique au capital de 100&nbsp;€ · RCS Paris 105 870 315 · SIREN 105 870 315 · EUID EUIDFR7501.105870315<br>
+      <strong>Ébrange Création Digital</strong> — SAS à associé unique au capital de 100&nbsp;€ · RCS Paris 105 870 315 · SIREN 105 870 315 · EUID : FR7501.105870315<br>
       Siège social : 47 rue Vivienne, 75002 Paris. Entreprise immatriculée au RCS de Paris le 4 juin 2026. © 2026 — Tous droits réservés.
     </div>
   </div>
@@ -633,31 +663,31 @@
 const OFFERS = [
   {kicker:'Sites web', label:'Sites web', title:'Création de sites web',
    desc:"Site vitrine ou boutique, élégant et adapté au mobile, avec votre nom de domaine et votre email pro. Vous validez la maquette avant la mise en ligne.",
-   price:'Dès 632 €<small>offre lancement −20 % · en ligne en ~2 semaines</small>', href:'sites.html', ext:false},
+   price:'Dès 632 €<small>offre lancement −20 % · en ligne en ~2 semaines</small>', href:'sites.html', ext:false, face:{n:['Sites web'],p:'dès 632 €'}},
   {kicker:'Marketing local', label:'Marketing / Fiche Google', title:'Marketing digital local',
    desc:"Fiche Google, réseaux sociaux, publicité de proximité : on amène les clients de votre ville jusqu'à vous.",
-   price:'Fiche Google 240 €<small>Pack visibilité 490 € · animation réseaux 350 €/mois</small>', href:'marketing.html', ext:false},
+   price:'Fiche Google 240 €<small>Pack visibilité 490 € · animation réseaux 350 €/mois</small>', href:'marketing.html', ext:false, face:{n:['Marketing'],p:'240 €'}},
   {kicker:'Agents IA', label:'Agents IA', title:'Agents IA sur mesure',
    desc:"Un assistant lit les demandes de vos clients et rédige la réponse à votre place, même la nuit. Le matin, vous relisez et vous envoyez.",
-   price:'Dès 690 €<small>cadrage gratuit · 690 / 1 490 / dès 2 900 €</small>', href:'agents-ia.html', ext:false},
+   price:'Dès 690 €<small>cadrage gratuit · 690 / 1 490 / dès 2 900 €</small>', href:'agents-ia.html', ext:false, face:{n:['Agents IA'],p:'dès 690 €'}},
   {kicker:'Automatisations', label:'Automatisations', title:'Automatisations sur mesure',
    desc:"Une demande de devis arrive pendant que vous êtes sur un chantier : elle est enregistrée et reçoit une réponse tout de suite. Relances et rappels partent seuls.",
-   price:'Dès 690 €<small>mini-diagnostic gratuit · Essentiel / Pro / Tout connecté</small>', href:'automatisations.html', ext:false},
+   price:'Dès 690 €<small>mini-diagnostic gratuit · Essentiel / Pro / Tout connecté</small>', href:'automatisations.html', ext:false, face:{n:['Automati-','sations'],p:'dès 690 €'}},
   {kicker:'Le différenciateur', label:'Audit « client fantôme »', title:'L’audit « client fantôme »',
    desc:"Entrez le nom de votre commerce et voyez ce qu’un client découvre sur son téléphone : l’affichage mobile, la sécurité, votre fiche Google, vos avis. Aucune autre agence du coin ne le propose.",
-   price:'Gratuit<small>sans inscription · résultat en 20 secondes</small>', href:'https://audit.ecd-digital.com', ext:true},
+   price:'Gratuit<small>sans inscription · résultat en 20 secondes</small>', href:'https://audit.ecd-digital.com', ext:true, face:{n:['Audit'],p:'gratuit · 20 s'}},
   {kicker:'Réalisations', label:'Réalisations', title:'Nos réalisations',
    desc:"On ne fait pas que conseiller : on construit et on fait vivre nos propres sites, ecd-digital.com et naturesurvie.net. Deux cas concrets, sans faux clients ni chiffres inventés.",
-   price:'Preuves réelles<small>un site vitrine + une boutique e-commerce</small>', href:'realisations.html', ext:false},
+   price:'Preuves réelles<small>un site vitrine + une boutique e-commerce</small>', href:'realisations.html', ext:false, face:{n:['Réalisa-','tions'],p:'nos sites'}},
   {kicker:'Guides PDF', label:'Guides', title:'Nos guides PDF',
    desc:"Vous préférez agir vous-même ? Des guides clairs et concrets, sans jargon, avec un plan à suivre pas à pas et un accès immédiat au PDF.",
-   price:'27 € l’unité<small>paiement unique · PDF immédiat</small>', href:'guides.html', ext:false},
+   price:'27 € l’unité<small>paiement unique · PDF immédiat</small>', href:'guides.html', ext:false, face:{n:['Guides'],p:'27 €'}},
   {kicker:'Le blog', label:'Blog', title:'Le blog',
    desc:"Des articles clairs, sans jargon, pour les commerçants et artisans du sud de Bordeaux — avec des exemples concrets et des prix affichés.",
-   price:'16 articles<small>conseils web, visibilité, gain de temps · gratuit</small>', href:'blog.html', ext:false},
+   price:'16 articles<small>conseils web, visibilité, gain de temps · gratuit</small>', href:'blog.html', ext:false, face:{n:['Blog'],p:'16 articles'}},
   {kicker:'Offres & tarifs', label:'Offres & tarifs', title:'Toutes nos offres & tarifs',
    desc:"Toutes les formules et leurs prix : sites, hébergement, marketing, agents IA et automatisations. Devis gratuit, TVA non applicable (art. 293 B du CGI).",
-   price:'Site dès 632 €<small>hébergement dès 19 €/mois · devis gratuit</small>', href:'offres.html', ext:false}
+   price:'Site dès 632 €<small>hébergement dès 19 €/mois · devis gratuit</small>', href:'offres.html', ext:false, face:{n:['Offres','& tarifs'],p:'devis gratuit'}}
 ];
 
 /* ---- Panneau d'offre : émerge depuis le point du cube cliqué ---- */
@@ -716,6 +746,7 @@ const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
 function showFallback(){
   if(canvas) canvas.style.display='none';
+  document.documentElement.classList.add('no3d');
   grid.classList.add('on'); fnote.classList.add('on');
 }
 
@@ -738,10 +769,23 @@ async function runScene(){
   renderer.outputColorSpace = THREE.SRGBColorSpace;
 
   const scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x050b18, 0.028);
-  const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
-  const CAM_Z = 11;
+  /* Le brouillard reprend la couleur de fond définie en CSS (--hero-fog) :
+     si on éclaircit le fond, les cubes restent fondus dedans. */
+  const cssFog = getComputedStyle(document.documentElement).getPropertyValue('--hero-fog').trim();
+  scene.fog = new THREE.FogExp2(new THREE.Color(cssFog || '#0e1c34').getHex(), 0.028);
+  const FOV = 40;
+  const camera = new THREE.PerspectiveCamera(FOV, 1, 0.1, 100);
+  let CAM_Z = 11;
   camera.position.set(0, 0, CAM_Z);
+  /* Cadrage automatique : on garde toujours la grille 3x3 à la plus grande
+     taille possible dans le canvas → les étiquettes des offres restent lisibles,
+     y compris sur un écran de téléphone. */
+  function fitCamera(){
+    const narrow = window.innerWidth <= 900;
+    const need = GRID_W + (narrow ? 0.55 : 1.15);  // marge : respiration + déplacement souris
+    const vis = Math.max(need, need/(camera.aspect || 1));
+    CAM_Z = vis/(2*Math.tan(FOV*Math.PI/360));
+  }
 
   const pmrem = new THREE.PMREMGenerator(renderer);
   const envRT = pmrem.fromScene(new RoomEnvironment(renderer), 0.04);
@@ -753,35 +797,97 @@ async function runScene(){
   const rimT = new THREE.DirectionalLight(0x1FC7A9, 0.8); rimT.position.set(5,-4,-2); scene.add(rimT);
 
   const COLORS = { teal:0x1FC7A9, gold:0xC9A24B, blue:0x2f7bd6, cyan:0x38bdf8 };
+  const CSS_COLORS = { teal:'#1FC7A9', gold:'#C9A24B', blue:'#2f7bd6', cyan:'#38bdf8' };
   const layout = [
     [-1, 1,'blue'],[0, 1,'teal'],[1, 1,'blue'],
     [-1, 0,'teal'],[0, 0,'cyan'],[1, 0,'gold'],
     [-1,-1,'blue'],[0,-1,'gold'],[1,-1,'blue']
   ];
-  const small = window.matchMedia('(max-width:640px)').matches;
-  const step = 1.92, size = 1.5;
+  const step = 1.84, size = 1.56;
+  const GRID_W = 2*step + size;                    // largeur monde de la grille 3x3
   const geo = new RoundedBoxGeometry(size, size, size, 6, 0.26);
+
+  /* --- Étiquettes peintes sur la face avant des cubes -----------------
+     On attend les polices avant de dessiner, sinon le canvas rend en Arial.
+     Le texte reste dans les 68 % centraux de la face : au-delà, l'arrondi
+     du cube écrase les UV et déforme les lettres. La plaque sombre locale
+     donne le contraste sur le cyan et l'or (ce n'est PAS un voile plein
+     écran : elle est peinte dans la texture, elle ne masque aucun cube). */
+  const FAM_T = '"Poppins","Trebuchet MS",system-ui,sans-serif';
+  const FAM_P = '"Inter",system-ui,sans-serif';
+  if(document.fonts){
+    try{
+      await Promise.race([
+        Promise.all([document.fonts.load('800 96px Poppins'), document.fonts.load('700 52px Inter'), document.fonts.ready]),
+        new Promise(function(r){ setTimeout(r, 1800); })
+      ]);
+    }catch(e){}
+  }
+  const maxAniso = renderer.capabilities.getMaxAnisotropy ? renderer.capabilities.getMaxAnisotropy() : 1;
+
+  function faceTexture(cssColor, face){
+    const S = 512;
+    const cv = document.createElement('canvas'); cv.width = cv.height = S;
+    const g = cv.getContext('2d');
+    g.fillStyle = cssColor; g.fillRect(0, 0, S, S);
+    const sheen = g.createRadialGradient(S*0.28, S*0.14, 0, S*0.28, S*0.14, S*0.92);
+    sheen.addColorStop(0, 'rgba(255,255,255,.30)'); sheen.addColorStop(1, 'rgba(255,255,255,0)');
+    g.fillStyle = sheen; g.fillRect(0, 0, S, S);
+
+    const safe = S*0.68;
+    function unitW(t, weight, fam){ g.font = weight+' 100px '+fam; return g.measureText(t).width/100; }
+    let fs = 96;
+    face.n.forEach(function(t){ fs = Math.min(fs, safe/unitW(t, '800', FAM_T)); });
+    let pf = Math.min(fs*0.62, 52);
+    pf = Math.min(pf, safe/unitW(face.p, '700', FAM_P));
+
+    const lh = fs*1.04, gap = pf*0.45, blockH = face.n.length*lh + gap + pf;
+    let maxW = 0;
+    g.font = '800 '+fs+'px '+FAM_T;
+    face.n.forEach(function(t){ maxW = Math.max(maxW, g.measureText(t).width); });
+    g.font = '700 '+pf+'px '+FAM_P;
+    maxW = Math.max(maxW, g.measureText(face.p).width);
+
+    const pw = Math.min(S*0.80, maxW + fs*0.72), ph = blockH + fs*0.60;
+    const x0 = (S-pw)/2, y0 = (S-ph)/2, rad = Math.min(36, ph/2);
+    g.beginPath();
+    if(g.roundRect){ g.roundRect(x0, y0, pw, ph, rad); } else { g.rect(x0, y0, pw, ph); }
+    g.fillStyle = 'rgba(4,11,26,.62)'; g.fill();
+
+    g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.shadowColor = 'rgba(0,0,0,.60)'; g.shadowBlur = 14; g.shadowOffsetY = 2;
+    const top = S/2 - blockH/2;
+    g.fillStyle = '#ffffff'; g.font = '800 '+fs+'px '+FAM_T;
+    face.n.forEach(function(t, k){ g.fillText(t, S/2, top + lh*k + lh/2); });
+    g.font = '700 '+pf+'px '+FAM_P; g.fillStyle = 'rgba(255,255,255,.95)';
+    g.fillText(face.p, S/2, top + face.n.length*lh + gap + pf/2);
+
+    const tex = new THREE.CanvasTexture(cv);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.anisotropy = Math.min(8, maxAniso);
+    return tex;
+  }
 
   const group = new THREE.Group();
   const cubes = [];
   layout.forEach(function(c, i){
     const tint = COLORS[c[2]];
-    const mat = new THREE.MeshPhysicalMaterial({
-      color: tint,
-      metalness: 0.0,
-      roughness: 0.62,
-      transmission: 0.0,
-      clearcoat: 0.0,
-      envMapIntensity: 0.35,
-      emissive: new THREE.Color(tint),
-      emissiveIntensity: 0.32,
-      transparent: false
-    });
-    const m = new THREE.Mesh(geo, mat);
+    const common = { metalness:0.0, roughness:0.62, transmission:0.0, clearcoat:0.0,
+                     envMapIntensity:0.35, emissive:new THREE.Color(tint),
+                     emissiveIntensity:0.32, transparent:false };
+    const matSide = new THREE.MeshPhysicalMaterial(Object.assign({ color: tint }, common));
+    const tex = faceTexture(CSS_COLORS[c[2]], OFFERS[i].face);
+    /* emissiveMap = la même texture : au survol, c'est le corps coloré qui
+       s'allume, la plaque sombre reste sombre → le texte garde son contraste. */
+    const matFace = new THREE.MeshPhysicalMaterial(Object.assign(
+      { color:0xffffff, map:tex, emissiveMap:tex, emissive:new THREE.Color(tint) }, common));
+    /* Ordre des groupes d'une BoxGeometry : +X, -X, +Y, -Y, +Z (face avant), -Z */
+    const m = new THREE.Mesh(geo, [matSide, matSide, matSide, matSide, matFace, matSide]);
     const tx = c[0]*step, ty = c[1]*step;
     const ang = Math.random()*Math.PI*2, rad = 7 + Math.random()*6;
     m.userData = {
       tx:tx, ty:ty, phase:i*0.7, offer:OFFERS[i], hover:false, lift:0,
+      mats: [matSide, matFace],
       sx: Math.cos(ang)*rad, sy: Math.sin(ang)*rad*0.7, sz: -6 - Math.random()*8,
       rx: (Math.random()-0.5)*7, ry: (Math.random()-0.5)*7
     };
@@ -792,28 +898,19 @@ async function runScene(){
   group.rotation.x = -0.16;
   scene.add(group);
 
-  let composer = null, bloomPass = null;
-  try{
-    const { EffectComposer } = await import('three/addons/postprocessing/EffectComposer.js');
-    const { RenderPass } = await import('three/addons/postprocessing/RenderPass.js');
-    const { UnrealBloomPass } = await import('three/addons/postprocessing/UnrealBloomPass.js');
-    const { OutputPass } = await import('three/addons/postprocessing/OutputPass.js');
-    composer = new EffectComposer(renderer);
-    composer.addPass(new RenderPass(scene, camera));
-    bloomPass = new UnrealBloomPass(new THREE.Vector2(1,1), small?0.55:0.72, 0.5, 0.62);
-    composer.addPass(bloomPass);
-    composer.addPass(new OutputPass());
-  }catch(e){ console.warn('Bloom indisponible, rendu direct :', e); composer = null; }
+  /* Pas de post-traitement (bloom) : il force un fond opaque et masque le cube.
+     Le rendu passe directement par renderer.render() — fond transparent conservé. */
 
   function resize(){
     const w = Math.max(1, Math.round(canvas.clientWidth || window.innerWidth));
     const h = Math.max(1, Math.round(canvas.clientHeight || window.innerHeight));
     renderer.setSize(w, h, false);
-    if(composer) composer.setSize(w, h);
     camera.aspect = w/h; camera.updateProjectionMatrix();
+    fitCamera();
     return w+'x'+h;
   }
   resize();
+  camera.position.z = CAM_Z;
   new ResizeObserver(resize).observe(canvas);
   window.addEventListener('resize', resize, {passive:true});
   function ensureSize(){
@@ -923,7 +1020,7 @@ async function runScene(){
       const tgtScale = d.hover ? 1.16 : 1.0;
       const s = m.scale.x + (tgtScale - m.scale.x) * 0.16; m.scale.set(s,s,s);
       const tgtEm = (d.hover ? 1.15 : 0.14) + flash*0.9;
-      m.material.emissiveIntensity += (tgtEm - m.material.emissiveIntensity) * 0.18;
+      d.mats.forEach(function(mat){ mat.emissiveIntensity += (tgtEm - mat.emissiveIntensity) * 0.18; });
     });
 
     const camTX = px*1.7, camTY = -py*1.15;
@@ -934,7 +1031,6 @@ async function runScene(){
     group.rotation.y = Math.sin(t*0.16)*0.14 + px*0.25;
     group.rotation.x = -0.16 + py*0.18;
 
-    if(bloomPass){ bloomPass.strength = (small?0.55:0.72) + flash*0.85; }
     renderer.render(scene, camera);
     requestAnimationFrame(frame);
   }
