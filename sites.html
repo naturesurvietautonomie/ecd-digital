@@ -91,6 +91,26 @@
   [data-reveal].in{opacity:1;transform:none}.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
   @media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none}}
   @media(max-width:640px){.links{display:none}}
+
+  /* ---- Fond 3D d'ambiance (l'identité de l'accueil), cantonné à l'en-tête ----
+     Les cubes flottants de la page d'accueil, dans le bandeau sombre du haut.
+     Le corps de la page reste blanc : aucun texte de lecture n'est posé sur la
+     3D. C'est aussi ce qui borne le coût (le canvas sort de l'écran au premier
+     défilement et la boucle s'arrête). Détail et garde-fous : bg3d.js. */
+  .head{--bg3d-fog:#0b2545}
+  .bg3d{position:absolute;inset:0;width:100%;height:100%;z-index:1;display:block;pointer-events:none;opacity:0;transition:opacity .9s ease}
+  .bg3d.on{opacity:1}
+  /* Rappel de l'ambiance en CSS pur : c'est ce que voient les téléphones et les
+     machines sans WebGL, pour 0 octet de JavaScript. */
+  .bg3d-glow{position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(420px 260px at 12% 78%,rgba(31,199,169,.16),transparent 62%),
+      radial-gradient(360px 240px at 88% 72%,rgba(201,162,75,.13),transparent 62%),
+      radial-gradient(560px 300px at 50% 112%,rgba(56,189,248,.14),transparent 64%)}
+  /* Plaque sombre LOCALE derrière le texte : elle tient le contraste sans
+     éteindre les cubes. Pas de voile opaque plein cadre. */
+  .head::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(130% 92% at 50% 58%,rgba(4,12,26,.50),rgba(4,12,26,.26) 52%,rgba(4,12,26,.08) 76%,transparent 92%)}
+  @media (prefers-reduced-motion:reduce){.bg3d{display:none}}
 </style>
 <script type="application/ld+json">
 {
@@ -141,7 +161,7 @@
             "price": 632,
             "priceCurrency": "EUR",
             "availability": "https://schema.org/InStock",
-            "description": "Site une page adapté mobile, bouton d'appel et itinéraire Google Maps, formulaire de contact. Tarif de lancement −20 %."
+            "description": "Site une page adapté mobile, bouton d'appel et itinéraire Google Maps, formulaire de contact. Tarif de lancement."
           },
           {
             "@type": "Offer",
@@ -149,7 +169,7 @@
             "price": 1192,
             "priceCurrency": "EUR",
             "availability": "https://schema.org/InStock",
-            "description": "Site 5 à 6 pages, référencement Google local de base, galerie de réalisations, liens réseaux sociaux. Tarif de lancement −20 %."
+            "description": "Site 5 à 6 pages, référencement Google local de base, galerie de réalisations, liens réseaux sociaux. Tarif de lancement."
           },
           {
             "@type": "Offer",
@@ -157,7 +177,7 @@
             "price": 1592,
             "priceCurrency": "EUR",
             "availability": "https://schema.org/InStock",
-            "description": "Site 10 pages et plus, prise de rendez-vous ou réservation en ligne, blog, référencement local renforcé. Tarif de lancement −20 %."
+            "description": "Site 10 pages et plus, prise de rendez-vous ou réservation en ligne, blog, référencement local renforcé. Tarif de lancement."
           },
           {
             "@type": "Offer",
@@ -199,11 +219,13 @@
 </nav>
 
 <header class="head">
+  <div class="bg3d-glow" aria-hidden="true"></div>
+  <canvas class="bg3d" aria-hidden="true"></canvas>
   <div class="wrap">
     <span class="kicker" data-reveal>Création de sites web</span>
     <h1 data-reveal class="d1">Le site professionnel de votre commerce à Bordeaux</h1>
     <p data-reveal class="d2">Un site élégant, adapté aux téléphones, avec votre nom de domaine et une adresse email pro. On se voit sur place à Bordeaux ou en visio, et vous validez la maquette avant la mise en ligne.</p>
-    <div class="promo d3" data-reveal>−20 % sur la création — offre de lancement</div>
+    <div class="promo d3" data-reveal>Tarif de lancement sur la création</div>
   </div>
 </header>
 
@@ -211,11 +233,11 @@
   <div class="wrap">
     <div class="sec-tag" data-reveal>Les formules</div>
     <h2 class="title" data-reveal>3 formules, selon votre activité</h2>
-    <p class="lead" data-reveal>Du site une page à la boutique en ligne. Les trois formules ci-dessous sont aux tarifs de lancement, −20 %. Pour vendre vos produits en ligne, comptez à partir de 2 400 €.</p>
+    <p class="lead" data-reveal>Du site une page à la boutique en ligne. Les trois formules ci-dessous sont aux tarifs de lancement. Pour vendre vos produits en ligne, comptez à partir de 2 400 €.</p>
     <div class="offers">
       <div class="offer" data-reveal>
         <h3>Essentiel</h3>
-        <div class="prix">632 €<small>offre de lancement −20 %</small></div>
+        <div class="prix">632 €<small>tarif de lancement</small></div>
         <ul>
           <li>Site une page élégant (présentation, photos, horaires, contact)</li>
           <li>Adapté mobile / tablette / ordinateur</li>
@@ -229,7 +251,7 @@
       <div class="offer featured d1" data-reveal>
         <span class="ribbon">Recommandé</span>
         <h3>Commerce &amp; Artisan</h3>
-        <div class="prix">1 192 €<small>offre de lancement −20 %</small></div>
+        <div class="prix">1 192 €<small>tarif de lancement</small></div>
         <ul>
           <li>Site 5 à 6 pages (accueil, prestations, galerie, à propos, contact)</li>
           <li>Tout le contenu de l'offre Essentiel</li>
@@ -242,7 +264,7 @@
       </div>
       <div class="offer d2" data-reveal>
         <h3>Premium</h3>
-        <div class="prix">1 592 €<small>offre de lancement −20 %</small></div>
+        <div class="prix">1 592 €<small>tarif de lancement</small></div>
         <ul>
           <li>Site 10 pages et plus, sur mesure</li>
           <li>Tout le contenu de l'offre Commerce &amp; Artisan</li>
@@ -340,6 +362,7 @@
 
 <script src="nav.js" defer></script>
 <script src="chatbot.js" defer></script>
+<script src="bg3d.js" defer></script>
 
 </body>
 </html>

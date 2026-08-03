@@ -87,6 +87,26 @@
   [data-reveal].in{opacity:1;transform:none}.d1{transition-delay:.1s}.d2{transition-delay:.2s}
   @media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none}}
   @media(max-width:640px){.links{display:none}}
+
+  /* ---- Fond 3D d'ambiance (l'identité de l'accueil), cantonné à l'en-tête ----
+     Les cubes flottants de la page d'accueil, dans le bandeau sombre du haut.
+     Le corps de la page reste blanc : aucun texte de lecture n'est posé sur la
+     3D. C'est aussi ce qui borne le coût (le canvas sort de l'écran au premier
+     défilement et la boucle s'arrête). Détail et garde-fous : bg3d.js. */
+  .head{--bg3d-fog:#0b2545}
+  .bg3d{position:absolute;inset:0;width:100%;height:100%;z-index:1;display:block;pointer-events:none;opacity:0;transition:opacity .9s ease}
+  .bg3d.on{opacity:1}
+  /* Rappel de l'ambiance en CSS pur : c'est ce que voient les téléphones et les
+     machines sans WebGL, pour 0 octet de JavaScript. */
+  .bg3d-glow{position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(420px 260px at 12% 78%,rgba(31,199,169,.16),transparent 62%),
+      radial-gradient(360px 240px at 88% 72%,rgba(201,162,75,.13),transparent 62%),
+      radial-gradient(560px 300px at 50% 112%,rgba(56,189,248,.14),transparent 64%)}
+  /* Plaque sombre LOCALE derrière le texte : elle tient le contraste sans
+     éteindre les cubes. Pas de voile opaque plein cadre. */
+  .head::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(130% 92% at 50% 58%,rgba(4,12,26,.50),rgba(4,12,26,.26) 52%,rgba(4,12,26,.08) 76%,transparent 92%)}
+  @media (prefers-reduced-motion:reduce){.bg3d{display:none}}
 </style>
 <script type="application/ld+json">
 {
@@ -211,6 +231,8 @@
 </nav>
 
 <header class="head">
+  <div class="bg3d-glow" aria-hidden="true"></div>
+  <canvas class="bg3d" aria-hidden="true"></canvas>
   <div class="wrap">
     <span class="kicker" data-reveal>Guides pratiques</span>
     <h1 data-reveal class="d1">Devenez le commerce qu'on trouve en premier</h1>
@@ -319,6 +341,7 @@
 
 <script src="nav.js" defer></script>
 <script src="chatbot.js" defer></script>
+<script src="bg3d.js" defer></script>
 
 </body>
 </html>

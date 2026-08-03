@@ -52,7 +52,7 @@
   .head{position:relative;background:var(--navy);color:#fff;padding:140px 0 70px;overflow:hidden;text-align:center}
   .head::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 380px at 20% 10%,rgba(79,70,229,.5),transparent 60%),radial-gradient(600px 400px at 85% 20%,rgba(6,182,212,.45),transparent 60%)}
   .head .wrap{position:relative;z-index:2;max-width:800px}
-  .crumbs{font-size:13px;color:#93a7c2;margin-bottom:16px}
+  .crumbs{font-size:13px;color:#a6b9d1;margin-bottom:16px}
   .crumbs a{color:#9fd3f5}
   .head .kicker{display:inline-block;font-family:'Poppins';font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:var(--cyan);margin-bottom:14px}
   .head h1{font-size:clamp(27px,4.4vw,40px);font-weight:800;letter-spacing:-.5px;color:#fff}
@@ -100,6 +100,26 @@
   [data-reveal].in{opacity:1;transform:none}.d1{transition-delay:.1s}.d2{transition-delay:.2s}
   @media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none}}
   @media(max-width:640px){.links{display:none}}
+
+  /* ---- Fond 3D d'ambiance (l'identité de l'accueil), cantonné à l'en-tête ----
+     Les cubes flottants de la page d'accueil, dans le bandeau sombre du haut.
+     Le corps de la page reste blanc : aucun texte de lecture n'est posé sur la
+     3D. C'est aussi ce qui borne le coût (le canvas sort de l'écran au premier
+     défilement et la boucle s'arrête). Détail et garde-fous : bg3d.js. */
+  .head{--bg3d-fog:#0b2545}
+  .bg3d{position:absolute;inset:0;width:100%;height:100%;z-index:1;display:block;pointer-events:none;opacity:0;transition:opacity .9s ease}
+  .bg3d.on{opacity:1}
+  /* Rappel de l'ambiance en CSS pur : c'est ce que voient les téléphones et les
+     machines sans WebGL, pour 0 octet de JavaScript. */
+  .bg3d-glow{position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(420px 260px at 12% 78%,rgba(31,199,169,.16),transparent 62%),
+      radial-gradient(360px 240px at 88% 72%,rgba(201,162,75,.13),transparent 62%),
+      radial-gradient(560px 300px at 50% 112%,rgba(56,189,248,.14),transparent 64%)}
+  /* Plaque sombre LOCALE derrière le texte : elle tient le contraste sans
+     éteindre les cubes. Pas de voile opaque plein cadre. */
+  .head::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(130% 92% at 50% 58%,rgba(4,12,26,.50),rgba(4,12,26,.26) 52%,rgba(4,12,26,.08) 76%,transparent 92%)}
+  @media (prefers-reduced-motion:reduce){.bg3d{display:none}}
 </style>
 <script type="application/ld+json">
 {
@@ -157,6 +177,8 @@
 </nav>
 
 <header class="head">
+  <div class="bg3d-glow" aria-hidden="true"></div>
+  <canvas class="bg3d" aria-hidden="true"></canvas>
   <div class="wrap">
     <nav class="crumbs" aria-label="Fil d'Ariane" data-reveal><a href="../index.html">Accueil</a> › <a href="../blog.html">Blog</a> › <span>Site web pour commerce en 2026</span></nav>
     <span class="kicker" data-reveal>🌐 Sites web</span>
@@ -190,7 +212,7 @@
 
       <h2 data-reveal>Combien coûte vraiment un site web pour un commerce ?</h2>
       <p data-reveal>Parlons chiffres, sans détour. C'est souvent là que les idées reçues font le plus de dégâts. Non, un site professionnel ne coûte pas 5 000 € ou 10 000 €. Pas chez nous.</p>
-      <p data-reveal>Voici nos formules, avec l'<strong>offre de lancement −20 %</strong> en cours :</p>
+      <p data-reveal>Voici nos formules, avec le <strong>tarif de lancement</strong> en cours :</p>
       <ul data-reveal>
         <li><strong>Formule Essentiel — 632 €</strong> : un site une page élégant, adapté au mobile, avec bouton d'appel, itinéraire Google Maps et formulaire de contact. Idéal pour un food-truck, un indépendant ou une activité sur les marchés.</li>
         <li><strong>Formule Commerce &amp; Artisan — 1 192 €</strong> : un site de 5 à 6 pages avec galerie de réalisations, référencement Google local et liens vers vos réseaux. C'est le palier que je recommande par défaut pour un salon, un restaurant ou un artisan.</li>
@@ -216,7 +238,7 @@
       <div class="cta-box" data-reveal>
         <span class="chip">Création de sites web</span>
         <h2>Votre site professionnel, dès 632 €</h2>
-        <div class="prix">632 €<small> · offre de lancement −20 %</small></div>
+        <div class="prix">632 €<small> · tarif de lancement</small></div>
         <p>Site adapté au mobile, nom de domaine inclus, maquette validée par vos soins avant la mise en ligne. Hébergement dès 19 €/mois. Le cadrage et le devis sont gratuits et sans engagement.</p>
         <div class="btns">
           <a class="btn btn-primary" href="../sites.html">Découvrir les formules de sites</a>
@@ -287,6 +309,7 @@
 
 <script src="../nav.js" defer></script>
 <script src="../chatbot.js" defer></script>
+<script src="../bg3d.js" defer></script>
 
 </body>
 </html>
