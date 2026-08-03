@@ -449,6 +449,17 @@ if(f&&f.toLowerCase()==='b'){document.documentElement.classList.add('hero-clair-
      bas de la fourchette de police descend à 12,5 px : à 360 px de large, une case
      ne fait que 83 px de texte utile. */
   .cube-cell .cc-name,.cube-cell .cc-price{position:relative;z-index:1;overflow-wrap:anywhere;hyphens:manual}
+
+  /* Encre choisie par contraste, comme dans les textures 3D : blanc sur les
+     cases sombres, bleu de marque sur les cases claires. Mesures WCAG :
+     blanc/#2c73c9 = 4,77:1 · #0b2545/vert = 7,18:1 · #0b2545/dore = 6,41:1
+     · #0b2545/bleu ciel = 7,18:1. Seuil AA du texte courant : 4,5:1. */
+  .cube-cell.encre-foncee .cc-name,
+  .cube-cell.encre-foncee .cc-price{color:#0b2545;text-shadow:0 1px 6px rgba(255,255,255,.26)}
+  /* Le prix est en opacite reduite par defaut : invisible en encre foncee.
+     On le remet a plein et on l'epaissit legerement. */
+  .cube-cell.encre-foncee .cc-price{opacity:1;font-weight:700}
+
   /* Libellés plus gros : jusqu'à 19 px, 14 px minimum sur petit écran. */
   .cube-cell .cc-name{font-size:clamp(12.5px,3.2vw,19px);line-height:1.16;
     text-shadow:0 1px 3px rgba(3,10,24,.5),0 2px 12px rgba(3,10,24,.45);
@@ -625,15 +636,15 @@ if(f&&f.toLowerCase()==='b'){document.documentElement.classList.add('hero-clair-
     <div class="hero-stage d2">
       <!-- Repli sans WebGL / reduced-motion : la grille 3×3 du logo, chaque case ouvre une offre. -->
       <div class="cube-grid" id="cubeGrid" role="list" aria-label="Nos offres (grille du logo)">
-        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#3a89e0,#2f7bd6)" href="sites.html"><span class="cc-name">Sites web</span><span class="cc-price">dès 632 €</span></a>
-        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#2fd8ba,#1FC7A9)" href="marketing.html"><span class="cc-name">Marketing / Fiche Google</span><span class="cc-price">240 €</span></a>
-        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#3a89e0,#2f7bd6)" href="agents-ia.html"><span class="cc-name">Agents IA</span><span class="cc-price">dès 690 €</span></a>
-        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#2fd8ba,#1FC7A9)" href="automatisations.html"><span class="cc-name">Automatiser</span><span class="cc-price">dès 690 €</span></a>
-        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#5cc9ff,#38bdf8)" href="https://audit.ecd-digital.com" target="_blank" rel="noopener"><span class="cc-name">Audit gratuit</span><span class="cc-price">20 secondes</span></a>
-        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#d8b45f,#C9A24B)" href="realisations.html"><span class="cc-name">Réalisations</span><span class="cc-price">nos sites réels</span></a>
-        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#3a89e0,#2f7bd6)" href="guides.html"><span class="cc-name">Guides PDF</span><span class="cc-price">27 €</span></a>
-        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#d8b45f,#C9A24B)" href="blog.html"><span class="cc-name">Blog</span><span class="cc-price">18 articles</span></a>
-        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#3a89e0,#2f7bd6)" href="offres.html"><span class="cc-name">Offres &amp; tarifs</span><span class="cc-price">devis gratuit</span></a>
+        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#3681d4,#2c73c9)" href="sites.html"><span class="cc-name">Sites web</span><span class="cc-price">dès 632 €</span></a>
+        <a class="cube-cell encre-foncee" role="listitem" style="background:linear-gradient(150deg,#2fd8ba,#1FC7A9)" href="marketing.html"><span class="cc-name">Marketing / Fiche Google</span><span class="cc-price">240 €</span></a>
+        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#3681d4,#2c73c9)" href="agents-ia.html"><span class="cc-name">Agents IA</span><span class="cc-price">dès 690 €</span></a>
+        <a class="cube-cell encre-foncee" role="listitem" style="background:linear-gradient(150deg,#2fd8ba,#1FC7A9)" href="automatisations.html"><span class="cc-name">Automatiser</span><span class="cc-price">dès 690 €</span></a>
+        <a class="cube-cell encre-foncee" role="listitem" style="background:linear-gradient(150deg,#5cc9ff,#38bdf8)" href="https://audit.ecd-digital.com" target="_blank" rel="noopener"><span class="cc-name">Audit gratuit</span><span class="cc-price">20 secondes</span></a>
+        <a class="cube-cell encre-foncee" role="listitem" style="background:linear-gradient(150deg,#d8b45f,#C9A24B)" href="realisations.html"><span class="cc-name">Réalisations</span><span class="cc-price">nos sites réels</span></a>
+        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#3681d4,#2c73c9)" href="guides.html"><span class="cc-name">Guides PDF</span><span class="cc-price">27 €</span></a>
+        <a class="cube-cell encre-foncee" role="listitem" style="background:linear-gradient(150deg,#d8b45f,#C9A24B)" href="blog.html"><span class="cc-name">Blog</span><span class="cc-price">18 articles</span></a>
+        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#3681d4,#2c73c9)" href="offres.html"><span class="cc-name">Offres &amp; tarifs</span><span class="cc-price">devis gratuit</span></a>
       </div>
       <p class="fallback-note" id="fallbackNote">Chaque case du logo ouvre une offre. Version 3D animée disponible avec WebGL et sans « animations réduites ».</p>
     </div>
@@ -1269,7 +1280,7 @@ async function build(){
   const rimC = new THREE.DirectionalLight(0x38bdf8, 1.10); rimC.position.set(-6, -2, 3); scene.add(rimC);
   const rimT = new THREE.DirectionalLight(0x1FC7A9, 0.80); rimT.position.set(5, -4, -2); scene.add(rimT);
 
-  const COLORS = { teal:0x1FC7A9, gold:0xC9A24B, blue:0x2f7bd6, cyan:0x38bdf8 };
+  const COLORS = { teal:0x1FC7A9, gold:0xC9A24B, blue:0x2c73c9, cyan:0x38bdf8 };
   /* Grille du logo 3×3 : [0]TL [1]TC [2]TR / [3]ML [4]C [5]MR / [6]BL [7]BC [8]BR */
   const LAYOUT = [
     [-1, 1,'blue'],[0, 1,'teal'],[1, 1,'blue'],
@@ -1662,25 +1673,30 @@ async function build(){
     if(!document.hidden){ job.active = true; last = 0; RAF.wake(); }
   });
 
-  /* FILET DE SÉCURITÉ PERF — une seule scène coûte déjà cher au démarrage.
-     Si la page ne tient pas ~14 images/s, on allège (moins de pixels, plus de
-     cubes d'ambiance), puis on coupe l'ambiance. La GRILLE reste : c'est elle
-     qui porte les offres et les prix. */
-  let allege = false;
+  /* FILET DE SÉCURITÉ PERF — révisé le 03/08/2026 à la demande de Louis.
+     AVANT : sous 14 img/s le nuage de cubes disparaissait, sous 7 tout le fond
+     était coupé. Résultat : sur une machine modeste, le fond d'écran 3D
+     s'évanouissait au bout de quelques secondes — c'est ce que Louis voyait.
+     MAINTENANT : le fond ne disparaît JAMAIS pour cause de lenteur. On baisse
+     la définition et on ralentit son rafraîchissement, mais les cubes restent
+     à l'écran. Seule une perte de contexte WebGL (canvas mort) peut encore
+     basculer sur le dégradé statique — là il n'y a plus rien à afficher. */
+  let palier = 0;
   function sante(fps){
-    if(fps >= 14) return;
-    if(!allege && fps >= 7){
-      allege = true;
+    if(fps >= 12 || palier >= 2) return;
+    palier++;
+    if(palier === 1){
       renderer.setPixelRatio(Math.min(1, (window.devicePixelRatio||1)*0.6));
-      cloud.visible = false;
+      if(cloud) cloud.count = Math.max(3, Math.floor((cloud.count||9)/2));
       resize();
       RAF.watch(sante);
-      console.info('Scène 3D allégée (' + fps.toFixed(1) + ' img/s) : cubes d’ambiance retirés.');
+      console.info('Fond 3D allégé (' + fps.toFixed(1) + ' img/s) : définition réduite, cubes conservés.');
       return;
     }
-    bgGroup.visible = false; cloud.visible = false;
-    document.documentElement.classList.add('bg-static');
-    console.info('Ambiance 3D coupée (' + fps.toFixed(1) + ' img/s) : la grille des offres reste.');
+    renderer.setPixelRatio(0.5);
+    if(cloud) cloud.count = Math.max(2, Math.floor((cloud.count||6)/2));
+    resize();
+    console.info('Fond 3D au minimum (' + fps.toFixed(1) + ' img/s) : il reste visible.');
   }
   RAF.watch(sante);
 }
