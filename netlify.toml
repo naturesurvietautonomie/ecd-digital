@@ -34,3 +34,11 @@
   for = "/api/*"
   [headers.values]
     Cache-Control = "no-store"
+
+# Les guides PDF sont payants : ils ne doivent jamais remonter dans un moteur
+# de recherche. (La vérification de la session Stripe reste à poser.)
+[[headers]]
+  for = "/telechargements/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    Cache-Control = "no-store"

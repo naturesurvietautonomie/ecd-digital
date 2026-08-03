@@ -14,6 +14,8 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Ébrange Création Digital — création de sites internet à Bordeaux">
+<meta property="og:site_name" content="Ébrange Création Digital">
+<meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://ecd-digital.com/og.png">
 <link rel="canonical" href="https://ecd-digital.com/agents-ia.html">
@@ -113,63 +115,88 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Agents IA sur mesure",
-  "description": "Conception, installation et formation à des assistants IA adaptés à votre métier : SAV, prise de rendez-vous, rédaction, veille, marketing.",
-  "serviceType": "Agents IA sur mesure",
-  "url": "https://ecd-digital.com/agents-ia.html",
-  "provider": {
-    "@id": "https://ecd-digital.com/#organization"
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Bordeaux" },
-    { "@type": "AdministrativeArea", "name": "Gironde" },
-    { "@type": "Country", "name": "France" }
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Formules Agents IA",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "name": "Assistant unique",
-        "price": 690,
-        "priceCurrency": "EUR",
-        "availability": "https://schema.org/InStock",
-        "description": "1 agent, mode d'emploi et prise en main."
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ecd-digital.com/#organization",
+      "name": "Ébrange Création Digital",
+      "url": "https://ecd-digital.com/",
+      "logo": "https://ecd-digital.com/favicon.svg",
+      "telephone": "+33676683493",
+      "email": "contact@ecd-digital.com",
+      "sameAs": [
+        "https://instagram.com/ebrange_creation_digital"
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Agents IA pour votre métier",
+      "description": "Conception, installation et formation à des assistants IA adaptés à votre métier : SAV, prise de rendez-vous, rédaction, veille, marketing.",
+      "serviceType": "Agents IA",
+      "url": "https://ecd-digital.com/agents-ia.html",
+      "provider": {
+        "@id": "https://ecd-digital.com/#organization"
       },
-      {
-        "@type": "Offer",
-        "name": "Petite équipe IA",
-        "price": 1490,
-        "priceCurrency": "EUR",
-        "availability": "https://schema.org/InStock",
-        "description": "2 à 4 agents."
-      },
-      {
-        "@type": "Offer",
-        "name": "Système complet sur mesure",
-        "priceSpecification": {
-          "@type": "PriceSpecification",
-          "minPrice": 2900,
-          "priceCurrency": "EUR"
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Bordeaux"
         },
-        "availability": "https://schema.org/InStock",
-        "description": "Sur devis."
-      },
-      {
-        "@type": "Offer",
-        "name": "Maintenance & évolutions",
-        "priceSpecification": {
-          "@type": "UnitPriceSpecification",
-          "price": 49,
-          "priceCurrency": "EUR",
-          "unitCode": "MON"
+        {
+          "@type": "AdministrativeArea",
+          "name": "Gironde"
         },
-        "availability": "https://schema.org/InStock"
+        {
+          "@type": "Country",
+          "name": "France"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Formules Agents IA",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Assistant unique",
+            "price": 690,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "description": "1 agent, mode d'emploi et prise en main."
+          },
+          {
+            "@type": "Offer",
+            "name": "Petite équipe IA",
+            "price": 1490,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "description": "2 à 4 agents."
+          },
+          {
+            "@type": "Offer",
+            "name": "Système complet, 5+ agents",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": 2900,
+              "priceCurrency": "EUR"
+            },
+            "availability": "https://schema.org/InStock",
+            "description": "Sur devis."
+          },
+          {
+            "@type": "Offer",
+            "name": "Maintenance & évolutions",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": 49,
+              "priceCurrency": "EUR",
+              "unitCode": "MON"
+            },
+            "availability": "https://schema.org/InStock"
+          }
+        ]
       }
-    ]
-  }
+    }
+  ]
 }
 </script>
 </head>
@@ -188,6 +215,7 @@
       <a href="guides.html">Guides</a>
       <a href="blog.html">Blog</a>
       <a href="offres.html">Offres</a>
+      <a href="https://audit.ecd-digital.com" target="_blank" rel="noopener">Audit gratuit</a>
       <a class="cta-mini" href="index.html#contact">Contact</a>
     </div>
   </div>
@@ -195,12 +223,12 @@
 
 <header class="head">
   <div class="wrap">
-    <span class="kicker" data-reveal>🤖 Nouveau · Agents IA sur mesure</span>
+    <span class="kicker" data-reveal>Nouveau · Agents IA</span>
     <h1 data-reveal class="d1">Votre équipe d'assistants IA, sur mesure</h1>
-    <p data-reveal class="d2">Conçue pour votre métier et disponible 24h/24. Nous concevons, installons et vous formons — sans jargon, avec des garde-fous et le respect de vos données.</p>
-    <div class="meta d2" data-reveal>💡 Dès 690 € · 🗓️ Cadrage gratuit et sans engagement</div>
+    <p data-reveal class="d2">Conçue pour votre métier et disponible 24h/24. Je conçois, j'installe et je vous forme — sans jargon, avec des garde-fous et le respect de vos données.</p>
+    <div class="meta d2" data-reveal>Dès 690 € · Cadrage gratuit et sans engagement</div>
     <div class="cta d3" data-reveal>
-      <a class="btn btn-primary" href="mailto:contact@ecd-digital.com?subject=Cadrage%20Agents%20IA">✨ Demander un cadrage gratuit</a>
+      <a class="btn btn-primary" href="mailto:contact@ecd-digital.com?subject=Cadrage%20Agents%20IA">Demander un cadrage gratuit</a>
     </div>
   </div>
 </header>
@@ -222,7 +250,7 @@
       </div>
       <div class="principle" data-reveal>
         <p><strong>Un agent IA</strong>, c'est un assistant numérique spécialisé à qui vous confiez une mission précise. Il travaille à votre place, selon vos consignes, <strong>24h/24, sans fatigue et sans oubli</strong>. Plusieurs agents peuvent collaborer comme une petite équipe, coordonnés par un « chef d'orchestre ».</p>
-        <p style="margin-top:14px">Notre principe : <strong>un agent = une responsabilité claire.</strong> Mieux vaut plusieurs assistants spécialisés qu'un seul « fourre-tout » qui fait tout à moitié.</p>
+        <p style="margin-top:14px">Mon principe : <strong>un agent = une responsabilité claire.</strong> Mieux vaut plusieurs assistants spécialisés qu'un seul « fourre-tout » qui fait tout à moitié.</p>
       </div>
     </div>
   </div>
@@ -271,20 +299,20 @@
     <p class="lead" data-reveal>Dans tous les cas : vos agents configurés pour votre métier, une documentation en langage simple, une séance de prise en main, des garde-fous (les actions sensibles demandent toujours votre confirmation) et le respect de la confidentialité.</p>
     <div class="formats">
       <div class="format" data-reveal>
-        <h3>🎯 Assistant unique</h3>
+        <h3>Assistant unique</h3>
         <div class="prix">dès 690 €<small>clé en main · paiement unique*</small></div>
         <p>Un agent très soigné pour un usage précis : SAV, prise de rendez-vous, rédaction, veille… Livré avec documentation et prise en main.</p>
-        <div class="pay-row push"><a class="btn-pay" href="https://buy.stripe.com/fZu28jbn598dcvF3fEcfN2y" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler la base — 690 €</a></div>
+        <div class="pay-row push"><a class="btn-pay" href="https://buy.stripe.com/fZu28jbn598dcvF3fEcfN2y" target="_blank" rel="noopener"><span class="lock" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span> Régler la base — 690 €</a></div>
       </div>
       <div class="format featured d1" data-reveal>
-        <span class="ribbon">Le + choisi</span>
-        <h3>👥 Petite équipe IA</h3>
+        <span class="ribbon">Recommandé</span>
+        <h3>Petite équipe IA</h3>
         <div class="prix">dès 1 490 €<small>2 à 4 agents + orchestrateur</small></div>
         <p>Pour automatiser tout un pôle (marketing, SAV…) : plusieurs agents spécialisés coordonnés, doc complète et prise en main.</p>
-        <div class="pay-row push"><a class="btn-pay" href="https://buy.stripe.com/5kQ14f2Qz1FLcvF7vUcfN2D" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler la base — 1 490 €</a></div>
+        <div class="pay-row push"><a class="btn-pay" href="https://buy.stripe.com/5kQ14f2Qz1FLcvF7vUcfN2D" target="_blank" rel="noopener"><span class="lock" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span> Régler la base — 1 490 €</a></div>
       </div>
       <div class="format d2" data-reveal>
-        <h3>🚀 Système complet</h3>
+        <h3>Système complet</h3>
         <div class="prix">sur devis, dès 2 900 €<small>5+ agents · application dédiée</small></div>
         <p>Un vrai « service » automatisé : une application dédiée avec menu et génération de documents, documentation complète.</p>
       </div>
@@ -304,8 +332,8 @@
         <tbody>
           <tr><td><strong>Assistant unique</strong></td><td class="desc">Un besoin précis, un seul usage — 1 agent + doc + prise en main</td><td class="p">690 €</td></tr>
           <tr><td><strong>Petite équipe IA (2-4 agents)</strong></td><td class="desc">Automatiser un pôle — agents spécialisés + orchestrateur + doc + prise en main</td><td class="p">1 490 €</td></tr>
-          <tr><td><strong>Système complet sur mesure</strong></td><td class="desc">Un vrai « service » automatisé — 5+ agents, application dédiée, doc complète</td><td class="p">sur devis, dès 2 900 €</td></tr>
-          <tr><td><strong>Maintenance &amp; évolutions</strong><br><a class="btn-pay" href="https://buy.stripe.com/8x24gr62LckpdzJdUicfN2G" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler l'abonnement</a></td><td class="desc">Garder le système à jour — ajustements, ajout d'agents, support</td><td class="p">dès 49 € / mois</td></tr>
+          <tr><td><strong>Système complet, 5+ agents</strong></td><td class="desc">Un vrai « service » automatisé — 5+ agents, application dédiée, doc complète</td><td class="p">sur devis, dès 2 900 €</td></tr>
+          <tr><td><strong>Maintenance &amp; évolutions</strong><br><a class="btn-pay" href="https://buy.stripe.com/8x24gr62LckpdzJdUicfN2G" target="_blank" rel="noopener"><span class="lock" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span> Régler l'abonnement</a></td><td class="desc">Garder le système à jour — ajustements, ajout d'agents, support</td><td class="p">dès 49 € / mois</td></tr>
         </tbody>
       </table>
     </div>
@@ -324,7 +352,7 @@
       <div class="step d1" data-reveal><div class="num">2</div><h3>Conception</h3><p>On dessine votre système : combien d'agents, quels rôles, comment ils collaborent. Vous validez le plan.</p></div>
       <div class="step d2" data-reveal><div class="num">3</div><h3>Construction</h3><p>On configure vos agents, on rédige leurs consignes et on met en place les garde-fous.</p></div>
       <div class="step d3" data-reveal><div class="num">4</div><h3>Vérification</h3><p>On teste, on ajuste et on documente honnêtement ce que le système sait faire — et ses limites.</p></div>
-      <div class="step" data-reveal><div class="num">5</div><h3>Livraison &amp; prise en main</h3><p>On installe chez vous et on vous forme pas à pas, jusqu'à ce que vous sachiez vous en servir sans nous.</p></div>
+      <div class="step" data-reveal><div class="num">5</div><h3>Livraison &amp; prise en main</h3><p>J'installe chez vous et je vous forme pas à pas, jusqu'à ce que vous sachiez vous en servir sans moi.</p></div>
       <div class="step d1" data-reveal><div class="num">6</div><h3>Maintenance</h3><p>En option : on fait évoluer vos agents dans le temps — nouveaux besoins, ajustements, nouveaux assistants.</p></div>
     </div>
   </div>
@@ -344,8 +372,8 @@
 <section class="final" id="contact">
   <div class="wrap">
     <h2 data-reveal>Quelle tâche aimeriez-vous déléguer en premier&nbsp;?</h2>
-    <p data-reveal class="d1">Le cadrage est gratuit et sans engagement. Dites-nous ce qui vous prend le plus de temps — on vous dit ce qui est possible.</p>
-    <a class="btn btn-primary" data-reveal style="transition-delay:.2s" href="mailto:contact@ecd-digital.com?subject=Cadrage%20Agents%20IA">✉️ Demander un cadrage gratuit</a>
+    <p data-reveal class="d1">Le cadrage est gratuit et sans engagement. Dites-moi ce qui vous prend le plus de temps — je vous dis ce qui est possible.</p>
+    <a class="btn btn-primary" data-reveal style="transition-delay:.2s" href="mailto:contact@ecd-digital.com?subject=Cadrage%20Agents%20IA">Demander un cadrage gratuit</a>
     <div class="tel" data-reveal style="transition-delay:.28s">📞 <a href="tel:+33676683493">06 76 68 34 93</a></div>
   </div>
 </section>
@@ -365,9 +393,8 @@
       <a href="index.html#contact">Contact</a>
       <a href="mentions-legales.html">Mentions légales</a>
     </nav>
-    <strong>Ébrange Création Digital</strong> — Sites web, hébergement, marketing local &amp; agents IA sur mesure · 📞 <a href="tel:+33676683493">06 76 68 34 93</a> · <a href="mailto:contact@ecd-digital.com">contact@ecd-digital.com</a>
+    <strong>Ébrange Création Digital</strong> — Sites web, hébergement, marketing local &amp; agents IA · 📞 <a href="tel:+33676683493">06 76 68 34 93</a> · <a href="mailto:contact@ecd-digital.com">contact@ecd-digital.com</a>
     <div class="fsocial" style="margin-top:10px"><a href="https://instagram.com/ebrange_creation_digital" target="_blank" rel="noopener">Instagram</a></div>
-    <!-- TODO : ajouter le lien de la page Facebook « Ébrange » une fois l'URL connue (ne pas l'inventer). -->
     <div class="legal"><a href="mentions-legales.html">Mentions légales</a> ·SAS à associé unique au capital de 100 € · RCS Paris 105 870 315 · Siège : 47 rue Vivienne, 75002 Paris · Tarifs de lancement indicatifs — devis précis après cadrage gratuit.</div>
   </div>
 </footer>

@@ -14,6 +14,8 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Ébrange Création Digital — création de sites internet à Bordeaux">
+<meta property="og:site_name" content="Ébrange Création Digital">
+<meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://ecd-digital.com/og.png">
 <link rel="canonical" href="https://ecd-digital.com/automatisations.html">
@@ -123,61 +125,86 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Automatisations sur mesure",
-  "description": "Fichier client, relances de devis, rappels de rendez-vous et demandes d'avis : vos tâches répétitives tournent toutes seules et vos outils se parlent.",
-  "serviceType": "Automatisations sur mesure",
-  "url": "https://ecd-digital.com/automatisations.html",
-  "provider": {
-    "@id": "https://ecd-digital.com/#organization"
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Bordeaux" },
-    { "@type": "AdministrativeArea", "name": "Gironde" },
-    { "@type": "Country", "name": "France" }
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Formules Automatisations",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "name": "Pack Essentiel",
-        "price": 690,
-        "priceCurrency": "EUR",
-        "availability": "https://schema.org/InStock"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ecd-digital.com/#organization",
+      "name": "Ébrange Création Digital",
+      "url": "https://ecd-digital.com/",
+      "logo": "https://ecd-digital.com/favicon.svg",
+      "telephone": "+33676683493",
+      "email": "contact@ecd-digital.com",
+      "sameAs": [
+        "https://instagram.com/ebrange_creation_digital"
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Automatisations pour votre métier",
+      "description": "Fichier client, relances de devis, rappels de rendez-vous et demandes d'avis : vos tâches répétitives tournent toutes seules et vos outils se parlent.",
+      "serviceType": "Automatisations",
+      "url": "https://ecd-digital.com/automatisations.html",
+      "provider": {
+        "@id": "https://ecd-digital.com/#organization"
       },
-      {
-        "@type": "Offer",
-        "name": "Pack Pro",
-        "price": 1490,
-        "priceCurrency": "EUR",
-        "availability": "https://schema.org/InStock"
-      },
-      {
-        "@type": "Offer",
-        "name": "Pack Tout connecté",
-        "priceSpecification": {
-          "@type": "PriceSpecification",
-          "minPrice": 2900,
-          "priceCurrency": "EUR"
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Bordeaux"
         },
-        "availability": "https://schema.org/InStock",
-        "description": "Sur devis."
-      },
-      {
-        "@type": "Offer",
-        "name": "Abonnement maintenance & pilotage",
-        "priceSpecification": {
-          "@type": "UnitPriceSpecification",
-          "price": 49,
-          "priceCurrency": "EUR",
-          "unitCode": "MON"
+        {
+          "@type": "AdministrativeArea",
+          "name": "Gironde"
         },
-        "availability": "https://schema.org/InStock"
+        {
+          "@type": "Country",
+          "name": "France"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Formules Automatisations",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Pack Essentiel",
+            "price": 690,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Pack Pro",
+            "price": 1490,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Pack Tout connecté",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": 2900,
+              "priceCurrency": "EUR"
+            },
+            "availability": "https://schema.org/InStock",
+            "description": "Sur devis."
+          },
+          {
+            "@type": "Offer",
+            "name": "Abonnement maintenance & pilotage",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": 49,
+              "priceCurrency": "EUR",
+              "unitCode": "MON"
+            },
+            "availability": "https://schema.org/InStock"
+          }
+        ]
       }
-    ]
-  }
+    }
+  ]
 }
 </script>
 </head>
@@ -196,6 +223,7 @@
       <a href="guides.html">Guides</a>
       <a href="blog.html">Blog</a>
       <a href="offres.html">Offres</a>
+      <a href="https://audit.ecd-digital.com" target="_blank" rel="noopener">Audit gratuit</a>
       <a class="cta-mini" href="index.html#contact">Contact</a>
     </div>
   </div>
@@ -203,12 +231,12 @@
 
 <header class="head">
   <div class="wrap">
-    <span class="kicker" data-reveal>⚙️ Nouveau · Automatisations sur mesure</span>
+    <span class="kicker" data-reveal>Nouveau · Automatisations</span>
     <h1 data-reveal class="d1">Vos tâches répétitives tournent toutes seules</h1>
-    <p data-reveal class="d2">Ne perdez plus jamais une demande de devis. Nous mettons en place votre fichier client, vos relances automatiques, vos rappels de rendez-vous et vos demandes d'avis — vos outils se parlent enfin et travaillent pour vous, même quand vous êtes sur un chantier.</p>
-    <div class="meta d2" data-reveal>💡 Dès 690 € · 🗓️ Mini-diagnostic gratuit et sans engagement</div>
+    <p data-reveal class="d2">Ne perdez plus jamais une demande de devis. Je mets en place votre fichier client, vos relances automatiques, vos rappels de rendez-vous et vos demandes d'avis — vos outils se parlent enfin et travaillent pour vous, même quand vous êtes sur un chantier.</p>
+    <div class="meta d2" data-reveal>Dès 690 € · Mini-diagnostic gratuit et sans engagement</div>
     <div class="cta d3" data-reveal>
-      <a class="btn btn-primary" href="mailto:contact@ecd-digital.com?subject=Mini-diagnostic%20Automatisations">✨ Demander mon mini-diagnostic gratuit</a>
+      <a class="btn btn-primary" href="mailto:contact@ecd-digital.com?subject=Mini-diagnostic%20Automatisations">Demander mon mini-diagnostic gratuit</a>
     </div>
   </div>
 </header>
@@ -231,7 +259,7 @@
       </div>
       <div class="principle" data-reveal>
         <p><strong>Une automatisation</strong>, c'est un enchaînement qui se déclenche tout seul dès qu'un événement se produit : un formulaire rempli, un devis signé, un rendez-vous pris. <strong>Vous le mettez en place une fois avec nous, et il travaille pour vous ensuite</strong>, sans que vous ayez à y penser.</p>
-        <p style="margin-top:14px">Nous utilisons nous-mêmes ces systèmes pour faire tourner notre agence et notre boutique. <strong>Nous vous installons le vôtre, adapté à votre métier.</strong></p>
+        <p style="margin-top:14px">J'utilise ces systèmes pour faire tourner mon activité et la boutique NatureSurvi. <strong>Je vous installe le vôtre, adapté à votre métier.</strong></p>
       </div>
     </div>
   </div>
@@ -240,7 +268,7 @@
 <!-- LES BRIQUES -->
 <section class="alt">
   <div class="wrap">
-    <div class="sec-tag" data-reveal>Ce que nous savons automatiser</div>
+    <div class="sec-tag" data-reveal>Ce que je sais automatiser</div>
     <h2 class="title" data-reveal>Des briques concrètes, assemblées pour votre métier</h2>
     <p class="lead" data-reveal>Pas besoin d'être technique : on choisit ensemble ce qui vous fait gagner du temps, on l'installe et on vous forme. Vous restez propriétaire de vos données et de vos comptes.</p>
     <div class="grid">
@@ -276,7 +304,7 @@
       </div>
     </div>
     <div class="principle" data-reveal style="margin-top:30px">
-      <p><strong>Besoin d'un assistant qui rédige, répond ou trie à votre place ?</strong> C'est notre offre <a href="agents-ia.html">Agents IA sur mesure</a> (dès 690 €), complémentaire de ces automatisations.</p>
+      <p><strong>Besoin d'un assistant qui rédige, répond ou trie à votre place ?</strong> C'est mon offre <a href="agents-ia.html">Agents IA</a> (dès 690 €), complémentaire de ces automatisations.</p>
     </div>
   </div>
 </section>
@@ -289,20 +317,20 @@
     <p class="lead" data-reveal>Tarifs de lancement, à partir de. Le prix final dépend du nombre de séquences, d'outils à connecter et de la complexité — un devis précis vous est remis après le mini-diagnostic, gratuit et sans engagement. Prise en main et mode d'emploi en langage simple toujours inclus.</p>
     <div class="formats">
       <div class="format" data-reveal>
-        <h3>🌱 Pack Essentiel</h3>
+        <h3>Pack Essentiel</h3>
         <div class="prix">dès 690 €<small>« Je ne perds plus un client » · paiement unique*</small></div>
         <div class="pour">Pour : l'artisan ou l'indépendant qui reçoit des demandes mais n'a pas le temps de les suivre.</div>
         <ul>
           <li>1 fichier client / prospect simple, prêt à l'emploi</li>
           <li>Capture de prospects : formulaire du site → fichier</li>
-          <li>1 e-mail de réponse automatique (« Merci, nous revenons vers vous sous 24 h »)</li>
+          <li>1 e-mail de réponse automatique (« Merci, je reviens vers vous sous 24 h »)</li>
           <li>Prise en main + mode d'emploi</li>
         </ul>
-        <div class="pay-row push"><a class="btn-pay" href="https://buy.stripe.com/fZu28jbn598dcvF3fEcfN2y" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler la base — 690 €</a></div>
+        <div class="pay-row push"><a class="btn-pay" href="https://buy.stripe.com/fZu28jbn598dcvF3fEcfN2y" target="_blank" rel="noopener"><span class="lock" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span> Régler la base — 690 €</a></div>
       </div>
       <div class="format featured d1" data-reveal>
-        <span class="ribbon">Le + choisi</span>
-        <h3>🚀 Pack Pro</h3>
+        <span class="ribbon">Recommandé</span>
+        <h3>Pack Pro</h3>
         <div class="prix">dès 1 490 €<small>« Ma relation client tourne toute seule »</small></div>
         <div class="pour">Pour : le commerçant / prestataire qui veut relancer, fidéliser et récolter des avis sans y penser.</div>
         <ul>
@@ -312,10 +340,10 @@
           <li>Demande d'avis automatique (Google / réseaux) au bon moment</li>
           <li>Rappels de rendez-vous (client + vous) + 1 mois d'ajustements offert</li>
         </ul>
-        <div class="pay-row push"><a class="btn-pay" href="https://buy.stripe.com/5kQ14f2Qz1FLcvF7vUcfN2D" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler la base — 1 490 €</a></div>
+        <div class="pay-row push"><a class="btn-pay" href="https://buy.stripe.com/5kQ14f2Qz1FLcvF7vUcfN2D" target="_blank" rel="noopener"><span class="lock" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span> Régler la base — 1 490 €</a></div>
       </div>
       <div class="format d2" data-reveal>
-        <h3>🛠️ Pack Tout connecté</h3>
+        <h3>Pack Tout connecté</h3>
         <div class="prix">sur devis, dès 2 900 €<small>« Mon activité connectée de A à Z »</small></div>
         <div class="pour">Pour : la TPE / PME qui veut relier plusieurs outils et supprimer toute ressaisie.</div>
         <ul>
@@ -355,22 +383,22 @@
       <table>
         <thead><tr><th>Abonnement maintenance &amp; pilotage</th><th>Pour qui</th><th style="text-align:right">Tarif</th></tr></thead>
         <tbody>
-          <tr><td><strong>Pilotage</strong> ⭐<br><a class="btn-pay" href="https://buy.stripe.com/8x24gr62LckpdzJdUicfN2G" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler l'abonnement</a></td><td class="desc">La plupart des clients — surveillance, correction des pannes, assistance e-mail, ajustements (30 min/mois) et support sous 48 h</td><td class="p">49 € / mois</td></tr>
-          <tr><td><strong>Pilotage +</strong><br><a class="btn-pay" href="https://buy.stripe.com/28E8wHezhdoteDN17wcfN2H" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Régler l'abonnement</a></td><td class="desc">Systèmes riches — tout « Pilotage » + 1 h de modifs/mois + optimisation + rapport mensuel</td><td class="p">89 € / mois</td></tr>
+          <tr><td><strong>Pilotage</strong><br><a class="btn-pay" href="https://buy.stripe.com/8x24gr62LckpdzJdUicfN2G" target="_blank" rel="noopener"><span class="lock" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span> Régler l'abonnement</a></td><td class="desc">Le palier que je recommande par défaut — surveillance, correction des pannes, assistance e-mail, ajustements (30 min/mois) et support sous 48 h</td><td class="p">49 € / mois</td></tr>
+          <tr><td><strong>Pilotage +</strong><br><a class="btn-pay" href="https://buy.stripe.com/28E8wHezhdoteDN17wcfN2H" target="_blank" rel="noopener"><span class="lock" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span> Régler l'abonnement</a></td><td class="desc">Systèmes riches — tout « Pilotage » + 1 h de modifs/mois + optimisation + rapport mensuel</td><td class="p">89 € / mois</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="note" data-reveal>* Acompte de 30 % à la commande, solde à la livraison (sauf conditions particulières au devis). Paiement en 2 ou 3 fois possible sans frais. À prévoir de votre côté : les abonnements aux outils (Airtable, Brevo, Make) — la plupart ont une formule gratuite suffisante pour démarrer ; au-delà, comptez souvent 10 à 40 €/mois selon le volume. Nous vous l'indiquons précisément au diagnostic, sans mauvaise surprise. Maintenance sans engagement, résiliable chaque mois.</p>
+    <p class="note" data-reveal>* Acompte de 30 % à la commande, solde à la livraison (sauf conditions particulières au devis). Paiement en 2 ou 3 fois possible sans frais. À prévoir de votre côté : les abonnements aux outils (Airtable, Brevo, Make) — la plupart ont une formule gratuite suffisante pour démarrer ; au-delà, comptez souvent 10 à 40 €/mois selon le volume. Nous vous l'indiquons précisément au diagnostic, sans mauvaise surprise. Pilotage agents IA / automatisations : sans engagement, résiliable chaque mois (l'hébergement d'un site, lui, se prend pour 12 mois).</p>
   </div>
 </section>
 
 <!-- EXEMPLE CONCRET -->
 <section>
   <div class="wrap">
-    <div class="sec-tag" data-reveal>Un exemple concret</div>
+    <div class="sec-tag" data-reveal>Exemple, à titre d'illustration</div>
     <h2 class="title" data-reveal>Un artisan plombier-chauffagiste</h2>
     <div class="example" data-reveal>
-      <p class="quote">« Je perds des demandes de devis et je n'ai pas le temps de relancer ni de demander des avis. »</p>
+      <p class="quote">Le cas type : il perd des demandes de devis et n'a pas le temps de relancer ni de demander des avis.</p>
       <p>Avec le <strong>Pack Pro (1 490 €)</strong>, tout s'enchaîne sans rien faire : une demande reçue sur son site tombe direct dans son fichier client et déclenche une réponse immédiate. Le devis envoyé est relancé 3 fois si besoin — et la relance s'arrête dès que le client répond. Une fois le chantier livré, le client reçoit un message de suivi puis une demande d'avis Google. Son fichier lui montre en un coup d'œil qui relancer cette semaine.</p>
       <div class="opt" style="margin-top:20px">
         <table>
@@ -403,7 +431,7 @@
       <div class="step d1" data-reveal>
         <div class="num">2</div><h3>Audit d'automatisation — 90 €, déduit</h3>
         <p>Un vrai livrable : la cartographie de vos tâches automatisables, le temps gagné estimé et un plan chiffré priorisé. Si vous commandez un pack, les 90 € sont déduits à 100 % du devis.</p>
-        <a class="btn-pay" href="https://buy.stripe.com/7sYdR176PfwBanx2bAcfN2C" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Payer l'audit en ligne — 90 €</a>
+        <a class="btn-pay" href="https://buy.stripe.com/7sYdR176PfwBanx2bAcfN2C" target="_blank" rel="noopener"><span class="lock" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span> Payer l'audit en ligne — 90 €</a>
       </div>
       <div class="step d2" data-reveal>
         <div class="num">3</div><h3>Mise en place &amp; prise en main</h3>
@@ -427,8 +455,8 @@
 <section class="final" id="contact">
   <div class="wrap">
     <h2 data-reveal>Quelle tâche aimeriez-vous ne plus jamais refaire à la main&nbsp;?</h2>
-    <p data-reveal class="d1">Le mini-diagnostic est gratuit et sans engagement. Dites-nous ce qui vous prend le plus de temps — on vous dit ce qui est automatisable.</p>
-    <a class="btn btn-primary" data-reveal style="transition-delay:.2s" href="mailto:contact@ecd-digital.com?subject=Mini-diagnostic%20Automatisations">✉️ Demander mon mini-diagnostic gratuit</a>
+    <p data-reveal class="d1">Le mini-diagnostic est gratuit et sans engagement. Dites-moi ce qui vous prend le plus de temps — je vous dis ce qui est automatisable.</p>
+    <a class="btn btn-primary" data-reveal style="transition-delay:.2s" href="mailto:contact@ecd-digital.com?subject=Mini-diagnostic%20Automatisations">Demander mon mini-diagnostic gratuit</a>
     <div class="tel" data-reveal style="transition-delay:.28s">📞 <a href="tel:+33676683493">06 76 68 34 93</a></div>
   </div>
 </section>
@@ -448,9 +476,8 @@
       <a href="index.html#contact">Contact</a>
       <a href="mentions-legales.html">Mentions légales</a>
     </nav>
-    <strong>Ébrange Création Digital</strong> — Sites web, hébergement, marketing local &amp; agents IA sur mesure · 📞 <a href="tel:+33676683493">06 76 68 34 93</a> · <a href="mailto:contact@ecd-digital.com">contact@ecd-digital.com</a>
+    <strong>Ébrange Création Digital</strong> — Sites web, hébergement, marketing local &amp; agents IA · 📞 <a href="tel:+33676683493">06 76 68 34 93</a> · <a href="mailto:contact@ecd-digital.com">contact@ecd-digital.com</a>
     <div class="fsocial" style="margin-top:10px"><a href="https://instagram.com/ebrange_creation_digital" target="_blank" rel="noopener">Instagram</a></div>
-    <!-- TODO : ajouter le lien de la page Facebook « Ébrange » une fois l'URL connue (ne pas l'inventer). -->
     <div class="legal"><a href="mentions-legales.html">Mentions légales</a> ·SAS à associé unique au capital de 100 € · RCS Paris 105 870 315 · Siège : 47 rue Vivienne, 75002 Paris · Tarifs de lancement indicatifs — devis précis après cadrage gratuit.</div>
   </div>
 </footer>

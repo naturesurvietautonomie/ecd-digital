@@ -14,6 +14,8 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Ébrange Création Digital — création de sites internet à Bordeaux">
+<meta property="og:site_name" content="Ébrange Création Digital">
+<meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://ecd-digital.com/og.png">
 <link rel="canonical" href="https://ecd-digital.com/sites.html">
@@ -93,60 +95,85 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Création de sites web",
-  "description": "Création de sites web professionnels pour commerçants, artisans et indépendants : site vitrine ou boutique en ligne, adapté au mobile, avec nom de domaine et email pro.",
-  "serviceType": "Création de sites web",
-  "url": "https://ecd-digital.com/sites.html",
-  "provider": {
-    "@id": "https://ecd-digital.com/#organization"
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Bordeaux" },
-    { "@type": "AdministrativeArea", "name": "Gironde" },
-    { "@type": "Country", "name": "France" }
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Formules de création de sites web",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "name": "Essentiel — site une page",
-        "price": 632,
-        "priceCurrency": "EUR",
-        "availability": "https://schema.org/InStock",
-        "description": "Site une page adapté mobile, bouton d'appel et itinéraire Google Maps, formulaire de contact. Prix de lancement −20 % (au lieu de 790 €)."
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ecd-digital.com/#organization",
+      "name": "Ébrange Création Digital",
+      "url": "https://ecd-digital.com/",
+      "logo": "https://ecd-digital.com/favicon.svg",
+      "telephone": "+33676683493",
+      "email": "contact@ecd-digital.com",
+      "sameAs": [
+        "https://instagram.com/ebrange_creation_digital"
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Création de sites web",
+      "description": "Création de sites web professionnels pour commerçants, artisans et indépendants : site vitrine ou boutique en ligne, adapté au mobile, avec nom de domaine et email pro.",
+      "serviceType": "Création de sites web",
+      "url": "https://ecd-digital.com/sites.html",
+      "provider": {
+        "@id": "https://ecd-digital.com/#organization"
       },
-      {
-        "@type": "Offer",
-        "name": "Commerce & Artisan — site 5 à 6 pages",
-        "price": 1192,
-        "priceCurrency": "EUR",
-        "availability": "https://schema.org/InStock",
-        "description": "Site 5 à 6 pages, référencement Google local de base, galerie de réalisations, liens réseaux sociaux. Prix de lancement −20 % (au lieu de 1 490 €)."
-      },
-      {
-        "@type": "Offer",
-        "name": "Premium — site 10 pages et plus",
-        "price": 1592,
-        "priceCurrency": "EUR",
-        "availability": "https://schema.org/InStock",
-        "description": "Site 10 pages et plus, prise de rendez-vous ou réservation en ligne, blog, référencement local renforcé. Prix de lancement −20 % (au lieu de 1 990 €)."
-      },
-      {
-        "@type": "Offer",
-        "name": "Boutique en ligne",
-        "priceSpecification": {
-          "@type": "PriceSpecification",
-          "minPrice": 2400,
-          "priceCurrency": "EUR"
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Bordeaux"
         },
-        "availability": "https://schema.org/InStock",
-        "description": "Vente de produits en ligne avec paiement sécurisé, catalogue et suivi de commande."
+        {
+          "@type": "AdministrativeArea",
+          "name": "Gironde"
+        },
+        {
+          "@type": "Country",
+          "name": "France"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Formules de création de sites web",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Essentiel — site une page",
+            "price": 632,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "description": "Site une page adapté mobile, bouton d'appel et itinéraire Google Maps, formulaire de contact. Tarif de lancement −20 %."
+          },
+          {
+            "@type": "Offer",
+            "name": "Commerce & Artisan — site 5 à 6 pages",
+            "price": 1192,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "description": "Site 5 à 6 pages, référencement Google local de base, galerie de réalisations, liens réseaux sociaux. Tarif de lancement −20 %."
+          },
+          {
+            "@type": "Offer",
+            "name": "Premium — site 10 pages et plus",
+            "price": 1592,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "description": "Site 10 pages et plus, prise de rendez-vous ou réservation en ligne, blog, référencement local renforcé. Tarif de lancement −20 %."
+          },
+          {
+            "@type": "Offer",
+            "name": "Boutique en ligne",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": 2400,
+              "priceCurrency": "EUR"
+            },
+            "availability": "https://schema.org/InStock",
+            "description": "Vente de produits en ligne avec paiement sécurisé, catalogue et suivi de commande."
+          }
+        ]
       }
-    ]
-  }
+    }
+  ]
 }
 </script>
 </head>
@@ -165,6 +192,7 @@
       <a href="guides.html">Guides</a>
       <a href="blog.html">Blog</a>
       <a href="offres.html">Offres</a>
+      <a href="https://audit.ecd-digital.com" target="_blank" rel="noopener">Audit gratuit</a>
       <a class="cta-mini" href="index.html#contact">Contact</a>
     </div>
   </div>
@@ -172,22 +200,22 @@
 
 <header class="head">
   <div class="wrap">
-    <span class="kicker" data-reveal>🌐 Création de sites web</span>
+    <span class="kicker" data-reveal>Création de sites web</span>
     <h1 data-reveal class="d1">Le site professionnel de votre commerce à Bordeaux</h1>
     <p data-reveal class="d2">Un site élégant, adapté aux téléphones, avec votre nom de domaine et une adresse email pro. On se voit sur place à Bordeaux ou en visio, et vous validez la maquette avant la mise en ligne.</p>
-    <div class="promo d3" data-reveal>🎉 −20 % sur la création — 10 premiers clients</div>
+    <div class="promo d3" data-reveal>−20 % sur la création — offre de lancement</div>
   </div>
 </header>
 
 <section>
   <div class="wrap">
-    <div class="sec-tag" data-reveal>Nos formules</div>
+    <div class="sec-tag" data-reveal>Les formules</div>
     <h2 class="title" data-reveal>3 formules, selon votre activité</h2>
-    <p class="lead" data-reveal>Du site une page à la boutique en ligne. Les trois formules ci-dessous affichent l'offre de lancement −20 % (10 premiers clients). Pour vendre vos produits en ligne, comptez à partir de 2 400 €.</p>
+    <p class="lead" data-reveal>Du site une page à la boutique en ligne. Les trois formules ci-dessous sont aux tarifs de lancement, −20 %. Pour vendre vos produits en ligne, comptez à partir de 2 400 €.</p>
     <div class="offers">
       <div class="offer" data-reveal>
-        <h3>🌱 Essentiel</h3>
-        <div class="prix">632 €<small>au lieu de 790 €</small></div>
+        <h3>Essentiel</h3>
+        <div class="prix">632 €<small>offre de lancement −20 %</small></div>
         <ul>
           <li>Site une page élégant (présentation, photos, horaires, contact)</li>
           <li>Adapté mobile / tablette / ordinateur</li>
@@ -196,12 +224,12 @@
           <li>Mise en ligne comprise</li>
         </ul>
         <div class="pour">Idéal : food-truck, indépendant, activité sur les marchés</div>
-        <div class="pay-row"><a class="btn-pay" href="https://buy.stripe.com/28EbITbn5gAF8fp03scfN2x" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Payer en ligne</a></div>
+        <div class="pay-row"><a class="btn-pay" href="https://buy.stripe.com/28EbITbn5gAF8fp03scfN2x" target="_blank" rel="noopener"><span class="lock" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span> Payer en ligne</a></div>
       </div>
       <div class="offer featured d1" data-reveal>
-        <span class="ribbon">Le + choisi</span>
-        <h3>🏪 Commerce &amp; Artisan</h3>
-        <div class="prix">1 192 €<small>au lieu de 1 490 €</small></div>
+        <span class="ribbon">Recommandé</span>
+        <h3>Commerce &amp; Artisan</h3>
+        <div class="prix">1 192 €<small>offre de lancement −20 %</small></div>
         <ul>
           <li>Site 5 à 6 pages (accueil, prestations, galerie, à propos, contact)</li>
           <li>Tout le contenu de l'offre Essentiel</li>
@@ -210,11 +238,11 @@
           <li>Liens vers vos réseaux sociaux</li>
         </ul>
         <div class="pour">Idéal : salon de coiffure, restaurant, artisan, boutique</div>
-        <div class="pay-row"><a class="btn-pay" href="https://buy.stripe.com/cNi7sD76PachfHRdUicfN2z" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Payer en ligne</a></div>
+        <div class="pay-row"><a class="btn-pay" href="https://buy.stripe.com/cNi7sD76PachfHRdUicfN2z" target="_blank" rel="noopener"><span class="lock" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span> Payer en ligne</a></div>
       </div>
       <div class="offer d2" data-reveal>
-        <h3>✨ Premium</h3>
-        <div class="prix">1 592 €<small>au lieu de 1 990 €</small></div>
+        <h3>Premium</h3>
+        <div class="prix">1 592 €<small>offre de lancement −20 %</small></div>
         <ul>
           <li>Site 10 pages et plus, sur mesure</li>
           <li>Tout le contenu de l'offre Commerce &amp; Artisan</li>
@@ -223,10 +251,10 @@
           <li>Référencement local renforcé</li>
         </ul>
         <div class="pour">Idéal : institut de beauté, restaurant avec réservation, PME</div>
-        <div class="pay-row"><a class="btn-pay" href="https://buy.stripe.com/5kQ14faj1ach53d4jIcfN2A" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Payer en ligne</a></div>
+        <div class="pay-row"><a class="btn-pay" href="https://buy.stripe.com/5kQ14faj1ach53d4jIcfN2A" target="_blank" rel="noopener"><span class="lock" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span> Payer en ligne</a></div>
       </div>
     </div>
-    <p class="pay-note" data-reveal>Besoin de vendre vos produits en ligne&nbsp;? La boutique e-commerce démarre à 2 400 €. <a class="btn-pay" href="https://buy.stripe.com/7sY6ozbn50BH3Z9aI6cfN2B" target="_blank" rel="noopener"><span class="lock" aria-hidden="true">🔒</span> Boutique en ligne — 2 400 €</a></p>
+    <p class="pay-note" data-reveal>Besoin de vendre vos produits en ligne&nbsp;? La boutique e-commerce démarre à 2 400 €. <a class="btn-pay" href="https://buy.stripe.com/7sY6ozbn50BH3Z9aI6cfN2B" target="_blank" rel="noopener"><span class="lock" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span> Boutique en ligne — 2 400 €</a></p>
     <p style="margin-top:22px" data-reveal><a class="btn btn-primary" href="offres.html">Voir le détail &amp; les options (boutique dès 2 400 €, logo, textes…)</a></p>
   </div>
 </section>
@@ -241,14 +269,15 @@
       <li data-reveal class="d2">Je développe, adapte au mobile et teste votre site.</li>
       <li data-reveal class="d3">Mise en ligne, puis hébergement, sauvegarde et maintenance.</li>
     </ul>
-    <p class="proof" data-reveal>🌿 Exemple concret : la boutique en ligne <strong>Nature Survie &amp; Autonomie</strong> (naturesurvie.net) est développée et maintenue par Ébrange Création Digital — paiement sécurisé, catalogue et suivi de commande.</p>
+    <p data-reveal style="margin-top:18px"><strong>Délai :</strong> comptez 3 à 4 jours ouvrés, à partir de la réception de vos textes et de vos photos. C'est ce qui commande le calendrier — le reste, je m'en occupe.</p>
+    <p class="proof" data-reveal>Exemple concret : la boutique en ligne <strong>Nature Survie &amp; Autonomie</strong> (naturesurvie.net) est développée et maintenue par Ébrange Création Digital — paiement sécurisé, catalogue et suivi de commande.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
     <div class="sec-tag" data-reveal>À lire avant de vous décider</div>
-    <h2 class="title" data-reveal>Les questions qu'on nous pose le plus</h2>
+    <h2 class="title" data-reveal>Les questions à se poser avant de décider</h2>
     <ul data-reveal style="line-height:2.1">
       <li><a href="blog/creer-site-internet-bordeaux-prix.html">Créer un site internet à Bordeaux : les prix réels en 2026</a></li>
       <li><a href="blog/refonte-site-internet-bordeaux.html">Refonte de site à Bordeaux : faut-il vraiment tout refaire ?</a></li>
@@ -258,11 +287,26 @@
   </div>
 </section>
 
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-tag" data-reveal>Votre métier</div>
+    <h2 class="title" data-reveal>Ce qu'un site change, métier par métier</h2>
+    <ul data-reveal style="line-height:2.1">
+      <li><a href="blog/site-coiffeur-institut-beaute-bordeaux.html">Salon de coiffure ou institut de beauté : être trouvé et réservé</a></li>
+      <li><a href="blog/site-fleuriste-bordeaux.html">Fleuriste : la galerie, les occasions et la commande en ligne</a></li>
+      <li><a href="blog/site-garage-automobile-bordeaux.html">Garage automobile : capter l'urgence et le rendez-vous</a></li>
+      <li><a href="blog/site-osteopathe-bordeaux.html">Ostéopathe : la prise de rendez-vous qui remplit l'agenda</a></li>
+      <li><a href="blog/site-plombier-chauffagiste-bordeaux.html">Plombier-chauffagiste : l'appel d'urgence et la demande de devis</a></li>
+      <li><a href="blog/site-primeur-boucherie-bordeaux.html">Primeur ou boucherie : passer devant le supermarché</a></li>
+    </ul>
+  </div>
+</section>
+
 <section class="final" id="contact">
   <div class="wrap">
     <h2 data-reveal>Besoin d'un site ou d'une refonte&nbsp;?</h2>
     <p data-reveal class="d1">Devis gratuit et sans engagement — dites-moi votre activité et vos besoins.</p>
-    <a class="btn btn-primary" data-reveal style="transition-delay:.2s" href="mailto:contact@ecd-digital.com?subject=Projet%20de%20site%20internet">✉️ Demander un devis gratuit</a>
+    <a class="btn btn-primary" data-reveal style="transition-delay:.2s" href="mailto:contact@ecd-digital.com?subject=Projet%20de%20site%20internet">Demander un devis gratuit</a>
     <div class="tel" data-reveal style="transition-delay:.28s">📞 <a href="tel:+33676683493">06 76 68 34 93</a></div>
   </div>
 </section>
@@ -284,7 +328,6 @@
     </nav>
     <strong>Ébrange Création Digital</strong> — Sites web, hébergement &amp; marketing local · 📞 <a href="tel:+33676683493">06 76 68 34 93</a> · <a href="mailto:contact@ecd-digital.com">contact@ecd-digital.com</a>
     <div class="fsocial" style="margin-top:10px"><a href="https://instagram.com/ebrange_creation_digital" target="_blank" rel="noopener">Instagram</a></div>
-    <!-- TODO : ajouter le lien de la page Facebook « Ébrange » une fois l'URL connue (ne pas l'inventer). -->
     <div class="legal"><a href="mentions-legales.html">Mentions légales</a> ·SAS à associé unique au capital de 100 € · RCS Paris 105 870 315 · Siège : 47 rue Vivienne, 75002 Paris · Vous restez propriétaire de votre site, de votre domaine et de vos contenus.</div>
   </div>
 </footer>

@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /appels.html
 Disallow: /api/
+Disallow: /telechargements/
 
 Sitemap: https://ecd-digital.com/sitemap.xml
