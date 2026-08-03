@@ -77,7 +77,7 @@ if(f&&f.toLowerCase()==='b'){document.documentElement.classList.add('hero-clair-
     radial-gradient(900px 640px at 82% 20%,rgba(56,189,248,.30),transparent 60%),
     radial-gradient(820px 620px at 10% 26%,rgba(79,70,229,.36),transparent 60%),
     radial-gradient(900px 620px at 62% 100%,rgba(47,123,214,.28),transparent 62%),
-    var(--hero-base,#0e1c34)}
+    var(--hero-base,#17294a)}
   .hero,.hero h1,.hero .sub{color:#fff}
   /* Il n'y a plus qu'UN canvas sur la page (#bgScene, plein écran). La grille
      interactive est dessinée dedans, à l'emplacement de .hero-cubezone : cette
@@ -290,25 +290,25 @@ if(f&&f.toLowerCase()==='b'){document.documentElement.classList.add('hero-clair-
      --hero-fog est relu par la scène 3D : sans ça les cubes se détachent mal.
      --------------------------------------------------------------------- */
   :root{
-    --hero-base:#0e1c34;   /* couleur de fond de la page */
-    --hero-rgb:14,28,52;   /* la même, en composantes, pour le voile */
-    --hero-a1:.16;         /* halo cyan */
-    --hero-a2:.22;         /* halo indigo */
-    --hero-a3:.14;         /* halo turquoise */
+    --hero-base:#17294a;   /* couleur de fond de la page */
+    --hero-rgb:23,41,74;   /* la même, en composantes, pour le voile */
+    --hero-a1:.18;         /* halo cyan */
+    --hero-a2:.24;         /* halo indigo */
+    --hero-a3:.16;         /* halo turquoise */
     --hero-v1:.40;         /* halo de profondeur (derrière le canvas) : haut */
     --hero-v2:.20;         /* halo : milieu */
     --hero-v3:.60;         /* halo : bas */
     --hero-w1:.26;         /* voile léger (devant le canvas) : haut */
     --hero-w2:.08;         /* voile : milieu (là où passe la grille) */
     --hero-w3:.42;         /* voile : bas */
-    --hero-fog:#0e1c34;
+    --hero-fog:#17294a;
   }
   html.hero-clair-plus{
-    --hero-base:#17294a; --hero-rgb:23,41,74;
-    --hero-a1:.18; --hero-a2:.24; --hero-a3:.16;
+    --hero-base:#203a63; --hero-rgb:32,58,99;
+    --hero-a1:.20; --hero-a2:.26; --hero-a3:.18;
     --hero-v1:.34; --hero-v2:.15; --hero-v3:.52;
     --hero-w1:.22; --hero-w2:.06; --hero-w3:.36;
-    --hero-fog:#17294a;
+    --hero-fog:#203a63;
   }
   html{background:var(--hero-base)}
   body{background:transparent;color:#c7d6ea;font-size:16.5px}
@@ -632,7 +632,7 @@ if(f&&f.toLowerCase()==='b'){document.documentElement.classList.add('hero-clair-
         <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#5cc9ff,#38bdf8)" href="https://audit.ecd-digital.com" target="_blank" rel="noopener"><span class="cc-name">Audit gratuit</span><span class="cc-price">20 secondes</span></a>
         <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#d8b45f,#C9A24B)" href="realisations.html"><span class="cc-name">Réalisations</span><span class="cc-price">nos sites réels</span></a>
         <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#3a89e0,#2f7bd6)" href="guides.html"><span class="cc-name">Guides PDF</span><span class="cc-price">27 €</span></a>
-        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#d8b45f,#C9A24B)" href="blog.html"><span class="cc-name">Blog</span><span class="cc-price">16 articles</span></a>
+        <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#d8b45f,#C9A24B)" href="blog.html"><span class="cc-name">Blog</span><span class="cc-price">18 articles</span></a>
         <a class="cube-cell" role="listitem" style="background:linear-gradient(150deg,#3a89e0,#2f7bd6)" href="offres.html"><span class="cc-name">Offres &amp; tarifs</span><span class="cc-price">devis gratuit</span></a>
       </div>
       <p class="fallback-note" id="fallbackNote">Chaque case du logo ouvre une offre. Version 3D animée disponible avec WebGL et sans « animations réduites ».</p>
@@ -994,7 +994,7 @@ const OFFERS = [
    price:'27 € l’unité<small>paiement unique · PDF immédiat</small>', href:'guides.html', ext:false, face:{n:['Guides'],p:'27 €'}},
   {kicker:'Le blog', label:'Blog', title:'Le blog',
    desc:"Des articles clairs, sans jargon, pour les commerçants et artisans du sud de Bordeaux — avec des exemples concrets et des prix affichés.",
-   price:'16 articles<small>conseils web, visibilité, gain de temps · gratuit</small>', href:'blog.html', ext:false, face:{n:['Blog'],p:'16 articles'}},
+   price:'18 articles<small>conseils web, visibilité, gain de temps · gratuit</small>', href:'blog.html', ext:false, face:{n:['Blog'],p:'18 articles'}},
   {kicker:'Offres & tarifs', label:'Offres & tarifs', title:'Toutes nos offres & tarifs',
    desc:"Toutes les formules et leurs prix : sites, hébergement, marketing, agents IA et automatisations. Devis gratuit, TVA non applicable (art. 293 B du CGI).",
    price:'Site dès 632 €<small>hébergement dès 19 €/mois · devis gratuit</small>', href:'offres.html', ext:false, face:{n:['Offres','& tarifs'],p:'devis gratuit'}}
